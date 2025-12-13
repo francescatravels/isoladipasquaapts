@@ -13,8 +13,8 @@
   --brand2:#1f7a8c;
   --accent:#f2c14e;
 
-  /* ✅ SFONDO PIÙ TENUE (sabbia calda) */
-  --bg:#f3efe9;
+  /* sfondo tenue */
+  --bg:#efe8df;
 
   --text:#13212f;
   --muted:rgba(19,33,47,.7);
@@ -38,7 +38,7 @@ a{text-decoration:none;color:inherit}
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(243,239,233,.92);
+  background:rgba(239,232,223,.92);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,.08);
 }
@@ -93,30 +93,27 @@ a{text-decoration:none;color:inherit}
   background:rgba(242,193,78,.35);
   border-color:rgba(242,193,78,.6);
 }
-.btns{display:flex;gap:8px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
 
 /* HERO */
-.hero{margin:28px auto 40px}
+.hero{margin:28px auto 60px}
 .hero-bg{
   border-radius:28px;
   min-height:420px;
   display:flex;
   align-items:flex-start;
   padding:36px;
-
-  /* ✅ FOTO PIÙ CENTRATA RISPETTO AL TESTO */
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
-    url('facciata.png') center right / cover no-repeat;
-
+    url('facciata.png') 65% center / cover no-repeat;
   box-shadow:var(--shadow);
 }
 .hero-card{
   max-width:420px;
-  background:rgba(255,255,255,.80);
+  background:rgba(255,255,255,.82);
   backdrop-filter:blur(6px);
   border-radius:22px;
   padding:18px 20px;
@@ -156,7 +153,7 @@ a{text-decoration:none;color:inherit}
   margin-bottom:22px;
 }
 .card{
-  background:#fff;
+  background:#fffdf9;
   border-radius:22px;
   padding:24px;
   box-shadow:var(--shadow);
@@ -164,7 +161,62 @@ a{text-decoration:none;color:inherit}
 .card h2{margin:0 0 10px}
 .card p{color:var(--muted);line-height:1.7}
 
-/* RULES LIST */
+/* WHY */
+.why{
+  list-style:none;
+  padding:0;
+  margin:16px 0 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 18px;
+}
+.why li{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  padding:14px 16px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* APARTMENT TYPES */
+.types{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:14px;
+}
+.type-card{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:18px;
+  padding:18px;
+}
+.type-card h3{
+  margin:0 0 8px;
+  font-size:18px;
+}
+.type-card p{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+.type-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 14px;
+}
+.type-list li{
+  padding:6px 0;
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-size:14px;
+}
+.type-list li:last-child{border-bottom:none}
+.type-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-sm{padding:10px 12px;border-radius:12px;font-size:14px}
+
+/* RULES */
 .rules{
   list-style:none;
   padding:0;
@@ -199,13 +251,14 @@ footer{
   .hero-bg{padding:22px;min-height:360px}
   .hero-card{max-width:100%}
   .hero-card h1{font-size:28px}
+  .why{grid-template-columns:1fr}
+  .types{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
 <header class="topbar">
   <div class="wrap topbar-inner">
     <div class="brand">
@@ -219,6 +272,8 @@ footer{
     <nav class="nav">
       <a href="#chi">Chi siamo</a>
       <a href="#app">Appartamenti</a>
+      <a href="#tipologie">Tipologie</a>
+      <a href="#perche">Perché sceglierci</a>
       <a href="#regole">Regole</a>
       <a href="#contatti">Contatti</a>
     </nav>
@@ -231,7 +286,6 @@ footer{
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero wrap">
   <div class="hero-bg">
     <div class="hero-card">
@@ -239,7 +293,7 @@ footer{
       <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
 
       <div class="hero-cta">
-        <a class="btn btn-soft" href="#app">Scopri gli appartamenti →</a>
+        <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
       </div>
 
       <div class="badges">
@@ -252,7 +306,6 @@ footer{
   </div>
 </section>
 
-<!-- SEZIONI -->
 <section class="wrap section">
   <div class="grid">
     <div class="card" id="chi">
@@ -279,43 +332,47 @@ footer{
     </div>
   </div>
 
-  <div class="card" id="regole">
-    <h2>Regole della casa</h2>
-    <ul class="rules">
-      <li>🐾 Animali ammessi</li>
-      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
-      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
-    </ul>
-  </div>
-</section>
+  <!-- ✅ TIPLOGIE -->
+  <div class="card" id="tipologie">
+    <h2>Tipologie di appartamento</h2>
+    <p>Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
 
-<section class="wrap section" id="contatti">
-  <div class="card">
-    <h2>Contatti / Prenotazioni</h2>
-    <p>
-      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
-      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
-    </p>
+    <div class="types">
+      <div class="type-card">
+        <h3>Monolocale</h3>
+        <p>Ideale per 1–2 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
+        <ul class="type-list">
+          <li>✅ Zona giorno/notte</li>
+          <li>✅ Angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
 
-    <!-- ✅ SOLO PULSANTI (niente numero/email visibili in chiaro) -->
-    <div class="btns" style="margin-top:14px;flex-wrap:wrap">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
-      <a class="btn" href="mailto:boatto-ger@libero.it">Scrivici via Email</a>
-      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
-    </div>
-  </div>
-</section>
+      <div class="type-card">
+        <h3>Bilocale</h3>
+        <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
+        <ul class="type-list">
+          <li>✅ Camera + soggiorno</li>
+          <li>✅ Cucina/angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div>© <span id="y"></span> Casa Vacanze</div>
-    <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
-  </div>
-</footer>
-
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
-</script>
-
-</body>
-</html>
+      <div class="type-card">
+        <h3>Trilocale</h3>
+        <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
+        <ul class="type-list">
+          <li>✅ Due camere + soggiorno</li>
+          <li>✅ Cucina/angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata •
