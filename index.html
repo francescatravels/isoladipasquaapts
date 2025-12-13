@@ -44,7 +44,6 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:space-between;
   padding:12px 0;
-  gap:12px;
 }
 .brand{
   display:flex;
@@ -94,79 +93,71 @@ a{text-decoration:none;color:inherit}
 
 /* HERO */
 .hero{
-  margin:26px auto 40px;
+  margin:28px auto 40px;
 }
 .hero-bg{
-  border-radius:32px;
-  overflow:hidden;
-  background:
-    linear-gradient(90deg,
-      rgba(11,58,83,.65) 0%,
-      rgba(11,58,83,.35) 40%,
-      rgba(11,58,83,.05) 100%),
-    url('facciata.png') center / cover no-repeat;
+  border-radius:28px;
   min-height:420px;
   display:flex;
   align-items:flex-start;
-}
-.hero-inner{
   padding:36px;
+  background:
+    url('facciata.png') center / cover no-repeat;
 }
 .hero-card{
-  max-width:520px;
+  max-width:420px;
   background:rgba(255,255,255,.78);
   backdrop-filter:blur(6px);
   border-radius:22px;
-  padding:26px 28px;
+  padding:18px 20px;
   box-shadow:var(--shadow);
 }
 .hero-card h1{
   margin:0 0 10px;
-  font-size:34px;
-  line-height:1.15;
+  font-size:30px;
 }
 .hero-card p{
-  margin:0 0 18px;
+  margin:0 0 14px;
   color:var(--muted);
-  font-size:15px;
 }
+
 .hero-cta{
-  margin-bottom:16px;
+  margin:10px 0 14px;
 }
-.pills{
+
+.badges{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
 }
-.pill{
+.badge{
   background:#fff;
-  border:1px solid rgba(0,0,0,.12);
+  border:1px solid rgba(0,0,0,.1);
   border-radius:999px;
-  padding:6px 12px;
+  padding:6px 10px;
   font-size:13px;
 }
 
 /* SECTIONS */
-.section{
-  margin:40px 0;
-}
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:24px;
+  gap:22px;
+  margin-bottom:40px;
 }
 .card{
   background:#fff;
   border-radius:22px;
-  padding:26px;
+  padding:24px;
   box-shadow:var(--shadow);
 }
 .card h2{margin-top:0}
 
+/* RESPONSIVE */
 @media(max-width:900px){
   .grid{grid-template-columns:1fr}
-  .hero-bg{min-height:360px}
-  .hero-card h1{font-size:28px}
+  .hero-bg{padding:22px}
+  .hero-card{max-width:100%}
 }
 </style>
 </head>
@@ -174,7 +165,7 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <!-- TOP BAR -->
-<div class="topbar">
+<header class="topbar">
   <div class="wrap topbar-inner">
     <div class="brand">
       <div class="brand-mark">CV</div>
@@ -197,46 +188,40 @@ a{text-decoration:none;color:inherit}
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
   </div>
-</div>
+</header>
 
 <!-- HERO -->
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-bg">
-      <div class="hero-inner">
-        <div class="hero-card">
+<section class="hero wrap">
+  <div class="hero-bg">
+    <div class="hero-card">
+      <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
+      <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
 
-          <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
-          <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
+      <div class="hero-cta">
+        <a class="btn btn-soft" href="#app">Scopri gli appartamenti →</a>
+      </div>
 
-          <div class="hero-cta">
-            <a class="btn btn-soft" href="#app">Scopri gli appartamenti →</a>
-          </div>
-
-          <div class="pills">
-            <div class="pill">🐾 Animali ammessi</div>
-            <div class="pill">🅿️ Parcheggio privato</div>
-            <div class="pill">❄️ Aria condizionata</div>
-            <div class="pill">📺 TV</div>
-          </div>
-
-        </div>
+      <div class="badges">
+        <div class="badge">🐾 Animali ammessi</div>
+        <div class="badge">🅿️ Parcheggio privato</div>
+        <div class="badge">❄️ Aria condizionata</div>
+        <div class="badge">📺 TV</div>
       </div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- CONTENT -->
-<section class="section wrap grid">
+<section class="wrap grid">
   <div class="card" id="chi">
     <h2>Chi siamo</h2>
     <p>
-      I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
-      in spazi accoglienti e ben organizzati.
+      I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno
+      e senza stress, in spazi accoglienti e ben organizzati.
     </p>
     <p>
-      Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
-      qui si trova un ambiente pensato per sentirsi subito a proprio agio.
+      Che si viaggi in coppia, in famiglia o con il proprio amico a quattro
+      zampe, qui si trova un ambiente pensato per sentirsi subito a proprio agio.
     </p>
   </div>
 
