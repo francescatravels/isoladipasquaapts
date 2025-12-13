@@ -44,6 +44,7 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:space-between;
   padding:12px 0;
+  gap:12px;
 }
 .brand{
   display:flex;
@@ -63,7 +64,7 @@ a{text-decoration:none;color:inherit}
 .brand span{font-weight:700;font-size:14px}
 .brand small{display:block;font-size:12px;color:var(--muted)}
 
-.nav{display:flex;gap:8px}
+.nav{display:flex;gap:8px;flex-wrap:wrap}
 .nav a{
   font-size:14px;
   color:var(--muted);
@@ -92,9 +93,7 @@ a{text-decoration:none;color:inherit}
 .btns{display:flex;gap:8px}
 
 /* HERO */
-.hero{
-  margin:28px auto 40px;
-}
+.hero{margin:28px auto 40px}
 .hero-bg{
   border-radius:28px;
   min-height:420px;
@@ -102,28 +101,32 @@ a{text-decoration:none;color:inherit}
   align-items:flex-start;
   padding:36px;
   background:
+    linear-gradient(90deg,
+      rgba(11,58,83,.18) 0%,
+      rgba(11,58,83,.08) 45%,
+      rgba(11,58,83,.02) 100%),
     url('facciata.png') center / cover no-repeat;
+  box-shadow:var(--shadow);
 }
 .hero-card{
   max-width:420px;
-  background:rgba(255,255,255,.78);
+  background:rgba(255,255,255,.80);
   backdrop-filter:blur(6px);
   border-radius:22px;
   padding:18px 20px;
-  box-shadow:var(--shadow);
+  box-shadow:0 10px 26px rgba(0,0,0,.10);
 }
 .hero-card h1{
   margin:0 0 10px;
   font-size:30px;
+  line-height:1.15;
 }
 .hero-card p{
   margin:0 0 14px;
   color:var(--muted);
+  line-height:1.6;
 }
-
-.hero-cta{
-  margin:10px 0 14px;
-}
+.hero-cta{margin:10px 0 14px}
 
 .badges{
   display:flex;
@@ -139,11 +142,12 @@ a{text-decoration:none;color:inherit}
 }
 
 /* SECTIONS */
+.section{margin:0 0 40px}
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:22px;
-  margin-bottom:40px;
+  margin-bottom:22px;
 }
 .card{
   background:#fff;
@@ -151,13 +155,44 @@ a{text-decoration:none;color:inherit}
   padding:24px;
   box-shadow:var(--shadow);
 }
-.card h2{margin-top:0}
+.card h2{margin:0 0 10px}
+.card p{color:var(--muted);line-height:1.7}
+
+/* RULES LIST */
+.rules{
+  list-style:none;
+  padding:0;
+  margin:14px 0 0;
+}
+.rules li{
+  padding:10px 0;
+  font-size:15px;
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.rules li:last-child{border-bottom:none}
+
+/* FOOTER */
+footer{
+  padding:28px 0 40px;
+  color:rgba(0,0,0,.55);
+  font-size:13px;
+}
+.footer-inner{
+  border-top:1px solid rgba(0,0,0,.1);
+  padding-top:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
+  .nav{display:none}
   .grid{grid-template-columns:1fr}
-  .hero-bg{padding:22px}
+  .hero-bg{padding:22px;min-height:360px}
   .hero-card{max-width:100%}
+  .hero-card h1{font-size:28px}
 }
 </style>
 </head>
@@ -183,7 +218,7 @@ a{text-decoration:none;color:inherit}
     </nav>
 
     <div class="btns">
-      <a class="btn btn-primary" href="https://wa.me/393358408583">WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
@@ -211,31 +246,71 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- CONTENT -->
-<section class="wrap grid">
-  <div class="card" id="chi">
-    <h2>Chi siamo</h2>
-    <p>
-      I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno
-      e senza stress, in spazi accoglienti e ben organizzati.
-    </p>
-    <p>
-      Che si viaggi in coppia, in famiglia o con il proprio amico a quattro
-      zampe, qui si trova un ambiente pensato per sentirsi subito a proprio agio.
-    </p>
+<!-- SEZIONI -->
+<section class="wrap section">
+  <div class="grid">
+    <div class="card" id="chi">
+      <h2>Chi siamo</h2>
+      <p>
+        I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
+        in spazi accoglienti e ben organizzati.
+      </p>
+      <p>
+        Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
+        qui si trova un ambiente pensato per sentirsi subito a proprio agio.
+      </p>
+    </div>
+
+    <div class="card" id="app">
+      <h2>Gli appartamenti</h2>
+      <p>
+        <strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong>
+        fronte mare e a due passi dal centro storico di Caorle.
+      </p>
+      <p>
+        Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
+      </p>
+    </div>
   </div>
 
-  <div class="card" id="app">
-    <h2>Gli appartamenti</h2>
-    <p>
-      Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:
-      fronte mare e a due passi dal centro storico di Caorle.
-    </p>
-    <p>
-      Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
-    </p>
+  <div class="card" id="regole">
+    <h2>Regole della casa</h2>
+    <ul class="rules">
+      <li>🐾 Animali ammessi</li>
+      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
+      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
+    </ul>
   </div>
 </section>
+
+<section class="wrap section" id="contatti">
+  <div class="card">
+    <h2>Contatti / Prenotazioni</h2>
+    <p>
+      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
+    </p>
+
+    <div class="btns" style="margin-top:14px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="btn" href="mailto:boatto-ger@libero.it">Scrivici via Email</a>
+      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+    </div>
+
+  
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© <span id="y"></span> Casa Vacanze</div>
+    <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
