@@ -12,7 +12,10 @@
   --brand:#0b3a53;
   --brand2:#1f7a8c;
   --accent:#f2c14e;
-  --bg:#f6f4f0;
+
+  /* ✅ SFONDO PIÙ TENUE (sabbia calda) */
+  --bg:#f3efe9;
+
   --text:#13212f;
   --muted:rgba(19,33,47,.7);
   --radius:22px;
@@ -35,7 +38,7 @@ a{text-decoration:none;color:inherit}
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(246,244,240,.9);
+  background:rgba(243,239,233,.92);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,.08);
 }
@@ -100,12 +103,15 @@ a{text-decoration:none;color:inherit}
   display:flex;
   align-items:flex-start;
   padding:36px;
+
+  /* ✅ FOTO PIÙ CENTRATA RISPETTO AL TESTO */
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
-    url('facciata.png') center / cover no-repeat;
+    url('facciata.png') center right / cover no-repeat;
+
   box-shadow:var(--shadow);
 }
 .hero-card{
@@ -291,13 +297,12 @@ footer{
       Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
     </p>
 
+    <!-- ✅ SOLO PULSANTI (niente numero/email visibili in chiaro) -->
     <div class="btns" style="margin-top:14px;flex-wrap:wrap">
       <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
       <a class="btn" href="mailto:boatto-ger@libero.it">Scrivici via Email</a>
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
-
-  
   </div>
 </section>
 
