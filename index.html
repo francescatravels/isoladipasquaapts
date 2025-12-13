@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Casa Vacanze – Appartamenti fronte mare</title>
 <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi.">
@@ -13,13 +13,12 @@
   --brand2:#1f7a8c;
   --accent:#f2c14e;
 
-  /* sfondo tenue */
   --bg:#efe8df;
+  --card:#fffdf9;
 
   --text:#13212f;
   --muted:rgba(19,33,47,.7);
 
-  /* ✅ stessa “impronta” per hero e card */
   --radius:22px;
   --shadow:0 16px 40px rgba(0,0,0,.12);
 
@@ -35,14 +34,18 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
-.wrap{max-width:var(--max);margin:auto;padding:0 20px}
+.wrap{
+  max-width:var(--max);
+  margin:auto;
+  padding:0 20px;
+}
 
-/* TOP BAR */
+/* ===== TOP BAR ===== */
 .topbar{
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(239,232,223,.92);
+  background:rgba(239,232,223,.95);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,.08);
 }
@@ -50,8 +53,7 @@ a{text-decoration:none;color:inherit}
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 0;
-  gap:12px;
+  padding:14px 0;
 }
 .brand{
   display:flex;
@@ -71,7 +73,7 @@ a{text-decoration:none;color:inherit}
 .brand span{font-weight:700;font-size:14px}
 .brand small{display:block;font-size:12px;color:var(--muted)}
 
-.nav{display:flex;gap:8px;flex-wrap:wrap}
+.nav{display:flex;gap:10px}
 .nav a{
   font-size:14px;
   color:var(--muted);
@@ -87,11 +89,6 @@ a{text-decoration:none;color:inherit}
   background:#fff;
   font-weight:700;
   font-size:14px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  white-space:nowrap;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
@@ -102,52 +99,50 @@ a{text-decoration:none;color:inherit}
   background:rgba(242,193,78,.35);
   border-color:rgba(242,193,78,.6);
 }
-.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btns{display:flex;gap:8px}
 
-/* ✅ HERO: stesso allineamento dei riquadri sotto */
+/* ===== HERO ===== */
 .hero{
-  max-width:var(--max);
-  margin:28px auto 40px; /* distanza “pulita” dal blocco sotto */
-  padding:0 20px;        /* come .wrap */
+  margin-top:28px;
 }
 .hero-bg{
   border-radius:var(--radius);
   min-height:360px;
   display:flex;
   align-items:center;
-  padding:26px;
+  padding:24px;
+
+  /* 🔴 QUI È LA CHIAVE */
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
-    url('facciata.png') 45% center / cover no-repeat; /* ✅ spostata a sinistra */
+    url('facciata.png') 30% center / cover no-repeat;
+
   box-shadow:var(--shadow);
 }
+
 .hero-card{
   max-width:440px;
-  background:rgba(255,255,255,.82);
+  background:rgba(255,255,255,.85);
   backdrop-filter:blur(6px);
   border-radius:18px;
-  padding:18px 20px;
-  box-shadow:0 10px 26px rgba(0,0,0,.10);
+  padding:20px;
 }
 .hero-card h1{
   margin:0 0 10px;
   font-size:30px;
-  line-height:1.15;
 }
 .hero-card p{
   margin:0 0 14px;
   color:var(--muted);
-  line-height:1.6;
 }
-.hero-cta{margin:10px 0 14px}
 
 .badges{
   display:flex;
-  flex-wrap:wrap;
   gap:8px;
+  flex-wrap:wrap;
 }
 .badge{
   background:#fff;
@@ -157,16 +152,15 @@ a{text-decoration:none;color:inherit}
   font-size:13px;
 }
 
-/* SECTIONS */
-.section{margin:0 0 40px}
+/* ===== SECTIONS ===== */
+.section{margin-top:28px}
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:22px;
-  margin-bottom:22px;
 }
 .card{
-  background:#fffdf9;
+  background:var(--card);
   border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--shadow);
@@ -174,46 +168,17 @@ a{text-decoration:none;color:inherit}
 .card h2{margin:0 0 10px}
 .card p{color:var(--muted);line-height:1.7}
 
-/* WHY */
-.why{
-  list-style:none;
-  padding:0;
-  margin:16px 0 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px 18px;
-}
-.why li{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:16px;
-  padding:14px 16px;
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* APARTMENT TYPES */
+/* ===== TIPOLOGIE ===== */
 .types{
   display:grid;
-  grid-template-columns:repeat(3, 1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:18px;
-  margin-top:14px;
 }
 .type-card{
   background:#fff;
-  border:1px solid rgba(0,0,0,.08);
   border-radius:18px;
   padding:18px;
-}
-.type-card h3{
-  margin:0 0 8px;
-  font-size:18px;
-}
-.type-card p{
-  margin:0 0 12px;
-  color:var(--muted);
-  line-height:1.6;
-  font-size:14px;
+  border:1px solid rgba(0,0,0,.08);
 }
 .type-list{
   list-style:none;
@@ -223,51 +188,30 @@ a{text-decoration:none;color:inherit}
 .type-list li{
   padding:6px 0;
   border-bottom:1px solid rgba(0,0,0,.06);
-  font-size:14px;
 }
-.type-list li:last-child{border-bottom:none}
-.type-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-sm{padding:10px 12px;border-radius:12px;font-size:14px}
+.type-actions{
+  display:flex;
+  gap:10px;
+}
 
-/* HOUSE RULES */
+/* ===== REGOLE ===== */
 .rules{
   list-style:none;
   padding:0;
-  margin:14px 0 0;
+  margin:12px 0 0;
 }
 .rules li{
   padding:10px 0;
-  font-size:15px;
   border-bottom:1px solid rgba(0,0,0,.08);
 }
-.rules li:last-child{border-bottom:none}
 
-/* FOOTER */
-footer{
-  padding:28px 0 40px;
-  color:rgba(0,0,0,.55);
-  font-size:13px;
-}
-.footer-inner{
-  border-top:1px solid rgba(0,0,0,.1);
-  padding-top:14px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .nav{display:none}
-  .grid{grid-template-columns:1fr}
-  .types{grid-template-columns:1fr}
-  .why{grid-template-columns:1fr}
-
-  .hero{margin:20px auto 28px;padding:0 20px}
-  .hero-bg{padding:18px;min-height:320px}
-  .hero-card{max-width:100%}
-  .hero-card h1{font-size:28px}
+  .grid,.types{grid-template-columns:1fr}
+  .hero-bg{
+    background-position:50% center; /* mobile centrata */
+  }
 }
 </style>
 </head>
@@ -286,172 +230,94 @@ footer{
 
     <nav class="nav">
       <a href="#chi">Chi siamo</a>
-      <a href="#app">Appartamenti</a>
       <a href="#tipologie">Tipologie</a>
-      <a href="#perche">Perché sceglierci</a>
       <a href="#regole">Regole</a>
       <a href="#contatti">Contatti</a>
     </nav>
 
     <div class="btns">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank">WhatsApp</a>
       <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
   </div>
 </header>
 
+<main class="wrap">
+
 <section class="hero">
   <div class="hero-bg">
     <div class="hero-card">
       <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
       <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
-
-      <div class="hero-cta">
-        <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
-      </div>
-
-      <div class="badges">
-        <div class="badge">🐾 Animali ammessi</div>
-        <div class="badge">🅿️ Parcheggio privato</div>
-        <div class="badge">❄️ Aria condizionata</div>
-        <div class="badge">📺 TV</div>
+      <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
+      <div class="badges" style="margin-top:12px">
+        <span class="badge">🐾 Animali ammessi</span>
+        <span class="badge">🅿️ Parcheggio privato</span>
+        <span class="badge">❄️ Aria condizionata</span>
+        <span class="badge">📺 TV</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="wrap section">
-  <div class="grid">
-    <div class="card" id="chi">
-      <h2>Chi siamo</h2>
-      <p>
-        I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
-        in spazi accoglienti e ben organizzati.
-      </p>
-      <p>
-        Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
-        qui si trova un ambiente pensato per sentirsi subito a proprio agio.
-      </p>
-    </div>
-
-    <div class="card" id="app">
-      <h2>Gli appartamenti</h2>
-      <p>
-        <strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong>
-        fronte mare e a due passi dal centro storico di Caorle.
-      </p>
-      <p>
-        Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
-      </p>
-    </div>
+<section class="section grid">
+  <div class="card" id="chi">
+    <h2>Chi siamo</h2>
+    <p>I nostri appartamenti offrono un soggiorno sereno e senza stress, in spazi accoglienti e ben organizzati.</p>
   </div>
-
-  <div class="card" id="tipologie">
-    <h2>Tipologie di appartamento</h2>
-    <p>Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
-
-    <div class="types">
-      <div class="type-card">
-        <h3>Monolocale</h3>
-        <p>Ideale per 1–2 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
-        <ul class="type-list">
-          <li>✅ Zona giorno/notte</li>
-          <li>✅ Angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <h3>Bilocale</h3>
-        <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
-        <ul class="type-list">
-          <li>✅ Camera + soggiorno</li>
-          <li>✅ Cucina/angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <h3>Trilocale</h3>
-        <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
-        <ul class="type-list">
-          <li>✅ Due camere + soggiorno</li>
-          <li>✅ Cucina/angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card" id="perche" style="margin-top:22px">
-    <h2>Perché sceglierci</h2>
-    <p>
-      Scegliere i nostri appartamenti significa affidarsi a una soluzione semplice,
-      curata e pensata per chi desidera una vacanza senza complicazioni.
-    </p>
-
-    <ul class="why">
-      <li><strong>📍 Posizione strategica</strong><br>Fronte mare e a pochi passi dal centro storico di Caorle.</li>
-      <li><strong>🏡 Comfort e praticità</strong><br>Spazi funzionali, ideali per soggiorni in autonomia.</li>
-      <li><strong>🐾 Pet-friendly</strong><br>Gli animali sono i benvenuti.</li>
-      <li><strong>🚗 Servizi inclusi</strong><br>Parcheggio privato, aria condizionata e TV.</li>
-      <li><strong>🤝 Contatto diretto</strong><br>Rispondiamo direttamente per informazioni e prenotazioni.</li>
-      <li><strong>🧾 Informazioni chiare</strong><br>Disponibilità e prezzi comunicati rapidamente, senza passaggi inutili.</li>
-    </ul>
-  </div>
-
-  <div class="card" id="regole" style="margin-top:22px">
-    <h2>Regole della casa</h2>
-    <ul class="rules">
-      <li>🐾 Animali ammessi</li>
-      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
-      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
-    </ul>
-  </div>
-</section>
-
-<section class="wrap section" id="contatti">
   <div class="card">
-    <h2>Contatti / Prenotazioni</h2>
-    <p>
-      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
-      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
-    </p>
+    <h2>Gli appartamenti</h2>
+    <p>Fronte mare e a due passi dal centro storico di Caorle, ideali per una vacanza in autonomia.</p>
+  </div>
+</section>
 
-    <div class="btns" style="margin-top:14px">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
-      <a class="btn" href="mailto:boatto-ger@libero.it">Scrivici via Email</a>
-      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+<section class="section card" id="tipologie">
+  <h2>Tipologie di appartamento</h2>
+  <div class="types">
+    <div class="type-card">
+      <h3>Monolocale</h3>
+      <ul class="type-list">
+        <li>Zona giorno/notte</li><li>Angolo cottura</li><li>Bagno privato</li>
+      </ul>
+      <div class="type-actions">
+        <a class="btn btn-primary">Disponibilità</a>
+        <a class="btn">Info e prezzi</a>
+      </div>
+    </div>
+    <div class="type-card">
+      <h3>Bilocale</h3>
+      <ul class="type-list">
+        <li>Camera + soggiorno</li><li>Cucina</li><li>Bagno privato</li>
+      </ul>
+      <div class="type-actions">
+        <a class="btn btn-primary">Disponibilità</a>
+        <a class="btn">Info e prezzi</a>
+      </div>
+    </div>
+    <div class="type-card">
+      <h3>Trilocale</h3>
+      <ul class="type-list">
+        <li>Due camere + soggiorno</li><li>Cucina</li><li>Bagno privato</li>
+      </ul>
+      <div class="type-actions">
+        <a class="btn btn-primary">Disponibilità</a>
+        <a class="btn">Info e prezzi</a>
+      </div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap footer-inner">
-    <div>© <span id="y"></span> Casa Vacanze</div>
-    <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
-  </div>
-</footer>
+<section class="section card" id="regole">
+  <h2>Regole della casa</h2>
+  <ul class="rules">
+    <li>🐾 Animali ammessi</li>
+    <li>🕑 Check-in dalle ore 14:00</li>
+    <li>🕙 Check-out entro le ore 10:00</li>
+  </ul>
+</section>
 
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+</main>
 
 </body>
 </html>
