@@ -28,7 +28,6 @@ body{
   color:var(--text);
 }
 a{text-decoration:none;color:inherit}
-
 .wrap{max-width:var(--max);margin:auto;padding:0 20px}
 
 /* TOP BAR */
@@ -36,7 +35,7 @@ a{text-decoration:none;color:inherit}
   position:sticky;
   top:0;
   z-index:50;
-  background:rgba(246,244,240,.85);
+  background:rgba(246,244,240,.9);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,.08);
 }
@@ -62,15 +61,8 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:center;
 }
-.brand span{
-  font-weight:700;
-  font-size:14px;
-}
-.brand small{
-  display:block;
-  font-size:12px;
-  color:var(--muted);
-}
+.brand span{font-weight:700;font-size:14px}
+.brand small{display:block;font-size:12px;color:var(--muted)}
 
 .nav{display:flex;gap:8px}
 .nav a{
@@ -95,124 +87,93 @@ a{text-decoration:none;color:inherit}
   border:none;
 }
 .btn-soft{
-  background:rgba(242,193,78,.25);
-  border-color:rgba(242,193,78,.4);
+  background:rgba(242,193,78,.35);
+  border-color:rgba(242,193,78,.6);
 }
 .btns{display:flex;gap:8px}
 
 /* HERO */
-.hero{padding:26px 0}
+.hero{
+  margin:26px auto 40px;
+}
 .hero-bg{
-  position:relative;
-  border-radius:calc(var(--radius) + 6px);
+  border-radius:32px;
   overflow:hidden;
-  min-height:520px;
+  background:
+    linear-gradient(90deg,
+      rgba(11,58,83,.65) 0%,
+      rgba(11,58,83,.35) 40%,
+      rgba(11,58,83,.05) 100%),
+    url('facciata.png') center / cover no-repeat;
+  min-height:420px;
+  display:flex;
+  align-items:flex-start;
+}
+.hero-inner{
+  padding:36px;
+}
+.hero-card{
+  max-width:520px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(6px);
+  border-radius:22px;
+  padding:26px 28px;
   box-shadow:var(--shadow);
 }
-.hero-bg::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(11,58,83,.65) 0%,
-      rgba(11,58,83,.35) 45%,
-      rgba(11,58,83,.15) 100%
-    ),
-    url('facciata.png') center / cover no-repeat;
-  transform:scale(1.02);
-}
-.hero-inner{
-  position: relative;
-  padding: 32px;
-  max-width: 560px;   /* prima era 720 */
-}
-.hero-inner{
-  margin-top: 40px;
-}
-
-.hero-card{
-  background: rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(4px);
-  border-radius: var(--radius);
-  padding: 18px;   /* prima era 22 */
-}
-
-}
-h1{
+.hero-card h1{
   margin:0 0 10px;
-  font-size:clamp(26px,3vw,40px);
-  color:#fff;
-  line-height:1.1;
+  font-size:34px;
+  line-height:1.15;
 }
 .hero-card p{
-  color:rgba(255,255,255,.85);
-  line-height:1.6;
-  margin:0 0 14px;
+  margin:0 0 18px;
+  color:var(--muted);
+  font-size:15px;
 }
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hero-cta{
+  margin-bottom:16px;
+}
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
 .pill{
-  padding:8px 12px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
   border-radius:999px;
-  background:rgba(255,255,255,.18);
-  color:#fff;
+  padding:6px 12px;
   font-size:13px;
 }
 
 /* SECTIONS */
-section{padding:26px 0}
-.grid-2{
+.section{
+  margin:40px 0;
+}
+.grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
+  gap:24px;
 }
 .card{
   background:#fff;
-  border-radius:var(--radius);
-  padding:22px;
-  box-shadow:0 10px 26px rgba(0,0,0,.08);
+  border-radius:22px;
+  padding:26px;
+  box-shadow:var(--shadow);
 }
-.card h2{margin:0 0 10px}
-.card p{color:var(--muted);line-height:1.6}
+.card h2{margin-top:0}
 
-.rules{margin-top:12px}
-.rule{
-  background:rgba(0,0,0,.04);
-  padding:12px;
-  border-radius:14px;
-  margin-bottom:8px;
-  font-size:14px;
-}
-
-/* FOOTER */
-footer{
-  padding:30px 0;
-  font-size:13px;
-  color:rgba(0,0,0,.55);
-}
-.footer-inner{
-  border-top:1px solid rgba(0,0,0,.1);
-  padding-top:16px;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-/* MOBILE */
 @media(max-width:900px){
-  .nav{display:none}
-  .hero-inner{padding:26px}
-  .grid-2{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .hero-bg{min-height:360px}
+  .hero-card h1{font-size:28px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="wrap topbar-inner">
     <div class="brand">
@@ -231,25 +192,25 @@ footer{
     </nav>
 
     <div class="btns">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank">WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/393358408583">WhatsApp</a>
       <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
   </div>
 </div>
 
+<!-- HERO -->
 <header class="hero">
   <div class="wrap">
     <div class="hero-bg">
       <div class="hero-inner">
         <div class="hero-card">
+
           <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
           <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank">Scrivici su WhatsApp</a>
-            <a class="btn" href="mailto:boatto-ger@libero.it">Contattaci via Email</a>
-            <a class="btn btn-soft" href="#app">Scopri gli appartamenti</a>
+          <div class="hero-cta">
+            <a class="btn btn-soft" href="#app">Scopri gli appartamenti →</a>
           </div>
 
           <div class="pills">
@@ -258,79 +219,38 @@ footer{
             <div class="pill">❄️ Aria condizionata</div>
             <div class="pill">📺 TV</div>
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="chi">
-  <div class="wrap grid-2">
-    <div class="card">
-      <h2>Chi siamo</h2>
-      <p>
-        I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
-        in spazi accoglienti e ben organizzati.
-        <br><br>
-        Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
-        qui si trova un ambiente pensato per sentirsi subito a proprio agio.
-      </p>
-    </div>
+<!-- CONTENT -->
+<section class="section wrap grid">
+  <div class="card" id="chi">
+    <h2>Chi siamo</h2>
+    <p>
+      I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
+      in spazi accoglienti e ben organizzati.
+    </p>
+    <p>
+      Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
+      qui si trova un ambiente pensato per sentirsi subito a proprio agio.
+    </p>
+  </div>
 
-    <div class="card" id="app">
-      <h2>Gli appartamenti</h2>
-      <p>
-        <strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong>
-        fronte mare e a due passi dal centro storico di Caorle.
-        <br><br>
-        Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
-      </p>
-    </div>
+  <div class="card" id="app">
+    <h2>Gli appartamenti</h2>
+    <p>
+      Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:
+      fronte mare e a due passi dal centro storico di Caorle.
+    </p>
+    <p>
+      Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
+    </p>
   </div>
 </section>
-
-<section id="regole">
-  <div class="wrap">
-    <div class="card">
-      <h2>Regole della casa</h2>
-
-      <div class="rules">
-        <div class="rule">🐾 Animali ammessi</div>
-        <div class="rule">🕑 Check-in a partire dalle ore <strong>14:00</strong></div>
-        <div class="rule">🕙 Check-out entro le ore <strong>10:00</strong></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contatti">
-  <div class="wrap">
-    <div class="card">
-      <h2>Contatti / Prenotazioni</h2>
-      <p>
-        Per informazioni, disponibilità e prezzi potete contattarci direttamente.
-        Risponderemo il prima possibile per aiutarvi a organizzare il vostro soggiorno.
-      </p>
-
-      <div class="btns" style="margin-top:14px">
-        <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank">WhatsApp</a>
-        <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
-        <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap footer-inner">
-    <div>© <span id="y"></span> Casa Vacanze</div>
-    <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
-  </div>
-</footer>
-
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
