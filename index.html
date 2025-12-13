@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Casa Vacanze – Appartamenti fronte mare</title>
-<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi." />
+<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi.">
 
 <style>
 :root{
@@ -18,8 +18,11 @@
 
   --text:#13212f;
   --muted:rgba(19,33,47,.7);
+
+  /* ✅ stessa “impronta” per hero e card */
   --radius:22px;
   --shadow:0 16px 40px rgba(0,0,0,.12);
+
   --max:1100px;
 }
 
@@ -31,6 +34,7 @@ body{
   color:var(--text);
 }
 a{text-decoration:none;color:inherit}
+
 .wrap{max-width:var(--max);margin:auto;padding:0 20px}
 
 /* TOP BAR */
@@ -87,6 +91,7 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:center;
   gap:8px;
+  white-space:nowrap;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
@@ -99,27 +104,31 @@ a{text-decoration:none;color:inherit}
 }
 .btns{display:flex;gap:8px;flex-wrap:wrap}
 
-/* HERO */
-.hero{margin:28px auto 60px}
+/* ✅ HERO: stesso allineamento dei riquadri sotto */
+.hero{
+  max-width:var(--max);
+  margin:28px auto 40px; /* distanza “pulita” dal blocco sotto */
+  padding:0 20px;        /* come .wrap */
+}
 .hero-bg{
-  border-radius:28px;
-  min-height:360px;      /* ✅ più in linea col testo */
+  border-radius:var(--radius);
+  min-height:360px;
   display:flex;
-  align-items:center;    /* ✅ centra verticalmente il riquadro testo */
-  padding:26px;          /* ✅ meno padding = migliore bilanciamento */
+  align-items:center;
+  padding:26px;
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
-    url('facciata.png') 65% center / cover no-repeat; /* puoi cambiare 65% -> 60% se vuoi più logo */
+    url('facciata.png') 45% center / cover no-repeat; /* ✅ spostata a sinistra */
   box-shadow:var(--shadow);
 }
 .hero-card{
   max-width:440px;
   background:rgba(255,255,255,.82);
   backdrop-filter:blur(6px);
-  border-radius:22px;
+  border-radius:18px;
   padding:18px 20px;
   box-shadow:0 10px 26px rgba(0,0,0,.10);
 }
@@ -158,7 +167,7 @@ a{text-decoration:none;color:inherit}
 }
 .card{
   background:#fffdf9;
-  border-radius:22px;
+  border-radius:var(--radius);
   padding:24px;
   box-shadow:var(--shadow);
 }
@@ -254,6 +263,8 @@ footer{
   .grid{grid-template-columns:1fr}
   .types{grid-template-columns:1fr}
   .why{grid-template-columns:1fr}
+
+  .hero{margin:20px auto 28px;padding:0 20px}
   .hero-bg{padding:18px;min-height:320px}
   .hero-card{max-width:100%}
   .hero-card h1{font-size:28px}
@@ -290,7 +301,7 @@ footer{
   </div>
 </header>
 
-<section class="hero wrap">
+<section class="hero">
   <div class="hero-bg">
     <div class="hero-card">
       <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
