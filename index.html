@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Casa Vacanze – Appartamenti fronte mare</title>
-<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi.">
+<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi." />
 
 <style>
 :root{
@@ -83,6 +83,10 @@ a{text-decoration:none;color:inherit}
   background:#fff;
   font-weight:700;
   font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
@@ -99,20 +103,20 @@ a{text-decoration:none;color:inherit}
 .hero{margin:28px auto 60px}
 .hero-bg{
   border-radius:28px;
-  min-height:420px;
+  min-height:360px;      /* ✅ più in linea col testo */
   display:flex;
-  align-items:flex-start;
-  padding:36px;
+  align-items:center;    /* ✅ centra verticalmente il riquadro testo */
+  padding:26px;          /* ✅ meno padding = migliore bilanciamento */
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
-    url('facciata.png') 65% center / cover no-repeat;
+    url('facciata.png') 65% center / cover no-repeat; /* puoi cambiare 65% -> 60% se vuoi più logo */
   box-shadow:var(--shadow);
 }
 .hero-card{
-  max-width:420px;
+  max-width:440px;
   background:rgba(255,255,255,.82);
   backdrop-filter:blur(6px);
   border-radius:22px;
@@ -216,7 +220,7 @@ a{text-decoration:none;color:inherit}
 .type-actions{display:flex;gap:10px;flex-wrap:wrap}
 .btn-sm{padding:10px 12px;border-radius:12px;font-size:14px}
 
-/* RULES */
+/* HOUSE RULES */
 .rules{
   list-style:none;
   padding:0;
@@ -248,11 +252,11 @@ footer{
 @media(max-width:900px){
   .nav{display:none}
   .grid{grid-template-columns:1fr}
-  .hero-bg{padding:22px;min-height:360px}
+  .types{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .hero-bg{padding:18px;min-height:320px}
   .hero-card{max-width:100%}
   .hero-card h1{font-size:28px}
-  .why{grid-template-columns:1fr}
-  .types{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -332,7 +336,6 @@ footer{
     </div>
   </div>
 
-  <!-- ✅ TIPLOGIE -->
   <div class="card" id="tipologie">
     <h2>Tipologie di appartamento</h2>
     <p>Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
@@ -375,4 +378,69 @@ footer{
           <li>✅ Due camere + soggiorno</li>
           <li>✅ Cucina/angolo cottura</li>
           <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata •
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="perche" style="margin-top:22px">
+    <h2>Perché sceglierci</h2>
+    <p>
+      Scegliere i nostri appartamenti significa affidarsi a una soluzione semplice,
+      curata e pensata per chi desidera una vacanza senza complicazioni.
+    </p>
+
+    <ul class="why">
+      <li><strong>📍 Posizione strategica</strong><br>Fronte mare e a pochi passi dal centro storico di Caorle.</li>
+      <li><strong>🏡 Comfort e praticità</strong><br>Spazi funzionali, ideali per soggiorni in autonomia.</li>
+      <li><strong>🐾 Pet-friendly</strong><br>Gli animali sono i benvenuti.</li>
+      <li><strong>🚗 Servizi inclusi</strong><br>Parcheggio privato, aria condizionata e TV.</li>
+      <li><strong>🤝 Contatto diretto</strong><br>Rispondiamo direttamente per informazioni e prenotazioni.</li>
+      <li><strong>🧾 Informazioni chiare</strong><br>Disponibilità e prezzi comunicati rapidamente, senza passaggi inutili.</li>
+    </ul>
+  </div>
+
+  <div class="card" id="regole" style="margin-top:22px">
+    <h2>Regole della casa</h2>
+    <ul class="rules">
+      <li>🐾 Animali ammessi</li>
+      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
+      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section class="wrap section" id="contatti">
+  <div class="card">
+    <h2>Contatti / Prenotazioni</h2>
+    <p>
+      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
+    </p>
+
+    <div class="btns" style="margin-top:14px">
+      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+      <a class="btn" href="mailto:boatto-ger@libero.it">Scrivici via Email</a>
+      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div>© <span id="y"></span> Casa Vacanze</div>
+    <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
