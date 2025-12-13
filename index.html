@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Casa Vacanze | Appartamenti fronte mare a Caorle</title>
-  <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi. Contattaci su WhatsApp o via email." />
+  <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi. Contattaci su WhatsApp, email o telefono." />
 
   <style>
     :root{
@@ -34,38 +34,30 @@
     .topbar-inner{
       display:flex; align-items:center; justify-content:space-between;
       padding: 12px 0;
+      gap: 14px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      letter-spacing:.2px;
-    }
+    .brand{ display:flex; align-items:center; gap:10px; letter-spacing:.2px; }
     .brand-mark{
       width: 34px; height: 34px; border-radius: 12px;
       background: #111827;
       display:flex; align-items:center; justify-content:center;
       color:#fff; font-weight:700; font-size: 14px;
       box-shadow: var(--shadow);
+      flex: 0 0 auto;
     }
-    .brand-name{
-      font-weight: 700;
-      line-height: 1.1;
-    }
+    .brand-name{ font-weight: 700; line-height: 1.1; }
     .brand-sub{
-      display:block;
-      font-weight: 500;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 2px;
+      display:block; font-weight: 500; font-size: 12px;
+      color: var(--muted); margin-top: 2px;
     }
 
-    .nav{
-      display:flex; align-items:center; gap: 14px;
-    }
+    .nav{ display:flex; align-items:center; gap: 10px; flex-wrap: wrap; }
     .nav a{
       font-size: 14px;
       color: var(--muted);
       padding: 8px 10px;
       border-radius: 12px;
+      white-space: nowrap;
     }
     .nav a:hover{ background: rgba(17,24,39,.06); color: var(--text); }
 
@@ -90,10 +82,7 @@
       border-color: rgba(255,255,255,.12);
     }
     .btn-primary:hover{ box-shadow: 0 14px 30px rgba(17,24,39,.18); }
-    .btn-ghost{
-      background: transparent;
-      box-shadow: none;
-    }
+    .btn-ghost{ background: transparent; box-shadow: none; }
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding: 10px 12px;
@@ -105,12 +94,10 @@
     }
 
     /* Hero */
-    .hero{
-      padding: 46px 0 26px;
-    }
+    .hero{ padding: 46px 0 26px; }
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 18px;
       align-items: stretch;
     }
@@ -151,46 +138,40 @@
       margin: 14px 0 0;
     }
 
-    /* Side card */
-    .side-card{
+    /* Image card */
+    .image-card{
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 22px;
+      overflow: hidden;
       display:flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 14px;
     }
-    .side-title{
+    .hero-photo{
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display:block;
+      background: rgba(17,24,39,.04);
+    }
+    .image-card-body{
+      padding: 18px 18px 20px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .image-title{
+      margin:0;
       font-weight: 750;
       font-size: 16px;
-      margin: 0 0 6px;
     }
-    .side-text{
-      margin: 0;
+    .image-text{
+      margin:0;
       color: var(--muted);
+      font-size: 14px;
       line-height: 1.55;
-      font-size: 14px;
     }
-    .contact-box{
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-      display:grid;
-      gap: 10px;
-    }
-    .contact-line{
-      display:flex; align-items:center; justify-content: space-between;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(247,245,242,.55);
-      font-size: 14px;
-    }
-    .contact-line span{ color: var(--muted); font-weight: 600; }
-    .contact-line strong{ font-weight: 750; }
 
     /* Sections */
     section{ padding: 20px 0; }
@@ -222,7 +203,6 @@
       padding: 0;
       margin: 12px 0 0;
       display:grid;
-      grid-template-columns: 1fr;
       gap: 10px;
     }
     .features li{
@@ -237,6 +217,20 @@
       font-size: 14px;
     }
     .features li b{ font-weight: 750; }
+    .rules{
+      margin-top: 12px;
+      display:grid;
+      gap: 10px;
+    }
+    .rule{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(247,245,242,.55);
+      font-size: 14px;
+      color: var(--text);
+      display:flex; gap: 10px; align-items:flex-start;
+    }
     .small{
       font-size: 13px;
       color: var(--muted);
@@ -244,11 +238,7 @@
     }
 
     /* Footer */
-    footer{
-      padding: 26px 0 36px;
-      color: var(--muted);
-      font-size: 13px;
-    }
+    footer{ padding: 26px 0 36px; color: var(--muted); font-size: 13px; }
     .footer-inner{
       border-top: 1px solid var(--line);
       padding-top: 16px;
@@ -264,12 +254,12 @@
       .hero-grid{ grid-template-columns: 1fr; }
       .grid-2{ grid-template-columns: 1fr; }
       .nav{ display:none; }
+      .hero-photo{ aspect-ratio: 16 / 10; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Top bar -->
   <div class="topbar">
     <div class="wrap topbar-inner">
       <div class="brand">
@@ -284,17 +274,19 @@
         <a href="#chi-siamo">Chi siamo</a>
         <a href="#appartamenti">Appartamenti</a>
         <a href="#perche">Perché sceglierci</a>
+        <a href="#regole">Regole</a>
         <a href="#contatti">Contatti</a>
       </nav>
 
+      <!-- SOLO PULSANTI (nessun numero visibile) -->
       <div class="btns">
         <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
         <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email</a>
+        <a class="btn" href="tel:+393358408583">Chiama</a>
       </div>
     </div>
   </div>
 
-  <!-- Hero -->
   <header class="hero">
     <div class="wrap hero-grid">
       <div class="hero-card">
@@ -305,6 +297,7 @@
           <div class="btns" style="margin-top:16px">
             <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
             <a class="btn" href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20e%20prezzi%20-%20Casa%20Vacanze">Contattaci via Email</a>
+            <a class="btn" href="tel:+393358408583">Chiama ora</a>
             <a class="btn btn-ghost" href="#appartamenti">Scopri gli appartamenti →</a>
           </div>
 
@@ -317,25 +310,21 @@
         </div>
       </div>
 
-      <aside class="side-card" id="contatti" aria-label="Contatti rapidi">
-        <div>
-          <p class="side-title">Contatti rapidi</p>
-          <p class="side-text">Per informazioni, disponibilità e prezzi potete contattarci direttamente.</p>
-        </div>
+      <!-- FOTO PRINCIPALE -->
+      <aside class="image-card" aria-label="Foto principale">
+        <img class="hero-photo" src="facciata.png" alt="Facciata della struttura" />
+        <div class="image-card-body">
+          <p class="image-title">Benvenuti</p>
+          <p class="image-text">
+            Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:
+            fronte mare e a due passi dal centro storico di Caorle.
+          </p>
 
-        <div class="contact-box">
-          <div class="contact-line">
-            <span>WhatsApp</span>
-            <strong>335 8408583</strong>
-          </div>
-          <div class="contact-line">
-            <span>Email</span>
-            <strong>boatto-ger@libero.it</strong>
-          </div>
-
-          <div class="btns">
-            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Apri WhatsApp</a>
-            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Scrivi Email</a>
+          <!-- Contatti in forma di pulsanti -->
+          <div class="btns" id="contatti">
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email</a>
+            <a class="btn" href="tel:+393358408583">Chiama</a>
           </div>
 
           <p class="small">Risponderemo il prima possibile per aiutarvi a organizzare il vostro soggiorno.</p>
@@ -344,7 +333,6 @@
     </div>
   </header>
 
-  <!-- Content -->
   <main>
     <section id="chi-siamo">
       <div class="wrap grid-2">
@@ -386,7 +374,25 @@
           <div class="btns" style="margin-top:16px">
             <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Chiedi disponibilità su WhatsApp</a>
             <a class="btn" href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20e%20prezzi%20-%20Casa%20Vacanze">Richiedi info via Email</a>
+            <a class="btn" href="tel:+393358408583">Chiama</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="regole">
+      <div class="wrap">
+        <div class="card">
+          <h2>Regole della casa</h2>
+          <p>Per garantire un soggiorno piacevole a tutti, chiediamo di rispettare queste indicazioni:</p>
+
+          <div class="rules" style="margin-top:12px">
+            <div class="rule">🐾 <b>Animali ammessi</b></div>
+            <div class="rule">🕑 <b>Check-in</b> a partire dalle ore <b>14:00</b></div>
+            <div class="rule">🕙 <b>Check-out</b> entro le ore <b>10:00</b></div>
+          </div>
+
+          <p class="small">Se avete esigenze particolari sugli orari, scriveteci: faremo il possibile per aiutarvi.</p>
         </div>
       </div>
     </section>
@@ -401,12 +407,14 @@
             Risponderemo il prima possibile per aiutarvi a organizzare il vostro soggiorno.
           </p>
 
+          <!-- SOLO PULSANTI -->
           <div class="btns" style="margin-top:14px">
-            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp: 335 8408583</a>
-            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email: boatto-ger@libero.it</a>
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Invia una Email</a>
+            <a class="btn" href="tel:+393358408583">Chiama</a>
           </div>
 
-          <p class="small">Orari di risposta: appena possibile (in genere entro la giornata).</p>
+          <p class="small">Suggerimento: se possibile, indicate periodo, numero di persone e se viaggiate con animali.</p>
         </div>
       </div>
     </section>
@@ -418,6 +426,7 @@
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a class="pill" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
         <a class="pill" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email</a>
+        <a class="pill" href="tel:+393358408583">Chiama</a>
       </div>
     </div>
   </footer>
