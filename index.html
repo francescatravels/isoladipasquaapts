@@ -1,63 +1,429 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Casa Vacanze</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Casa Vacanze | Appartamenti fronte mare a Caorle</title>
+  <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi. Contattaci su WhatsApp o via email." />
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #333;
+    :root{
+      --bg: #f7f5f2;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: rgba(31,41,55,.10);
+      --shadow: 0 10px 30px rgba(17,24,39,.08);
+      --radius: 18px;
+      --max: 1080px;
     }
-    header {
-      background: #1f3a5f;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
+
+    *{ box-sizing: border-box; }
+    html,body{ margin:0; padding:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(247,245,242,.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
     }
-    h1, h2 {
-      margin-top: 0;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:.2px;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
+    .brand-mark{
+      width: 34px; height: 34px; border-radius: 12px;
+      background: #111827;
+      display:flex; align-items:center; justify-content:center;
+      color:#fff; font-weight:700; font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+    .brand-name{
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-sub{
+      display:block;
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav{
+      display:flex; align-items:center; gap: 14px;
+    }
+    .nav a{
       font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .nav a:hover{ background: rgba(17,24,39,.06); color: var(--text); }
+
+    /* Buttons */
+    .btns{ display:flex; gap: 10px; flex-wrap: wrap; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: 0 8px 20px rgba(17,24,39,.06);
+      font-weight: 650;
+      font-size: 14px;
+      transition: transform .12s ease, box-shadow .12s ease;
+      white-space: nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 12px 28px rgba(17,24,39,.10); }
+    .btn-primary{
+      background: #111827;
+      color: #fff;
+      border-color: rgba(255,255,255,.12);
+    }
+    .btn-primary:hover{ box-shadow: 0 14px 30px rgba(17,24,39,.18); }
+    .btn-ghost{
+      background: transparent;
+      box-shadow: none;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 46px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .hero-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 20% 10%, rgba(17,24,39,.12), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(17,24,39,.08), transparent 40%),
+                  radial-gradient(circle at 75% 85%, rgba(17,24,39,.06), transparent 45%);
+      transform: rotate(8deg);
+      pointer-events:none;
+    }
+    .hero-content{ position: relative; }
+    h1{
+      margin: 0 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 52ch;
+    }
+    .hero-meta{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      margin: 14px 0 0;
+    }
+
+    /* Side card */
+    .side-card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .side-title{
+      font-weight: 750;
+      font-size: 16px;
+      margin: 0 0 6px;
+    }
+    .side-text{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .contact-box{
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display:grid;
+      gap: 10px;
+    }
+    .contact-line{
+      display:flex; align-items:center; justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(247,245,242,.55);
+      font-size: 14px;
+    }
+    .contact-line span{ color: var(--muted); font-weight: 600; }
+    .contact-line strong{ font-weight: 750; }
+
+    /* Sections */
+    section{ padding: 20px 0; }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+    .features{
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 0;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .features li{
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(247,245,242,.55);
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .features li b{ font-weight: 750; }
+    .small{
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner{
+      border-top: 1px solid var(--line);
+      padding-top: 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .nav{ display:none; }
     }
   </style>
 </head>
+
 <body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">CV</div>
+        <div class="brand-name">
+          Casa Vacanze
+          <span class="brand-sub">Appartamenti fronte mare</span>
+        </div>
+      </div>
 
-<header>
-  <h1>Casa Vacanze</h1>
-  <p>Appartamenti confortevoli per il tuo soggiorno</p>
-</header>
+      <nav class="nav" aria-label="Navigazione">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#appartamenti">Appartamenti</a>
+        <a href="#perche">Perché sceglierci</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
 
-<section>
-  <h2>Benvenuti</h2>
-  <p>
-    Appartamenti curati e accoglienti, ideali per chi cerca relax,
-    comodità e una posizione strategica.
-  </p>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email</a>
+      </div>
+    </div>
+  </div>
 
-  <p>
-    Contattami per informazioni e disponibilità.
-  </p>
-</section>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-card">
+        <div class="hero-content">
+          <h1>La tua casa per le vacanze, a due passi dal mare</h1>
+          <p class="lead">Comfort essenziale, posizione comoda, accoglienza diretta.</p>
 
-<footer>
-  © Casa Vacanze – Tutti i diritti riservati
-</footer>
+          <div class="btns" style="margin-top:16px">
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20e%20prezzi%20-%20Casa%20Vacanze">Contattaci via Email</a>
+            <a class="btn btn-ghost" href="#appartamenti">Scopri gli appartamenti →</a>
+          </div>
 
+          <div class="hero-meta" aria-label="Punti di forza">
+            <div class="pill">🐾 Animali ammessi</div>
+            <div class="pill">🅿️ Parcheggio privato</div>
+            <div class="pill">❄️ Aria condizionata</div>
+            <div class="pill">📺 TV</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side-card" id="contatti" aria-label="Contatti rapidi">
+        <div>
+          <p class="side-title">Contatti rapidi</p>
+          <p class="side-text">Per informazioni, disponibilità e prezzi potete contattarci direttamente.</p>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-line">
+            <span>WhatsApp</span>
+            <strong>335 8408583</strong>
+          </div>
+          <div class="contact-line">
+            <span>Email</span>
+            <strong>boatto-ger@libero.it</strong>
+          </div>
+
+          <div class="btns">
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Apri WhatsApp</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Scrivi Email</a>
+          </div>
+
+          <p class="small">Risponderemo il prima possibile per aiutarvi a organizzare il vostro soggiorno.</p>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main>
+    <section id="chi-siamo">
+      <div class="wrap grid-2">
+        <div class="card">
+          <h2>Chi siamo</h2>
+          <p>
+            I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress, in spazi accoglienti e ben organizzati.
+            <br><br>
+            Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe, qui si trova un ambiente pensato per sentirsi subito a proprio agio.
+          </p>
+        </div>
+
+        <div class="card" id="appartamenti">
+          <h2>Gli appartamenti</h2>
+          <p>
+            <b>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda: fronte mare e a due passi dal centro storico di Caorle.</b>
+            <br><br>
+            Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="perche">
+      <div class="wrap">
+        <div class="card">
+          <h2>Perché sceglierci</h2>
+          <ul class="features">
+            <li>✔️ <b>Fronte mare</b> e vicino al centro storico</li>
+            <li>✔️ Appartamenti curati e funzionali</li>
+            <li>✔️ Ideali per soggiorni brevi o prolungati</li>
+            <li>✔️ Accoglienza diretta e disponibilità</li>
+            <li>✔️ <b>Animali ammessi</b> 🐾</li>
+            <li>✔️ <b>Parcheggio privato</b></li>
+            <li>✔️ <b>Aria condizionata</b></li>
+            <li>✔️ <b>TV</b></li>
+          </ul>
+
+          <div class="btns" style="margin-top:16px">
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">Chiedi disponibilità su WhatsApp</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20e%20prezzi%20-%20Casa%20Vacanze">Richiedi info via Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Sezione finale contatti">
+      <div class="wrap">
+        <div class="card">
+          <h2>Contatti / Prenotazioni</h2>
+          <p>
+            Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+            <br>
+            Risponderemo il prima possibile per aiutarvi a organizzare il vostro soggiorno.
+          </p>
+
+          <div class="btns" style="margin-top:14px">
+            <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp: 335 8408583</a>
+            <a class="btn" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email: boatto-ger@libero.it</a>
+          </div>
+
+          <p class="small">Orari di risposta: appena possibile (in genere entro la giornata).</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="y"></span> Casa Vacanze — Tutti i diritti riservati</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="pill" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="pill" href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20-%20Casa%20Vacanze">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
