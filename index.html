@@ -1,619 +1,758 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Casa Vacanze – Appartamenti fronte mare</title>
-<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi.">
+  <title>Casa Vacanze – Appartamenti fronte mare</title>
+  <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi." />
 
-<style>
-:root{
-  --brand:#0b3a53;
-  --brand2:#1f7a8c;
-  --accent:#f2c14e;
+  <style>
+    :root{
+      --brand:#0b3a53;
+      --brand2:#1f7a8c;
+      --accent:#f2c14e;
 
-  --bg:#efe8df;
-  --card:#fffdf9;
+      --bg1:#f7f1e8;
+      --bg2:#eef4f6;
 
-  --text:#13212f;
-  --muted:rgba(19,33,47,.7);
+      --text:#13212f;
+      --muted:rgba(19,33,47,.70);
 
-  --radius:22px;
-  --shadow:0 16px 40px rgba(0,0,0,.12);
+      --radius:22px;
+      --shadow:0 18px 48px rgba(0,0,0,.12);
+      --shadow2:0 10px 28px rgba(0,0,0,.10);
 
-  --max:1100px;
-}
+      --max:1100px;
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-a{text-decoration:none;color:inherit}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 12% 10%, rgba(31,122,140,.12), transparent 60%),
+        radial-gradient(900px 500px at 88% 22%, rgba(242,193,78,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
 
-.wrap{max-width:var(--max);margin:auto;padding:0 20px}
+    .wrap{max-width:var(--max);margin:auto;padding:0 20px}
 
-/* ===== TOP BAR ===== */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(239,232,223,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(0,0,0,.08);
-}
-.topbar-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:14px 0;
-  gap:14px;
-}
-.brand{display:flex;align-items:center;gap:10px}
-.brand-mark{
-  width:36px;height:36px;
-  border-radius:14px;
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#fff;
-  font-weight:800;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.brand span{font-weight:700;font-size:14px}
-.brand small{display:block;font-size:12px;color:var(--muted)}
+    /* TOP BAR */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(247,241,232,.82);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:220px;
+    }
+    .brand-mark{
+      width:38px;height:38px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#fff;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      letter-spacing:.5px;
+      box-shadow:0 10px 22px rgba(11,58,83,.25);
+    }
+    .brand .t{line-height:1.1}
+    .brand .t span{display:block;font-weight:800;font-size:14px}
+    .brand .t small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 
-.nav{display:flex;gap:10px;flex-wrap:wrap}
-.nav a{
-  font-size:14px;
-  color:var(--muted);
-  padding:8px 10px;
-  border-radius:12px;
-}
-.nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
+    .nav{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .nav a{
+      font-size:14px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
 
-.btn{
-  padding:11px 14px;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  font-weight:700;
-  font-size:14px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  white-space:nowrap;
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#fff;
-  border:none;
-}
-.btn-soft{
-  background:rgba(242,193,78,.35);
-  border-color:rgba(242,193,78,.6);
-}
-.btns{display:flex;gap:8px;flex-wrap:wrap}
+    .btns{display:flex;gap:8px;align-items:center}
+    .btn{
+      padding:11px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      background:rgba(255,255,255,.90);
+      font-weight:800;
+      font-size:14px;
+      box-shadow:0 10px 22px rgba(0,0,0,.06);
+      transition:transform .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand),var(--brand2));
+      color:#fff;
+      border:none;
+      box-shadow:0 16px 34px rgba(11,58,83,.25);
+    }
+    .btn-soft{
+      background:rgba(242,193,78,.28);
+      border-color:rgba(242,193,78,.40);
+    }
 
-/* ===== HERO ===== */
-.hero{margin-top:28px}
-.hero-bg{
-  border-radius:var(--radius);
-  min-height:360px;
-  display:flex;
-  align-items:center;
-  padding:24px;
-  background:
-    linear-gradient(90deg,
-      rgba(11,58,83,.18) 0%,
-      rgba(11,58,83,.08) 45%,
-      rgba(11,58,83,.02) 100%),
-    url('facciata.png') 30% center / cover no-repeat;
-  box-shadow:var(--shadow);
-}
-.hero-card{
-  max-width:460px;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(6px);
-  border-radius:18px;
-  padding:20px;
-}
-.hero-card h1{margin:0 0 10px;font-size:30px;line-height:1.15}
-.hero-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}
+    /* HERO */
+    .hero{margin:26px auto 18px}
+    .hero-card{
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(11,58,83,.55) 0%, rgba(11,58,83,.25) 38%, rgba(11,58,83,.05) 62%, rgba(11,58,83,0) 100%),
+        url('facciata.png') center / cover no-repeat;
+      min-height:380px;
+      position:relative;
+    }
+    .hero-overlay{
+      position:absolute;
+      left:26px;
+      top:26px;
+      max-width:520px;
+      border-radius:22px;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.45);
+      box-shadow:var(--shadow2);
+      padding:22px 22px 18px;
+    }
+    .hero-overlay h1{
+      margin:0 0 10px;
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:-.8px;
+    }
+    .hero-overlay p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-weight:600;
+      line-height:1.5;
+    }
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+    .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.90);
+      border:1px solid rgba(0,0,0,.10);
+      font-weight:700;
+      font-size:13px;
+      box-shadow:0 10px 18px rgba(0,0,0,.06);
+    }
 
-.badges{display:flex;gap:8px;flex-wrap:wrap}
-.badge{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.1);
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:13px;
-}
+    /* SECTIONS */
+    section{scroll-margin-top:90px}
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:18px 0;
+    }
+    .card{
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(8px);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow2);
+    }
+    .card h2,.card h3{margin:0 0 10px}
+    .card p{margin:0;color:var(--muted);font-weight:600;line-height:1.6}
 
-/* ===== SECTIONS ===== */
-.section{margin-top:28px}
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:24px;
-  box-shadow:var(--shadow);
-}
-.card h2{margin:0 0 10px}
-.card p{color:var(--muted);line-height:1.7}
+    /* TIPI APPARTAMENTO */
+    .types{margin-top:6px}
+    .types-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px}
+    .types-head h2{margin:0}
+    .types-head p{margin:0;color:var(--muted);font-weight:600}
+    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px}
 
-/* ===== TIPOLOGIE ===== */
-.types{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:16px;
-}
-.type-card{
-  background:#fff;
-  border-radius:18px;
-  border:1px solid rgba(0,0,0,.08);
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-}
-.type-photo{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  display:block;
-}
-.type-body{padding:18px}
-.type-card h3{margin:0 0 8px;font-size:18px}
-.type-card p{margin:0 0 12px;color:var(--muted);line-height:1.6;font-size:14px}
-.type-list{list-style:none;padding:0;margin:0 0 14px}
-.type-list li{padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px}
-.type-list li:last-child{border-bottom:none}
-.type-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-sm{padding:10px 12px;border-radius:12px;font-size:14px}
+    .type-card{padding:0;overflow:hidden}
+    .type-img{
+      height:170px;
+      background:#ddd;
+      background-size:cover;
+      background-position:center;
+    }
+    .type-body{padding:18px 18px 16px}
+    .type-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+    .type-title h3{margin:0}
+    .cap{
+      font-size:12px;
+      font-weight:900;
+      color:rgba(11,58,83,.85);
+      background:rgba(31,122,140,.12);
+      border:1px solid rgba(31,122,140,.20);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .list{margin:12px 0 14px;padding:0;list-style:none;display:grid;gap:8px}
+    .list li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-weight:650}
+    .tick{
+      width:18px;height:18px;border-radius:6px;
+      background:rgba(46, 160, 67, .12);
+      border:1px solid rgba(46, 160, 67, .25);
+      display:inline-flex;align-items:center;justify-content:center;
+      flex:0 0 auto;margin-top:2px;
+    }
+    .type-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .btn-sm{
+      padding:10px 12px;border-radius:14px;font-weight:900;font-size:14px;
+      border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.92);
+      box-shadow:0 10px 18px rgba(0,0,0,.06);
+    }
+    .btn-sm.primary{
+      border:none;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2));
+      box-shadow:0 16px 30px rgba(11,58,83,.22);
+    }
 
-/* ===== PERCHE ===== */
-.why{
-  list-style:none;
-  padding:0;
-  margin:16px 0 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px 18px;
-}
-.why li{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:16px;
-  padding:14px 16px;
-  font-size:14px;
-  line-height:1.6;
-}
+    /* GALLERY MONO (griglia) */
+    .mono-gallery{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:8px;
+      padding:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35));
+    }
+    .mono-gallery figure{
+      margin:0;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 10px 18px rgba(0,0,0,.06);
+      cursor:pointer;
+      position:relative;
+      background:#eee;
+    }
+    .mono-gallery img{
+      width:100%;
+      height:92px;
+      object-fit:cover;
+      transition:transform .18s ease;
+    }
+    .mono-gallery figure:hover img{transform:scale(1.04)}
+    .mono-gallery figure.big{
+      grid-column:span 3;
+    }
+    .mono-gallery figure.big img{
+      height:190px;
+    }
+    .mono-badge{
+      position:absolute;
+      left:10px;bottom:10px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(11,58,83,.78);
+      color:#fff;
+      font-weight:900;
+      font-size:12px;
+      backdrop-filter:blur(6px);
+      border:1px solid rgba(255,255,255,.22);
+    }
 
-/* ===== REGOLE ===== */
-.rules{list-style:none;padding:0;margin:12px 0 0}
-.rules li{padding:10px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-.rules li:last-child{border-bottom:none}
+    /* MODAL */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.72);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+      padding:18px;
+    }
+    .modal.open{display:flex}
+    .modal-card{
+      width:min(980px, 100%);
+      background:rgba(255,255,255,.94);
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .modal-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.08));
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+    .modal-top b{font-size:14px}
+    .modal-close{
+      border:none;
+      background:rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:12px;
+      padding:8px 10px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .modal-body{
+      position:relative;
+      background:#111;
+    }
+    .modal-body img{
+      width:100%;
+      height:min(72vh, 620px);
+      object-fit:contain;
+      background:#111;
+    }
+    .modal-nav{
+      position:absolute;
+      inset:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 10px;
+      pointer-events:none;
+    }
+    .arrow{
+      pointer-events:auto;
+      width:44px;height:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.14);
+      backdrop-filter:blur(6px);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .arrow:hover{background:rgba(255,255,255,.22)}
 
-/* ===== FORM ===== */
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:14px;
-  margin-top:12px;
-}
-.field{display:flex;flex-direction:column;gap:6px}
-label{font-size:13px;color:var(--muted)}
-input, select, textarea{
-  border:1px solid rgba(0,0,0,.12);
-  border-radius:14px;
-  padding:12px 12px;
-  font:inherit;
-  background:#fff;
-}
-textarea{min-height:110px;resize:vertical}
-.help{
-  margin-top:10px;
-  font-size:13px;
-  color:var(--muted);
-  line-height:1.5;
-}
+    /* PERCHE' */
+    .reasons{margin-top:18px}
+    .reasons .mini-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;margin-top:12px}
+    .mini{padding:16px 16px 14px}
+    .mini b{display:block;margin-bottom:6px}
+    .mini span{color:var(--muted);font-weight:650;line-height:1.5}
 
-/* ===== GALLERY (ESTERNI + CAORLE) ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:14px;
-  margin-top:14px;
-}
-.photo{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,.08);
-  background:#fff;
-}
-.photo img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
-}
-.photo .cap{
-  padding:10px 12px;
-  font-size:13px;
-  color:var(--muted);
-}
+    /* REGOLE */
+    .rules{margin-top:18px}
+    .rules ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .rules li{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px 12px;border-radius:16px;
+      background:rgba(255,255,255,.70);
+      border:1px solid rgba(0,0,0,.08);
+      color:var(--muted);font-weight:650;
+    }
+    .rules li b{color:var(--text)}
 
-/* ===== MAP ===== */
-.map{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(0,0,0,.08);
-  background:#fff;
-  margin-top:14px;
-}
-.map iframe{
-  width:100%;
-  height:320px;
-  border:0;
-  display:block;
-}
+    /* MAP + CONTACT */
+    .grid-map{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-top:18px;
+      align-items:stretch;
+    }
+    .mapbox{padding:0;overflow:hidden}
+    .mapbox iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .nav{display:none}
-  .grid{grid-template-columns:1fr}
-  .types{grid-template-columns:1fr}
-  .why{grid-template-columns:1fr}
-  .form-grid{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .hero-bg{background-position:50% center;min-height:320px}
-}
-</style>
+    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .muted{color:var(--muted);font-weight:650;line-height:1.6}
+
+    footer{
+      margin:22px 0 28px;
+      color:rgba(19,33,47,.6);
+      font-weight:650;
+      font-size:13px;
+      text-align:center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .nav{display:none}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      .grid-map{grid-template-columns:1fr}
+      .hero-overlay{position:static;max-width:none;margin:18px}
+      .hero-card{
+        background:
+          linear-gradient(180deg, rgba(11,58,83,.40) 0%, rgba(11,58,83,.10) 55%, rgba(11,58,83,0) 100%),
+          url('facciata.png') center / cover no-repeat;
+      }
+      .hero-overlay h1{font-size:34px}
+      .reasons .mini-grid{grid-template-columns:1fr}
+      .mono-gallery{grid-template-columns:repeat(2, 1fr)}
+      .mono-gallery figure.big{grid-column:span 2}
+    }
+  </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="#home" aria-label="Vai alla home">
+          <div class="brand-mark">CV</div>
+          <div class="t">
+            <span>Casa Vacanze</span>
+            <small>Appartamenti fronte mare</small>
+          </div>
+        </a>
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <div class="brand">
-      <div class="brand-mark">CV</div>
-      <div>
-        <span>Casa Vacanze</span>
-        <small>Appartamenti fronte mare</small>
+        <nav class="nav" aria-label="Navigazione">
+          <a href="#chi-siamo">Chi siamo</a>
+          <a href="#appartamenti">Appartamenti</a>
+          <a href="#tipologie">Tipologie</a>
+          <a href="#perche">Perché sceglierci</a>
+          <a href="#regole">Regole</a>
+          <a href="#contatti">Contatti</a>
+        </nav>
+
+        <div class="btns">
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20gli%20appartamenti.">WhatsApp</a>
+
+          <a class="btn"
+             href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20Casa%20Vacanze&body=Buongiorno%2C%0Avorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%0AGrazie.">Email</a>
+
+          <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+        </div>
       </div>
     </div>
+  </header>
 
-    <nav class="nav">
-      <a href="#chi">Chi siamo</a>
-      <a href="#tipologie">Tipologie</a>
-      <a href="#perche">Perché sceglierci</a>
-      <a href="#gallery">Esterni e Caorle</a>
-      <a href="#dove">Dove siamo</a>
-      <a href="#regole">Regole</a>
-      <a href="#contatti">Contatti</a>
-    </nav>
+  <main class="wrap" id="home">
 
-    <div class="btns">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
-      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+    <section class="hero">
+      <div class="hero-card" role="img" aria-label="Foto della struttura">
+        <div class="hero-overlay">
+          <h1>La tua casa per le vacanze,<br/>a due passi dal mare</h1>
+          <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
+          </div>
+
+          <div class="pill-row" aria-label="Servizi principali">
+            <div class="pill">🐾 Animali ammessi</div>
+            <div class="pill">🅿️ Parcheggio privato</div>
+            <div class="pill">❄️ Aria condizionata</div>
+            <div class="pill">📺 TV</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-2" id="chi-siamo">
+      <div class="card">
+        <h2>Chi siamo</h2>
+        <p>
+          I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
+          in spazi accoglienti e ben organizzati.
+          <br/><br/>
+          Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
+          qui si trova un ambiente pensato per sentirsi subito a proprio agio.
+        </p>
+      </div>
+
+      <div class="card" id="appartamenti">
+        <h2>Gli appartamenti</h2>
+        <p>
+          <b>Soluzioni ideali</b> per chi cerca comfort, praticità e una posizione comoda:
+          fronte mare e a due passi dal centro storico di Caorle.
+          <br/><br/>
+          Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
+        </p>
+      </div>
+    </section>
+
+    <section class="card types" id="tipologie">
+      <div class="types-head">
+        <div>
+          <h2>Tipologie di appartamento</h2>
+          <p>Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <!-- MONO con GALLERY -->
+        <article class="card type-card" data-gallery="mono">
+          <!-- gallery sopra (tutte le foto del monolocale) -->
+          <div class="mono-gallery" aria-label="Foto Monolocale">
+            <figure class="big" data-full="mono-3-cucina.jpg" data-title="Monolocale • Cucina">
+              <img src="mono-3-cucina.jpg" alt="Monolocale - cucina" />
+              <div class="mono-badge">Monolocale • Foto</div>
+            </figure>
+
+            <figure data-full="mono-1-entrata.jpg" data-title="Monolocale • Entrata">
+              <img src="mono-1-entrata.jpg" alt="Monolocale - entrata" />
+            </figure>
+
+            <figure data-full="mono-2-esterno.jpg" data-title="Monolocale • Esterno">
+              <img src="mono-2-esterno.jpg" alt="Monolocale - esterno" />
+            </figure>
+
+            <figure data-full="mono-4-sala.jpg" data-title="Monolocale • Sala">
+              <img src="mono-4-sala.jpg" alt="Monolocale - sala" />
+            </figure>
+
+            <figure data-full="mono-5-bagno.jpg" data-title="Monolocale • Bagno">
+              <img src="mono-5-bagno.jpg" alt="Monolocale - bagno" />
+            </figure>
+          </div>
+
+          <div class="type-body">
+            <div class="type-title">
+              <h3>Monolocale</h3>
+              <div class="cap">Max 3 persone</div>
+            </div>
+
+            <ul class="list">
+              <li><span class="tick">✓</span> Zona giorno/notte</li>
+              <li><span class="tick">✓</span> Angolo cottura</li>
+              <li><span class="tick">✓</span> Bagno privato</li>
+              <li><span class="tick">✓</span> Aria condizionata • TV</li>
+            </ul>
+
+            <div class="type-actions">
+              <a class="btn-sm primary"
+                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Monolocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Monolocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
+
+              <a class="btn-sm" target="_blank" rel="noopener"
+                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Monolocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- BILO (1 foto per ora) -->
+        <article class="card type-card">
+          <div class="type-img" style="background-image:url('bilo-esterno.jpg');"></div>
+          <div class="type-body">
+            <div class="type-title">
+              <h3>Bilocale</h3>
+              <div class="cap">Max 5 persone</div>
+            </div>
+
+            <ul class="list">
+              <li><span class="tick">✓</span> Camera + soggiorno</li>
+              <li><span class="tick">✓</span> Cucina/angolo cottura</li>
+              <li><span class="tick">✓</span> Bagno privato</li>
+              <li><span class="tick">✓</span> Aria condizionata • TV</li>
+            </ul>
+
+            <div class="type-actions">
+              <a class="btn-sm primary"
+                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Bilocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Bilocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
+
+              <a class="btn-sm" target="_blank" rel="noopener"
+                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Bilocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- TRILO (1 foto per ora + bottoni OK) -->
+        <article class="card type-card">
+          <div class="type-img" style="background-image:url('trilo-cucina.jpg');"></div>
+          <div class="type-body">
+            <div class="type-title">
+              <h3>Trilocale</h3>
+              <div class="cap">Max 6 persone</div>
+            </div>
+
+            <ul class="list">
+              <li><span class="tick">✓</span> Due camere + soggiorno</li>
+              <li><span class="tick">✓</span> Cucina/angolo cottura</li>
+              <li><span class="tick">✓</span> Bagno privato</li>
+              <li><span class="tick">✓</span> Aria condizionata • TV</li>
+            </ul>
+
+            <div class="type-actions">
+              <a class="btn-sm primary"
+                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Trilocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Trilocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
+
+              <a class="btn-sm" target="_blank" rel="noopener"
+                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Trilocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="card reasons" id="perche">
+      <h2>Perché sceglierci</h2>
+      <p class="muted">
+        Un soggiorno semplice, comodo e curato: la soluzione giusta per chi vuole vivere Caorle senza stress.
+      </p>
+
+      <div class="mini-grid">
+        <div class="card mini">
+          <b>Posizione comoda</b>
+          <span>Fronte mare e a due passi dal centro storico: tutto raggiungibile con facilità.</span>
+        </div>
+        <div class="card mini">
+          <b>Comfort essenziale</b>
+          <span>Spazi funzionali, aria condizionata e TV: quello che serve per una vacanza in autonomia.</span>
+        </div>
+        <div class="card mini">
+          <b>Accoglienza diretta</b>
+          <span>Per informazioni, disponibilità e prezzi potete contattarci direttamente: rispondiamo il prima possibile.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card rules" id="regole">
+      <h2>Regole della casa</h2>
+      <ul>
+        <li>🐾 <b>Animali ammessi</b></li>
+        <li>🕑 <b>Check-in</b> a partire dalle ore <b>14:00</b></li>
+        <li>🕙 <b>Check-out</b> entro le <b>10:00</b></li>
+      </ul>
+    </section>
+
+    <section class="grid-map" id="contatti">
+      <div class="card mapbox" aria-label="Mappa">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Viale%20Marconi%2033%2C%2030021%20Caorle&output=embed"></iframe>
+      </div>
+
+      <div class="card">
+        <h2>Contatti / Prenotazioni</h2>
+        <p class="muted">
+          Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+          Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
+          <br/><br/>
+          <b>Indirizzo:</b> Viale Marconi 33, 30021 Caorle
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn btn-primary" target="_blank" rel="noopener"
+             href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%20Grazie!">Scrivici su WhatsApp</a>
+
+          <a class="btn"
+             href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20Casa%20Vacanze&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%0ADate%3A%20_____%0APersone%3A%20_____%0AGrazie.">Contattaci via Email</a>
+
+          <a class="btn btn-soft" href="tel:+393358408583">Chiama ora</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Casa Vacanze • Tutti i diritti riservati
+    </footer>
+
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Galleria immagini">
+      <div class="modal-top">
+        <b id="modalTitle">Foto</b>
+        <button class="modal-close" id="modalClose" aria-label="Chiudi">Chiudi ✕</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImg" alt="" />
+        <div class="modal-nav" aria-label="Navigazione">
+          <button class="arrow" id="prevBtn" aria-label="Precedente">‹</button>
+          <button class="arrow" id="nextBtn" aria-label="Successiva">›</button>
+        </div>
+      </div>
     </div>
   </div>
-</header>
 
-<main class="wrap">
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="hero-card">
-        <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
-        <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
-        <a class="btn btn-soft" href="#contatti">Richiedi disponibilità →</a>
+    // --- Gallery modal (Monolocale) ---
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalClose = document.getElementById("modalClose");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
-        <div class="badges" style="margin-top:12px">
-          <span class="badge">🐾 Animali ammessi</span>
-          <span class="badge">🅿️ Parcheggio privato</span>
-          <span class="badge">❄️ Aria condizionata</span>
-          <span class="badge">📺 TV</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    // prendo tutte le figure della gallery monolocale
+    const thumbs = Array.from(document.querySelectorAll("[data-gallery='mono'] .mono-gallery figure"));
+    const items = thumbs.map(fig => ({
+      src: fig.getAttribute("data-full"),
+      title: fig.getAttribute("data-title") || "Foto"
+    }));
 
-  <section class="section grid">
-    <div class="card" id="chi">
-      <h2>Chi siamo</h2>
-      <p>
-        I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
-        in spazi accoglienti e ben organizzati.
-      </p>
-      <p>
-        Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe, qui si trova
-        un ambiente pensato per sentirsi subito a proprio agio.
-      </p>
-    </div>
+    let idx = 0;
 
-    <div class="card">
-      <h2>Gli appartamenti</h2>
-      <p>
-        <strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong>
-        fronte mare e a due passi dal centro storico di Caorle.
-      </p>
-      <p>Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.</p>
-    </div>
-  </section>
-
-  <section class="section card" id="tipologie">
-    <h2>Tipologie di appartamento</h2>
-    <p style="margin:0;color:var(--muted)">Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
-
-    <div class="types">
-      <div class="type-card">
-        <img class="type-photo" src="mono.jpg" alt="Monolocale">
-        <div class="type-body">
-          <h3>Monolocale</h3>
-          <p>Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
-          <ul class="type-list">
-            <li>✅ Zona giorno/notte</li>
-            <li>✅ Angolo cottura</li>
-            <li>✅ Bagno privato</li>
-            <li>✅ Aria condizionata • TV</li>
-          </ul>
-          <div class="type-actions">
-            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <img class="type-photo" src="bilo.jpg" alt="Bilocale">
-        <div class="type-body">
-          <h3>Bilocale</h3>
-          <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
-          <ul class="type-list">
-            <li>✅ Camera + soggiorno</li>
-            <li>✅ Cucina/angolo cottura</li>
-            <li>✅ Bagno privato</li>
-            <li>✅ Aria condizionata • TV</li>
-          </ul>
-          <div class="type-actions">
-            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <img class="type-photo" src="tri.jpg" alt="Trilocale">
-        <div class="type-body">
-          <h3>Trilocale</h3>
-          <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
-          <ul class="type-list">
-            <li>✅ Due camere + soggiorno</li>
-            <li>✅ Cucina/angolo cottura</li>
-            <li>✅ Bagno privato</li>
-            <li>✅ Aria condizionata • TV</li>
-          </ul>
-          <div class="type-actions">
-            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section card" id="perche">
-    <h2>Perché sceglierci</h2>
-    <p style="margin:0;color:var(--muted)">
-      Una soluzione semplice, curata e pensata per chi desidera una vacanza senza complicazioni.
-    </p>
-
-    <ul class="why">
-      <li><strong>📍 Posizione strategica</strong><br>Fronte mare e a pochi passi dal centro storico.</li>
-      <li><strong>🏡 Comfort e praticità</strong><br>Spazi funzionali per soggiorni in autonomia.</li>
-      <li><strong>🐾 Pet-friendly</strong><br>Gli animali sono i benvenuti.</li>
-      <li><strong>🚗 Servizi inclusi</strong><br>Parcheggio privato, aria condizionata e TV.</li>
-      <li><strong>🤝 Contatto diretto</strong><br>Risposta rapida per disponibilità e prezzi.</li>
-      <li><strong>🧾 Informazioni chiare</strong><br>Richieste semplici, senza passaggi inutili.</li>
-    </ul>
-  </section>
-
-  <section class="section card" id="gallery">
-    <h2>Esterni e Caorle</h2>
-    <p style="margin:0;color:var(--muted)">
-      Qualche scatto del contesto: esterni, mare e atmosfera di Caorle.
-    </p>
-
-    <div class="gallery">
-      <div class="photo">
-        <img src="caorle1.jpg" alt="Caorle - mare">
-        <div class="cap">Caorle • Mare</div>
-      </div>
-      <div class="photo">
-        <img src="caorle2.jpg" alt="Caorle - centro storico">
-        <div class="cap">Caorle • Centro storico</div>
-      </div>
-      <div class="photo">
-        <img src="caorle3.jpg" alt="Caorle - scorcio">
-        <div class="cap">Caorle • Scorcio</div>
-      </div>
-      <div class="photo">
-        <img src="caorle4.jpg" alt="Esterni">
-        <div class="cap">Esterni</div>
-      </div>
-      <div class="photo">
-        <img src="caorle5.jpg" alt="Passeggiata">
-        <div class="cap">Passeggiata</div>
-      </div>
-      <div class="photo">
-        <img src="caorle6.jpg" alt="Tramonto">
-        <div class="cap">Tramonto</div>
-      </div>
-    </div>
-
-    <div class="help">
-      Se vuoi, posso anche fare una versione con le foto “a mosaico” (più elegante) o con uno slider.
-    </div>
-  </section>
-
-  <section class="section card" id="dove">
-    <h2>Dove siamo</h2>
-    <p style="margin:0;color:var(--muted)">
-      Viale Marconi 33, 30021 Caorle (VE)
-    </p>
-
-    <div class="map">
-      <iframe
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Viale%20Marconi%2033%2C%2030021%20Caorle&output=embed">
-      </iframe>
-    </div>
-  </section>
-
-  <section class="section card" id="regole">
-    <h2>Regole della casa</h2>
-    <ul class="rules">
-      <li>🐾 Animali ammessi</li>
-      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
-      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
-    </ul>
-  </section>
-
-  <section class="section card" id="contatti">
-    <h2>Contatti / Prenotazioni</h2>
-    <p style="margin:0;color:var(--muted)">
-      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
-      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
-    </p>
-
-    <div class="form-grid">
-      <div class="field">
-        <label for="checkin">Check-in</label>
-        <input id="checkin" type="date" required>
-      </div>
-
-      <div class="field">
-        <label for="checkout">Check-out</label>
-        <input id="checkout" type="date" required>
-      </div>
-
-      <div class="field">
-        <label for="ospiti">Numero ospiti</label>
-        <input id="ospiti" type="number" min="1" max="10" placeholder="Es. 4" required>
-      </div>
-
-      <div class="field">
-        <label for="tipologia">Tipologia desiderata</label>
-        <select id="tipologia" required>
-          <option value="">Seleziona</option>
-          <option value="Monolocale (max 3)">Monolocale (max 3)</option>
-          <option value="Bilocale (max 5)">Bilocale (max 5)</option>
-          <option value="Trilocale (max 6)">Trilocale (max 6)</option>
-        </select>
-      </div>
-
-      <div class="field" style="grid-column:1/-1">
-        <label for="note">Note (facoltative)</label>
-        <textarea id="note" placeholder="Es. orario arrivo, animali, richieste particolari..."></textarea>
-      </div>
-    </div>
-
-    <div class="btns" style="margin-top:14px">
-      <button class="btn btn-primary" id="btn-wa">Invia richiesta su WhatsApp</button>
-      <a class="btn" href="mailto:boatto-ger@libero.it">Oppure via Email</a>
-      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
-    </div>
-
-    <div class="help" id="form-help">
-      <strong>Capienza:</strong> Monolocale max 3 · Bilocale max 5 · Trilocale max 6.
-    </div>
-  </section>
-
-  <footer style="padding:28px 0 40px;color:rgba(0,0,0,.55);font-size:13px">
-    <div style="border-top:1px solid rgba(0,0,0,.1);padding-top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-      <div>© <span id="y"></span> Casa Vacanze</div>
-      <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
-    </div>
-  </footer>
-
-</main>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-
-  const WA_NUMBER = "393358408583";
-
-  function formatDateISOToIT(iso){
-    if(!iso) return "";
-    const [y,m,d] = iso.split("-");
-    return `${d}/${m}/${y}`;
-  }
-
-  function validateCapacity(guests, type){
-    const caps = {
-      "Monolocale (max 3)": 3,
-      "Bilocale (max 5)": 5,
-      "Trilocale (max 6)": 6
-    };
-    const cap = caps[type] || null;
-    if(!cap) return { ok:false, msg:"Seleziona una tipologia." };
-    if(!guests || guests < 1) return { ok:false, msg:"Inserisci il numero ospiti." };
-    if(guests > cap) return { ok:false, msg:`Per ${type} il massimo è ${cap} ospiti.` };
-    return { ok:true, msg:"" };
-  }
-
-  document.getElementById("btn-wa").addEventListener("click", () => {
-    const checkin = document.getElementById("checkin").value;
-    const checkout = document.getElementById("checkout").value;
-    const ospiti = parseInt(document.getElementById("ospiti").value, 10);
-    const tipologia = document.getElementById("tipologia").value;
-    const note = document.getElementById("note").value.trim();
-
-    const help = document.getElementById("form-help");
-
-    if(!checkin || !checkout){
-      help.textContent = "Inserisci check-in e check-out.";
-      return;
-    }
-    if(checkout <= checkin){
-      help.textContent = "La data di check-out deve essere successiva al check-in.";
-      return;
+    function openModal(i){
+      idx = i;
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden","false");
+      render();
     }
 
-    const capCheck = validateCapacity(ospiti, tipologia);
-    if(!capCheck.ok){
-      help.textContent = capCheck.msg;
-      return;
+    function closeModal(){
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden","true");
     }
 
-    const msg =
-`Buongiorno, vorrei informazioni su disponibilità e prezzi.
+    function render(){
+      const it = items[idx];
+      modalImg.src = it.src;
+      modalImg.alt = it.title;
+      modalTitle.textContent = it.title;
+    }
 
-• Tipologia: ${tipologia}
-• Ospiti: ${ospiti}
-• Check-in: ${formatDateISOToIT(checkin)}
-• Check-out: ${formatDateISOToIT(checkout)}
-${note ? "• Note: " + note : ""}
+    function prev(){
+      idx = (idx - 1 + items.length) % items.length;
+      render();
+    }
 
-Grazie!`;
+    function next(){
+      idx = (idx + 1) % items.length;
+      render();
+    }
 
-    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-    window.open(url, "_blank", "noopener");
-    help.textContent = "Perfetto! Ti si aprirà WhatsApp con il messaggio già compilato.";
-  });
-</script>
+    thumbs.forEach((fig, i) => {
+      fig.addEventListener("click", () => openModal(i));
+    });
 
+    modalClose.addEventListener("click", closeModal);
+    prevBtn.addEventListener("click", prev);
+    nextBtn.addEventListener("click", next);
+
+    // click fuori per chiudere
+    modal.addEventListener("click", (e) => {
+      if(e.target === modal) closeModal();
+    });
+
+    // ESC / frecce tastiera
+    document.addEventListener("keydown", (e) => {
+      if(!modal.classList.contains("open")) return;
+      if(e.key === "Escape") closeModal();
+      if(e.key === "ArrowLeft") prev();
+      if(e.key === "ArrowRight") next();
+    });
+  </script>
 </body>
 </html>
