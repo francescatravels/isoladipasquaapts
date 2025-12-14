@@ -160,9 +160,18 @@ a{text-decoration:none;color:inherit}
 .type-card{
   background:#fff;
   border-radius:18px;
-  padding:18px;
   border:1px solid rgba(0,0,0,.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
 }
+.type-photo{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  display:block;
+}
+.type-body{padding:18px}
 .type-card h3{margin:0 0 8px;font-size:18px}
 .type-card p{margin:0 0 12px;color:var(--muted);line-height:1.6;font-size:14px}
 .type-list{list-style:none;padding:0;margin:0 0 14px}
@@ -201,11 +210,7 @@ a{text-decoration:none;color:inherit}
   gap:14px;
   margin-top:12px;
 }
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
+.field{display:flex;flex-direction:column;gap:6px}
 label{font-size:13px;color:var(--muted)}
 input, select, textarea{
   border:1px solid rgba(0,0,0,.12);
@@ -222,7 +227,7 @@ textarea{min-height:110px;resize:vertical}
   line-height:1.5;
 }
 
-/* ===== GALLERY ===== */
+/* ===== GALLERY (ESTERNI + CAORLE) ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
@@ -291,7 +296,7 @@ textarea{min-height:110px;resize:vertical}
       <a href="#chi">Chi siamo</a>
       <a href="#tipologie">Tipologie</a>
       <a href="#perche">Perché sceglierci</a>
-      <a href="#gallery">Foto</a>
+      <a href="#gallery">Esterni e Caorle</a>
       <a href="#dove">Dove siamo</a>
       <a href="#regole">Regole</a>
       <a href="#contatti">Contatti</a>
@@ -353,47 +358,56 @@ textarea{min-height:110px;resize:vertical}
 
     <div class="types">
       <div class="type-card">
-        <h3>Monolocale</h3>
-        <p>Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
-        <ul class="type-list">
-          <li>✅ Zona giorno/notte</li>
-          <li>✅ Angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        <img class="type-photo" src="mono.jpg" alt="Monolocale">
+        <div class="type-body">
+          <h3>Monolocale</h3>
+          <p>Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
+          <ul class="type-list">
+            <li>✅ Zona giorno/notte</li>
+            <li>✅ Angolo cottura</li>
+            <li>✅ Bagno privato</li>
+            <li>✅ Aria condizionata • TV</li>
+          </ul>
+          <div class="type-actions">
+            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+          </div>
         </div>
       </div>
 
       <div class="type-card">
-        <h3>Bilocale</h3>
-        <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
-        <ul class="type-list">
-          <li>✅ Camera + soggiorno</li>
-          <li>✅ Cucina/angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        <img class="type-photo" src="bilo.jpg" alt="Bilocale">
+        <div class="type-body">
+          <h3>Bilocale</h3>
+          <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
+          <ul class="type-list">
+            <li>✅ Camera + soggiorno</li>
+            <li>✅ Cucina/angolo cottura</li>
+            <li>✅ Bagno privato</li>
+            <li>✅ Aria condizionata • TV</li>
+          </ul>
+          <div class="type-actions">
+            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+          </div>
         </div>
       </div>
 
       <div class="type-card">
-        <h3>Trilocale</h3>
-        <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
-        <ul class="type-list">
-          <li>✅ Due camere + soggiorno</li>
-          <li>✅ Cucina/angolo cottura</li>
-          <li>✅ Bagno privato</li>
-          <li>✅ Aria condizionata • TV</li>
-        </ul>
-        <div class="type-actions">
-          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
-          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        <img class="type-photo" src="tri.jpg" alt="Trilocale">
+        <div class="type-body">
+          <h3>Trilocale</h3>
+          <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
+          <ul class="type-list">
+            <li>✅ Due camere + soggiorno</li>
+            <li>✅ Cucina/angolo cottura</li>
+            <li>✅ Bagno privato</li>
+            <li>✅ Aria condizionata • TV</li>
+          </ul>
+          <div class="type-actions">
+            <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+          </div>
         </div>
       </div>
     </div>
@@ -416,41 +430,40 @@ textarea{min-height:110px;resize:vertical}
   </section>
 
   <section class="section card" id="gallery">
-    <h2>Foto</h2>
+    <h2>Esterni e Caorle</h2>
     <p style="margin:0;color:var(--muted)">
-      Puoi sostituire queste immagini con le tue (basta cambiare il nome del file).
+      Qualche scatto del contesto: esterni, mare e atmosfera di Caorle.
     </p>
 
     <div class="gallery">
       <div class="photo">
-        <img src="foto1.jpg" alt="Esterno">
-        <div class="cap">Esterno / Facciata</div>
+        <img src="caorle1.jpg" alt="Caorle - mare">
+        <div class="cap">Caorle • Mare</div>
       </div>
       <div class="photo">
-        <img src="foto2.jpg" alt="Interni">
-        <div class="cap">Interni</div>
+        <img src="caorle2.jpg" alt="Caorle - centro storico">
+        <div class="cap">Caorle • Centro storico</div>
       </div>
       <div class="photo">
-        <img src="foto3.jpg" alt="Cucina">
-        <div class="cap">Cucina / Angolo cottura</div>
+        <img src="caorle3.jpg" alt="Caorle - scorcio">
+        <div class="cap">Caorle • Scorcio</div>
       </div>
       <div class="photo">
-        <img src="foto4.jpg" alt="Camera">
-        <div class="cap">Camera</div>
+        <img src="caorle4.jpg" alt="Esterni">
+        <div class="cap">Esterni</div>
       </div>
       <div class="photo">
-        <img src="foto5.jpg" alt="Bagno">
-        <div class="cap">Bagno</div>
+        <img src="caorle5.jpg" alt="Passeggiata">
+        <div class="cap">Passeggiata</div>
       </div>
       <div class="photo">
-        <img src="foto6.jpg" alt="Dintorni">
-        <div class="cap">Dintorni / Mare</div>
+        <img src="caorle6.jpg" alt="Tramonto">
+        <div class="cap">Tramonto</div>
       </div>
     </div>
 
     <div class="help">
-      <strong>Nota:</strong> se non hai ancora le foto, puoi lasciare così. Quando le avrai, caricale nella repo
-      e rinomina i file (foto1.jpg, foto2.jpg, …) oppure dimmi i nomi e te lo adatto.
+      Se vuoi, posso anche fare una versione con le foto “a mosaico” (più elegante) o con uno slider.
     </div>
   </section>
 
@@ -466,10 +479,6 @@ textarea{min-height:110px;resize:vertical}
         referrerpolicy="no-referrer-when-downgrade"
         src="https://www.google.com/maps?q=Viale%20Marconi%2033%2C%2030021%20Caorle&output=embed">
       </iframe>
-    </div>
-
-    <div class="help">
-      Se vuoi, possiamo aggiungere anche 3 righe tipo: “Spiaggia: 2 min”, “Centro storico: 5 min”, ecc.
     </div>
   </section>
 
