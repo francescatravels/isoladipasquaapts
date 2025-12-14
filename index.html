@@ -1,758 +1,626 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Casa Vacanze – Appartamenti fronte mare</title>
-  <meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi." />
+<title>Casa Vacanze – Appartamenti fronte mare</title>
+<meta name="description" content="Appartamenti fronte mare e a due passi dal centro storico di Caorle. Comfort, praticità, accoglienza diretta. Animali ammessi." />
 
-  <style>
-    :root{
-      --brand:#0b3a53;
-      --brand2:#1f7a8c;
-      --accent:#f2c14e;
+<style>
+:root{
+  --brand:#0b3a53;
+  --brand2:#1f7a8c;
+  --accent:#f2c14e;
 
-      --bg1:#f7f1e8;
-      --bg2:#eef4f6;
+  /* Sfondo più “tenue” */
+  --bg1:#f6f4f0;
+  --bg2:#f1ece5;
 
-      --text:#13212f;
-      --muted:rgba(19,33,47,.70);
+  --text:#13212f;
+  --muted:rgba(19,33,47,.72);
+  --radius:22px;
+  --shadow:0 16px 40px rgba(0,0,0,.12);
+  --max:1100px;
+}
 
-      --radius:22px;
-      --shadow:0 18px 48px rgba(0,0,0,.12);
-      --shadow2:0 10px 28px rgba(0,0,0,.10);
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 450px at 15% 10%, rgba(31,122,140,.14), transparent 60%),
+    radial-gradient(900px 450px at 85% 15%, rgba(242,193,78,.14), transparent 60%),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+}
+a{text-decoration:none;color:inherit}
 
-      --max:1100px;
-    }
+.wrap{max-width:var(--max);margin:auto;padding:0 20px}
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 12% 10%, rgba(31,122,140,.12), transparent 60%),
-        radial-gradient(900px 500px at 88% 22%, rgba(242,193,78,.18), transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
-    }
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+/* TOP BAR */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(246,244,240,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 0;
+  gap:12px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:220px;
+}
+.brand-mark{
+  width:36px;height:36px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.brand .title{
+  font-weight:800;
+  font-size:14px;
+  line-height:1.1;
+}
+.brand .subtitle{
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:2px;
+}
 
-    .wrap{max-width:var(--max);margin:auto;padding:0 20px}
+.nav{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.nav a{
+  font-size:14px;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:12px;
+}
+.nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
 
-    /* TOP BAR */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(247,241,232,.82);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:12px 0;
-      gap:12px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:220px;
-    }
-    .brand-mark{
-      width:38px;height:38px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#fff;
-      font-weight:800;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      letter-spacing:.5px;
-      box-shadow:0 10px 22px rgba(11,58,83,.25);
-    }
-    .brand .t{line-height:1.1}
-    .brand .t span{display:block;font-weight:800;font-size:14px}
-    .brand .t small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.btn{
+  padding:11px 14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-weight:800;
+  font-size:14px;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+  justify-content:center;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;
+  border:none;
+}
+.btn-soft{
+  background:rgba(242,193,78,.25);
+  border-color:rgba(242,193,78,.45);
+}
+.btns{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 
-    .nav{
-      display:flex;
-      gap:6px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    .nav a{
-      font-size:14px;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:12px;
-    }
-    .nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
+/* HERO */
+.hero{
+  padding:26px 0 10px;
+}
+.hero-frame{
+  position:relative;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:
+    linear-gradient(90deg, rgba(11,58,83,.15) 0%, rgba(11,58,83,.05) 45%, rgba(11,58,83,0) 100%),
+    url('facciata.png') center / cover no-repeat;
+  min-height:380px;
+}
+.hero-card{
+  position:absolute;
+  left:28px;
+  top:28px;
+  width:min(520px, calc(100% - 56px));
+  background:rgba(255,255,255,.78);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:24px;
+  padding:22px;
+}
+.hero-card h1{
+  margin:0 0 10px;
+  font-size:42px;
+  line-height:1.05;
+  letter-spacing:-0.02em;
+}
+.hero-card p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-weight:600;
+}
+.hero-card .cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:10px 0 14px;
+}
+.pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:9px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(0,0,0,.10);
+  font-size:13px;
+  font-weight:700;
+  color:rgba(19,33,47,.85);
+}
 
-    .btns{display:flex;gap:8px;align-items:center}
-    .btn{
-      padding:11px 14px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.12);
-      background:rgba(255,255,255,.90);
-      font-weight:800;
-      font-size:14px;
-      box-shadow:0 10px 22px rgba(0,0,0,.06);
-      transition:transform .12s ease;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#fff;
-      border:none;
-      box-shadow:0 16px 34px rgba(11,58,83,.25);
-    }
-    .btn-soft{
-      background:rgba(242,193,78,.28);
-      border-color:rgba(242,193,78,.40);
-    }
+/* SECTIONS + CARDS */
+.section{
+  padding:26px 0 0;
+}
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+@media (max-width:900px){
+  .grid-2{grid-template-columns:1fr}
+  .hero-card h1{font-size:34px}
+}
 
-    /* HERO */
-    .hero{margin:26px auto 18px}
-    .hero-card{
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:
-        linear-gradient(90deg, rgba(11,58,83,.55) 0%, rgba(11,58,83,.25) 38%, rgba(11,58,83,.05) 62%, rgba(11,58,83,0) 100%),
-        url('facciata.png') center / cover no-repeat;
-      min-height:380px;
-      position:relative;
-    }
-    .hero-overlay{
-      position:absolute;
-      left:26px;
-      top:26px;
-      max-width:520px;
-      border-radius:22px;
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,.45);
-      box-shadow:var(--shadow2);
-      padding:22px 22px 18px;
-    }
-    .hero-overlay h1{
-      margin:0 0 10px;
-      font-size:40px;
-      line-height:1.08;
-      letter-spacing:-.8px;
-    }
-    .hero-overlay p{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-weight:600;
-      line-height:1.5;
-    }
-    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
-    .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:rgba(255,255,255,.90);
-      border:1px solid rgba(0,0,0,.10);
-      font-weight:700;
-      font-size:13px;
-      box-shadow:0 10px 18px rgba(0,0,0,.06);
-    }
+.card{
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+.card h2{
+  margin:0 0 10px;
+  font-size:26px;
+}
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-weight:600;
+  line-height:1.55;
+}
+.card p + p{margin-top:12px}
 
-    /* SECTIONS */
-    section{scroll-margin-top:90px}
-    .grid-2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin:18px 0;
-    }
-    .card{
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(8px);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:24px;
-      padding:22px;
-      box-shadow:var(--shadow2);
-    }
-    .card h2,.card h3{margin:0 0 10px}
-    .card p{margin:0;color:var(--muted);font-weight:600;line-height:1.6}
+.section-title{
+  margin:0 0 10px;
+  font-size:28px;
+}
+.section-sub{
+  margin:0 0 18px;
+  color:var(--muted);
+  font-weight:650;
+  max-width:760px;
+}
 
-    /* TIPI APPARTAMENTO */
-    .types{margin-top:6px}
-    .types-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:14px}
-    .types-head h2{margin:0}
-    .types-head p{margin:0;color:var(--muted);font-weight:600}
-    .grid-3{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px}
+/* Tipologie */
+.types{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+@media (max-width:980px){ .types{grid-template-columns:1fr} }
 
-    .type-card{padding:0;overflow:hidden}
-    .type-img{
-      height:170px;
-      background:#ddd;
-      background-size:cover;
-      background-position:center;
-    }
-    .type-body{padding:18px 18px 16px}
-    .type-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-    .type-title h3{margin:0}
-    .cap{
-      font-size:12px;
-      font-weight:900;
-      color:rgba(11,58,83,.85);
-      background:rgba(31,122,140,.12);
-      border:1px solid rgba(31,122,140,.20);
-      padding:6px 10px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    .list{margin:12px 0 14px;padding:0;list-style:none;display:grid;gap:8px}
-    .list li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-weight:650}
-    .tick{
-      width:18px;height:18px;border-radius:6px;
-      background:rgba(46, 160, 67, .12);
-      border:1px solid rgba(46, 160, 67, .25);
-      display:inline-flex;align-items:center;justify-content:center;
-      flex:0 0 auto;margin-top:2px;
-    }
-    .type-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .btn-sm{
-      padding:10px 12px;border-radius:14px;font-weight:900;font-size:14px;
-      border:1px solid rgba(0,0,0,.12);background:rgba(255,255,255,.92);
-      box-shadow:0 10px 18px rgba(0,0,0,.06);
-    }
-    .btn-sm.primary{
-      border:none;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand2));
-      box-shadow:0 16px 30px rgba(11,58,83,.22);
-    }
+.type-card{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+.type-card h3{
+  margin:0 0 6px;
+  font-size:20px;
+}
+.type-card .cap{
+  margin:0 0 12px;
+  color:var(--muted);
+  font-weight:700;
+  font-size:13px;
+}
+.list{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+.list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-weight:650;
+  color:rgba(19,33,47,.85);
+}
+.check{
+  width:20px;height:20px;
+  border-radius:6px;
+  background:rgba(31,122,140,.16);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(31,122,140,.25);
+}
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
 
-    /* GALLERY MONO (griglia) */
-    .mono-gallery{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:8px;
-      padding:12px;
-      background:linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.35));
-    }
-    .mono-gallery figure{
-      margin:0;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 10px 18px rgba(0,0,0,.06);
-      cursor:pointer;
-      position:relative;
-      background:#eee;
-    }
-    .mono-gallery img{
-      width:100%;
-      height:92px;
-      object-fit:cover;
-      transition:transform .18s ease;
-    }
-    .mono-gallery figure:hover img{transform:scale(1.04)}
-    .mono-gallery figure.big{
-      grid-column:span 3;
-    }
-    .mono-gallery figure.big img{
-      height:190px;
-    }
-    .mono-badge{
-      position:absolute;
-      left:10px;bottom:10px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:rgba(11,58,83,.78);
-      color:#fff;
-      font-weight:900;
-      font-size:12px;
-      backdrop-filter:blur(6px);
-      border:1px solid rgba(255,255,255,.22);
-    }
+/* Mini gallery inside Monolocale */
+.mini-gallery{
+  margin-top:12px;
+  display:flex;
+  gap:10px;
+  overflow:auto;
+  padding-bottom:6px;
+  scroll-snap-type:x mandatory;
+}
+.mini-gallery img{
+  height:120px;
+  width:180px;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  scroll-snap-align:start;
+  flex:0 0 auto;
+}
+.mini-gallery::-webkit-scrollbar{height:8px}
+.mini-gallery::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18);border-radius:999px}
+.mini-gallery::-webkit-scrollbar-track{background:rgba(0,0,0,.06);border-radius:999px}
 
-    /* MODAL */
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.72);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-      padding:18px;
-    }
-    .modal.open{display:flex}
-    .modal-card{
-      width:min(980px, 100%);
-      background:rgba(255,255,255,.94);
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 30px 80px rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.35);
-    }
-    .modal-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      padding:12px 14px;
-      background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.08));
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-    .modal-top b{font-size:14px}
-    .modal-close{
-      border:none;
-      background:rgba(0,0,0,.06);
-      border:1px solid rgba(0,0,0,.10);
-      border-radius:12px;
-      padding:8px 10px;
-      font-weight:900;
-      cursor:pointer;
-    }
-    .modal-body{
-      position:relative;
-      background:#111;
-    }
-    .modal-body img{
-      width:100%;
-      height:min(72vh, 620px);
-      object-fit:contain;
-      background:#111;
-    }
-    .modal-nav{
-      position:absolute;
-      inset:0;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:0 10px;
-      pointer-events:none;
-    }
-    .arrow{
-      pointer-events:auto;
-      width:44px;height:44px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.14);
-      backdrop-filter:blur(6px);
-      color:#fff;
-      font-weight:900;
-      cursor:pointer;
-    }
-    .arrow:hover{background:rgba(255,255,255,.22)}
+/* Perché sceglierci */
+.reasons{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+@media (max-width:980px){ .reasons{grid-template-columns:1fr} }
+.reason{
+  padding:18px;
+  border-radius:22px;
+  background:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 14px 34px rgba(0,0,0,.07);
+}
+.reason strong{
+  display:block;
+  font-size:16px;
+  margin-bottom:6px;
+}
+.reason span{
+  color:var(--muted);
+  font-weight:650;
+  line-height:1.5;
+}
 
-    /* PERCHE' */
-    .reasons{margin-top:18px}
-    .reasons .mini-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;margin-top:12px}
-    .mini{padding:16px 16px 14px}
-    .mini b{display:block;margin-bottom:6px}
-    .mini span{color:var(--muted);font-weight:650;line-height:1.5}
+/* Regole */
+.rules{
+  margin:0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:10px;
+}
+.rules li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:12px 14px;
+  border-radius:16px;
+  background:rgba(255,255,255,.68);
+  border:1px solid rgba(0,0,0,.08);
+  font-weight:700;
+  color:rgba(19,33,47,.86);
+}
+.rules small{
+  display:block;
+  margin-top:2px;
+  font-weight:650;
+  color:var(--muted);
+}
 
-    /* REGOLE */
-    .rules{margin-top:18px}
-    .rules ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-    .rules li{
-      display:flex;gap:10px;align-items:flex-start;
-      padding:12px 12px;border-radius:16px;
-      background:rgba(255,255,255,.70);
-      border:1px solid rgba(0,0,0,.08);
-      color:var(--muted);font-weight:650;
-    }
-    .rules li b{color:var(--text)}
+/* MAP */
+.map{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.10);
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+.map iframe{
+  width:100%;
+  height:360px;
+  border:0;
+}
 
-    /* MAP + CONTACT */
-    .grid-map{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:16px;
-      margin-top:18px;
-      align-items:stretch;
-    }
-    .mapbox{padding:0;overflow:hidden}
-    .mapbox iframe{width:100%;height:100%;min-height:320px;border:0;display:block}
+/* CONTACT FORM */
+.contact-section{ margin:28px 0 90px; }
+.contact-box{
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:22px;
+  padding:26px;
+  box-shadow:0 16px 40px rgba(0,0,0,.10);
+}
+.contact-box h2{ margin:0 0 8px; font-size:26px; }
+.contact-box p{ color:var(--muted); font-weight:650; max-width:760px; }
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  margin-top:18px;
+}
+label{
+  display:block;
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+input, select, textarea{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.15);
+  font-size:14px;
+  background:rgba(255,255,255,.9);
+}
+textarea{min-height:110px;resize:vertical}
+.form-actions{ margin-top:18px; display:flex; gap:10px; flex-wrap:wrap; }
 
-    .contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .muted{color:var(--muted);font-weight:650;line-height:1.6}
-
-    footer{
-      margin:22px 0 28px;
-      color:rgba(19,33,47,.6);
-      font-weight:650;
-      font-size:13px;
-      text-align:center;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width:980px){
-      .nav{display:none}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-      .grid-map{grid-template-columns:1fr}
-      .hero-overlay{position:static;max-width:none;margin:18px}
-      .hero-card{
-        background:
-          linear-gradient(180deg, rgba(11,58,83,.40) 0%, rgba(11,58,83,.10) 55%, rgba(11,58,83,0) 100%),
-          url('facciata.png') center / cover no-repeat;
-      }
-      .hero-overlay h1{font-size:34px}
-      .reasons .mini-grid{grid-template-columns:1fr}
-      .mono-gallery{grid-template-columns:repeat(2, 1fr)}
-      .mono-gallery figure.big{grid-column:span 2}
-    }
-  </style>
+/* Footer */
+.footer{
+  padding:24px 0 40px;
+  color:var(--muted);
+  font-weight:650;
+  text-align:center;
+}
+</style>
 </head>
 
 <body>
-  <header class="topbar">
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">CV</div>
+        <div>
+          <div class="title">Casa Vacanze</div>
+          <small class="subtitle">Appartamenti fronte mare</small>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigazione">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#appartamenti">Appartamenti</a>
+        <a href="#tipologie">Tipologie</a>
+        <a href="#perche">Perché sceglierci</a>
+        <a href="#regole">Regole</a>
+        <a href="#mappa">Mappa</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+
+      <div class="btns">
+        <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
+        <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="wrap">
-      <div class="topbar-inner">
-        <a class="brand" href="#home" aria-label="Vai alla home">
-          <div class="brand-mark">CV</div>
-          <div class="t">
-            <span>Casa Vacanze</span>
-            <small>Appartamenti fronte mare</small>
+      <div class="hero-frame" aria-label="Foto struttura">
+        <div class="hero-card">
+          <h1>La tua casa per le vacanze, <br/>a due passi dal mare</h1>
+          <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
+
+          <div class="cta">
+            <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
+            <a class="btn" href="#contatti">Richiedi disponibilità</a>
           </div>
-        </a>
 
-        <nav class="nav" aria-label="Navigazione">
-          <a href="#chi-siamo">Chi siamo</a>
-          <a href="#appartamenti">Appartamenti</a>
-          <a href="#tipologie">Tipologie</a>
-          <a href="#perche">Perché sceglierci</a>
-          <a href="#regole">Regole</a>
-          <a href="#contatti">Contatti</a>
-        </nav>
-
-        <div class="btns">
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20gli%20appartamenti.">WhatsApp</a>
-
-          <a class="btn"
-             href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20Casa%20Vacanze&body=Buongiorno%2C%0Avorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%0AGrazie.">Email</a>
-
-          <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+          <div class="pills" aria-label="Servizi principali">
+            <span class="pill">🐾 Animali ammessi</span>
+            <span class="pill">🅿️ Parcheggio privato</span>
+            <span class="pill">❄️ Aria condizionata</span>
+            <span class="pill">📺 TV</span>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main class="wrap" id="home">
-
-    <section class="hero">
-      <div class="hero-card" role="img" aria-label="Foto della struttura">
-        <div class="hero-overlay">
-          <h1>La tua casa per le vacanze,<br/>a due passi dal mare</h1>
-          <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
-
-          <div class="hero-cta">
-            <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
-          </div>
-
-          <div class="pill-row" aria-label="Servizi principali">
-            <div class="pill">🐾 Animali ammessi</div>
-            <div class="pill">🅿️ Parcheggio privato</div>
-            <div class="pill">❄️ Aria condizionata</div>
-            <div class="pill">📺 TV</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid-2" id="chi-siamo">
-      <div class="card">
+  <!-- CHI SIAMO + GLI APPARTAMENTI -->
+  <section class="section">
+    <div class="wrap grid-2">
+      <div class="card" id="chi-siamo">
         <h2>Chi siamo</h2>
-        <p>
-          I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
-          in spazi accoglienti e ben organizzati.
-          <br/><br/>
-          Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe,
-          qui si trova un ambiente pensato per sentirsi subito a proprio agio.
-        </p>
+        <p>I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress, in spazi accoglienti e ben organizzati.</p>
+        <p>Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe, qui si trova un ambiente pensato per sentirsi subito a proprio agio.</p>
       </div>
 
       <div class="card" id="appartamenti">
         <h2>Gli appartamenti</h2>
-        <p>
-          <b>Soluzioni ideali</b> per chi cerca comfort, praticità e una posizione comoda:
-          fronte mare e a due passi dal centro storico di Caorle.
-          <br/><br/>
-          Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.
-        </p>
+        <p><strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong> fronte mare e a due passi dal centro storico di Caorle.</p>
+        <p>Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="card types" id="tipologie">
-      <div class="types-head">
-        <div>
-          <h2>Tipologie di appartamento</h2>
-          <p>Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
-        </div>
-      </div>
+  <!-- TIPOLOGIE -->
+  <section class="section" id="tipologie">
+    <div class="wrap">
+      <h2 class="section-title">Tipologie di appartamento</h2>
+      <p class="section-sub">Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
 
-      <div class="grid-3">
-        <!-- MONO con GALLERY -->
-        <article class="card type-card" data-gallery="mono">
-          <!-- gallery sopra (tutte le foto del monolocale) -->
-          <div class="mono-gallery" aria-label="Foto Monolocale">
-            <figure class="big" data-full="mono-3-cucina.jpg" data-title="Monolocale • Cucina">
-              <img src="mono-3-cucina.jpg" alt="Monolocale - cucina" />
-              <div class="mono-badge">Monolocale • Foto</div>
-            </figure>
+      <div class="types">
+        <!-- MONOLOCALE -->
+        <article class="type-card">
+          <h3>Monolocale</h3>
+          <div class="cap">Max 3 persone</div>
+          <ul class="list">
+            <li><span class="check">✓</span> Zona giorno/notte</li>
+            <li><span class="check">✓</span> Angolo cottura</li>
+            <li><span class="check">✓</span> Bagno privato</li>
+            <li><span class="check">✓</span> Aria condizionata • TV</li>
+          </ul>
 
-            <figure data-full="mono-1-entrata.jpg" data-title="Monolocale • Entrata">
-              <img src="mono-1-entrata.jpg" alt="Monolocale - entrata" />
-            </figure>
-
-            <figure data-full="mono-2-esterno.jpg" data-title="Monolocale • Esterno">
-              <img src="mono-2-esterno.jpg" alt="Monolocale - esterno" />
-            </figure>
-
-            <figure data-full="mono-4-sala.jpg" data-title="Monolocale • Sala">
-              <img src="mono-4-sala.jpg" alt="Monolocale - sala" />
-            </figure>
-
-            <figure data-full="mono-5-bagno.jpg" data-title="Monolocale • Bagno">
-              <img src="mono-5-bagno.jpg" alt="Monolocale - bagno" />
-            </figure>
+          <!-- Foto monolocale: rinomina i file come qui sotto (senza spazi e senza “:”) -->
+          <div class="mini-gallery" aria-label="Foto monolocale">
+            <img src="monolocale-entrata.jpeg" alt="Monolocale - entrata e patio">
+            <img src="monolocale-esterno.jpeg" alt="Monolocale - esterno">
+            <img src="monolocale-cucina.jpeg" alt="Monolocale - cucina">
+            <img src="monolocale-sala.jpeg" alt="Monolocale - sala / armadi">
+            <img src="monolocale-bagno.jpeg" alt="Monolocale - bagno">
           </div>
 
-          <div class="type-body">
-            <div class="type-title">
-              <h3>Monolocale</h3>
-              <div class="cap">Max 3 persone</div>
-            </div>
-
-            <ul class="list">
-              <li><span class="tick">✓</span> Zona giorno/notte</li>
-              <li><span class="tick">✓</span> Angolo cottura</li>
-              <li><span class="tick">✓</span> Bagno privato</li>
-              <li><span class="tick">✓</span> Aria condizionata • TV</li>
-            </ul>
-
-            <div class="type-actions">
-              <a class="btn-sm primary"
-                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Monolocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Monolocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
-
-              <a class="btn-sm" target="_blank" rel="noopener"
-                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Monolocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
-            </div>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn" href="#contatti">Info e prezzi</a>
           </div>
         </article>
 
-        <!-- BILO (1 foto per ora) -->
-        <article class="card type-card">
-          <div class="type-img" style="background-image:url('bilo-esterno.jpg');"></div>
-          <div class="type-body">
-            <div class="type-title">
-              <h3>Bilocale</h3>
-              <div class="cap">Max 5 persone</div>
-            </div>
-
-            <ul class="list">
-              <li><span class="tick">✓</span> Camera + soggiorno</li>
-              <li><span class="tick">✓</span> Cucina/angolo cottura</li>
-              <li><span class="tick">✓</span> Bagno privato</li>
-              <li><span class="tick">✓</span> Aria condizionata • TV</li>
-            </ul>
-
-            <div class="type-actions">
-              <a class="btn-sm primary"
-                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Bilocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Bilocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
-
-              <a class="btn-sm" target="_blank" rel="noopener"
-                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Bilocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
-            </div>
+        <!-- BILOCALE -->
+        <article class="type-card">
+          <h3>Bilocale</h3>
+          <div class="cap">Max 5 persone</div>
+          <ul class="list">
+            <li><span class="check">✓</span> Camera + soggiorno</li>
+            <li><span class="check">✓</span> Cucina/angolo cottura</li>
+            <li><span class="check">✓</span> Bagno privato</li>
+            <li><span class="check">✓</span> Aria condizionata • TV</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn" href="#contatti">Info e prezzi</a>
           </div>
         </article>
 
-        <!-- TRILO (1 foto per ora + bottoni OK) -->
-        <article class="card type-card">
-          <div class="type-img" style="background-image:url('trilo-cucina.jpg');"></div>
-          <div class="type-body">
-            <div class="type-title">
-              <h3>Trilocale</h3>
-              <div class="cap">Max 6 persone</div>
-            </div>
-
-            <ul class="list">
-              <li><span class="tick">✓</span> Due camere + soggiorno</li>
-              <li><span class="tick">✓</span> Cucina/angolo cottura</li>
-              <li><span class="tick">✓</span> Bagno privato</li>
-              <li><span class="tick">✓</span> Aria condizionata • TV</li>
-            </ul>
-
-            <div class="type-actions">
-              <a class="btn-sm primary"
-                 href="mailto:boatto-ger@libero.it?subject=Disponibilit%C3%A0%20Trilocale&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Trilocale.%0ADate%3A%20_____%0APersone%3A%20_____">Richiedi disponibilità</a>
-
-              <a class="btn-sm" target="_blank" rel="noopener"
-                 href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi%20per%20il%20Trilocale.%20Date%3A%20_____%20Persone%3A%20_____">Info e prezzi</a>
-            </div>
+        <!-- TRILOCALE -->
+        <article class="type-card">
+          <h3>Trilocale</h3>
+          <div class="cap">Max 6 persone</div>
+          <ul class="list">
+            <li><span class="check">✓</span> Due camere + soggiorno</li>
+            <li><span class="check">✓</span> Cucina/angolo cottura</li>
+            <li><span class="check">✓</span> Bagno privato</li>
+            <li><span class="check">✓</span> Aria condizionata • TV</li>
+          </ul>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contatti">Richiedi disponibilità</a>
+            <a class="btn" href="#contatti">Info e prezzi</a>
           </div>
         </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="card reasons" id="perche">
-      <h2>Perché sceglierci</h2>
-      <p class="muted">
-        Un soggiorno semplice, comodo e curato: la soluzione giusta per chi vuole vivere Caorle senza stress.
-      </p>
+  <!-- PERCHE' SCEGLIERCI -->
+  <section class="section" id="perche">
+    <div class="wrap">
+      <h2 class="section-title">Perché sceglierci</h2>
+      <p class="section-sub">Un soggiorno pratico e sereno, con una posizione davvero comoda per vivere Caorle al meglio.</p>
 
-      <div class="mini-grid">
-        <div class="card mini">
-          <b>Posizione comoda</b>
-          <span>Fronte mare e a due passi dal centro storico: tutto raggiungibile con facilità.</span>
+      <div class="reasons">
+        <div class="reason">
+          <strong>Posizione strategica</strong>
+          <span>Fronte mare e vicina al centro storico: tutto raggiungibile comodamente a piedi.</span>
         </div>
-        <div class="card mini">
-          <b>Comfort essenziale</b>
-          <span>Spazi funzionali, aria condizionata e TV: quello che serve per una vacanza in autonomia.</span>
+        <div class="reason">
+          <strong>Comfort essenziale</strong>
+          <span>Spazi funzionali, aria condizionata, TV e servizi pensati per una vacanza senza stress.</span>
         </div>
-        <div class="card mini">
-          <b>Accoglienza diretta</b>
-          <span>Per informazioni, disponibilità e prezzi potete contattarci direttamente: rispondiamo il prima possibile.</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="card rules" id="regole">
-      <h2>Regole della casa</h2>
-      <ul>
-        <li>🐾 <b>Animali ammessi</b></li>
-        <li>🕑 <b>Check-in</b> a partire dalle ore <b>14:00</b></li>
-        <li>🕙 <b>Check-out</b> entro le <b>10:00</b></li>
-      </ul>
-    </section>
-
-    <section class="grid-map" id="contatti">
-      <div class="card mapbox" aria-label="Mappa">
-        <iframe
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Viale%20Marconi%2033%2C%2030021%20Caorle&output=embed"></iframe>
-      </div>
-
-      <div class="card">
-        <h2>Contatti / Prenotazioni</h2>
-        <p class="muted">
-          Per informazioni, disponibilità e prezzi potete contattarci direttamente.
-          Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
-          <br/><br/>
-          <b>Indirizzo:</b> Viale Marconi 33, 30021 Caorle
-        </p>
-
-        <div class="contact-actions">
-          <a class="btn btn-primary" target="_blank" rel="noopener"
-             href="https://wa.me/393358408583?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%20Grazie!">Scrivici su WhatsApp</a>
-
-          <a class="btn"
-             href="mailto:boatto-ger@libero.it?subject=Richiesta%20informazioni%20Casa%20Vacanze&body=Buongiorno%2C%0AVorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20prezzi.%0ADate%3A%20_____%0APersone%3A%20_____%0AGrazie.">Contattaci via Email</a>
-
-          <a class="btn btn-soft" href="tel:+393358408583">Chiama ora</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © <span id="y"></span> Casa Vacanze • Tutti i diritti riservati
-    </footer>
-
-  </main>
-
-  <!-- MODAL -->
-  <div class="modal" id="modal" aria-hidden="true">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Galleria immagini">
-      <div class="modal-top">
-        <b id="modalTitle">Foto</b>
-        <button class="modal-close" id="modalClose" aria-label="Chiudi">Chiudi ✕</button>
-      </div>
-      <div class="modal-body">
-        <img id="modalImg" alt="" />
-        <div class="modal-nav" aria-label="Navigazione">
-          <button class="arrow" id="prevBtn" aria-label="Precedente">‹</button>
-          <button class="arrow" id="nextBtn" aria-label="Successiva">›</button>
+        <div class="reason">
+          <strong>Accoglienza diretta</strong>
+          <span>Risposte rapide per disponibilità e prezzi, con supporto per organizzare il soggiorno.</span>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+  <!-- REGOLE -->
+  <section class="section" id="regole">
+    <div class="wrap">
+      <div class="card">
+        <h2>Regole della casa</h2>
+        <ul class="rules">
+          <li>
+            🐾 Animali ammessi
+            <small>Pet-friendly</small>
+          </li>
+          <li>
+            🕑 Check-in a partire dalle ore <strong>14:00</strong>
+            <small>Arrivo dalle 14:00 in poi</small>
+          </li>
+          <li>
+            🕙 Check-out entro le <strong>10:00</strong>
+            <small>Partenza entro le 10:00</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    // --- Gallery modal (Monolocale) ---
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalClose = document.getElementById("modalClose");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+  <!-- MAPPA -->
+  <section class="section" id="mappa">
+    <div class="wrap">
+      <h2 class="section-title">Dove siamo</h2>
+      <p class="section-sub">Viale Marconi 33, 30021 Caorle</p>
+      <div class="map" aria-label="Mappa">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Viale%20Marconi%2033,%2030021%20Caorle&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </section>
 
-    // prendo tutte le figure della gallery monolocale
-    const thumbs = Array.from(document.querySelectorAll("[data-gallery='mono'] .mono-gallery figure"));
-    const items = thumbs.map(fig => ({
-      src: fig.getAttribute("data-full"),
-      title: fig.getAttribute("data-title") || "Foto"
-    }));
+  <!-- CONTATTI / MODULO -->
+  <section id="contatti" class="contact-section">
+    <div class="wrap">
+      <div class="contact-box">
+        <h2>Contatti / Prenotazioni</h2>
+        <p>
+          Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+          Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
+        </p>
 
-    let idx = 0;
-
-    function openModal(i){
-      idx = i;
-      modal.classList.add("open");
-      modal.setAttribute("aria-hidden","false");
-      render();
-    }
-
-    function closeModal(){
-      modal.classList.remove("open");
-      modal.setAttribute("aria-hidden","true");
-    }
-
-    function render(){
-      const it = items[idx];
-      modalImg.src = it.src;
-      modalImg.alt = it.title;
-      modalTitle.textContent = it.title;
-    }
-
-    function prev(){
-      idx = (idx - 1 + items.length) % items.length;
-      render();
-    }
-
-    function next(){
-      idx = (idx + 1) % items.length;
-      render();
-    }
-
-    thumbs.forEach((fig, i) => {
-      fig.addEventListener("click", () => openModal(i));
-    });
-
-    modalClose.addEventListener("click", closeModal);
-    prevBtn.addEventListener("click", prev);
-    nextBtn.addEventListener("click", next);
-
-    // click fuori per chiudere
-    modal.addEventListener("click", (e) => {
-      if(e.target === modal) closeModal();
-    });
-
-    // ESC / frecce tastiera
-    document.addEventListener("keydown", (e) => {
-      if(!modal.classList.contains("open")) return;
-      if(e.key === "Escape") closeModal();
-      if(e.key === "ArrowLeft") prev();
-      if(e.key === "ArrowRight") next();
-    });
-  </script>
-</body>
-</html>
+        <form id="
