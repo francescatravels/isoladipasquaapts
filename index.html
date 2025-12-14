@@ -34,11 +34,7 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
-.wrap{
-  max-width:var(--max);
-  margin:auto;
-  padding:0 20px;
-}
+.wrap{max-width:var(--max);margin:auto;padding:0 20px}
 
 /* ===== TOP BAR ===== */
 .topbar{
@@ -54,12 +50,9 @@ a{text-decoration:none;color:inherit}
   align-items:center;
   justify-content:space-between;
   padding:14px 0;
+  gap:14px;
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.brand{display:flex;align-items:center;gap:10px}
 .brand-mark{
   width:36px;height:36px;
   border-radius:14px;
@@ -73,7 +66,7 @@ a{text-decoration:none;color:inherit}
 .brand span{font-weight:700;font-size:14px}
 .brand small{display:block;font-size:12px;color:var(--muted)}
 
-.nav{display:flex;gap:10px}
+.nav{display:flex;gap:10px;flex-wrap:wrap}
 .nav a{
   font-size:14px;
   color:var(--muted);
@@ -89,6 +82,11 @@ a{text-decoration:none;color:inherit}
   background:#fff;
   font-weight:700;
   font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  white-space:nowrap;
 }
 .btn-primary{
   background:linear-gradient(135deg,var(--brand),var(--brand2));
@@ -99,51 +97,35 @@ a{text-decoration:none;color:inherit}
   background:rgba(242,193,78,.35);
   border-color:rgba(242,193,78,.6);
 }
-.btns{display:flex;gap:8px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
 
 /* ===== HERO ===== */
-.hero{
-  margin-top:28px;
-}
+.hero{margin-top:28px}
 .hero-bg{
   border-radius:var(--radius);
   min-height:360px;
   display:flex;
   align-items:center;
   padding:24px;
-
-  /* 🔴 QUI È LA CHIAVE */
   background:
     linear-gradient(90deg,
       rgba(11,58,83,.18) 0%,
       rgba(11,58,83,.08) 45%,
       rgba(11,58,83,.02) 100%),
     url('facciata.png') 30% center / cover no-repeat;
-
   box-shadow:var(--shadow);
 }
-
 .hero-card{
-  max-width:440px;
+  max-width:460px;
   background:rgba(255,255,255,.85);
   backdrop-filter:blur(6px);
   border-radius:18px;
   padding:20px;
 }
-.hero-card h1{
-  margin:0 0 10px;
-  font-size:30px;
-}
-.hero-card p{
-  margin:0 0 14px;
-  color:var(--muted);
-}
+.hero-card h1{margin:0 0 10px;font-size:30px;line-height:1.15}
+.hero-card p{margin:0 0 14px;color:var(--muted);line-height:1.6}
 
-.badges{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
+.badges{display:flex;gap:8px;flex-wrap:wrap}
 .badge{
   background:#fff;
   border:1px solid rgba(0,0,0,.1);
@@ -173,6 +155,7 @@ a{text-decoration:none;color:inherit}
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
+  margin-top:16px;
 }
 .type-card{
   background:#fff;
@@ -180,38 +163,114 @@ a{text-decoration:none;color:inherit}
   padding:18px;
   border:1px solid rgba(0,0,0,.08);
 }
-.type-list{
+.type-card h3{margin:0 0 8px;font-size:18px}
+.type-card p{margin:0 0 12px;color:var(--muted);line-height:1.6;font-size:14px}
+.type-list{list-style:none;padding:0;margin:0 0 14px}
+.type-list li{padding:6px 0;border-bottom:1px solid rgba(0,0,0,.06);font-size:14px}
+.type-list li:last-child{border-bottom:none}
+.type-actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-sm{padding:10px 12px;border-radius:12px;font-size:14px}
+
+/* ===== PERCHE ===== */
+.why{
   list-style:none;
   padding:0;
-  margin:0 0 14px;
+  margin:16px 0 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px 18px;
 }
-.type-list li{
-  padding:6px 0;
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-.type-actions{
-  display:flex;
-  gap:10px;
+.why li{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:16px;
+  padding:14px 16px;
+  font-size:14px;
+  line-height:1.6;
 }
 
 /* ===== REGOLE ===== */
-.rules{
-  list-style:none;
-  padding:0;
-  margin:12px 0 0;
+.rules{list-style:none;padding:0;margin:12px 0 0}
+.rules li{padding:10px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+.rules li:last-child{border-bottom:none}
+
+/* ===== FORM ===== */
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+  margin-top:12px;
 }
-.rules li{
-  padding:10px 0;
-  border-bottom:1px solid rgba(0,0,0,.08);
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+label{font-size:13px;color:var(--muted)}
+input, select, textarea{
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  padding:12px 12px;
+  font:inherit;
+  background:#fff;
+}
+textarea{min-height:110px;resize:vertical}
+.help{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:14px;
+  margin-top:14px;
+}
+.photo{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+}
+.photo img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+.photo .cap{
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* ===== MAP ===== */
+.map{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  margin-top:14px;
+}
+.map iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  display:block;
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .nav{display:none}
-  .grid,.types{grid-template-columns:1fr}
-  .hero-bg{
-    background-position:50% center; /* mobile centrata */
-  }
+  .grid{grid-template-columns:1fr}
+  .types{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .hero-bg{background-position:50% center;min-height:320px}
 }
 </style>
 </head>
@@ -231,12 +290,15 @@ a{text-decoration:none;color:inherit}
     <nav class="nav">
       <a href="#chi">Chi siamo</a>
       <a href="#tipologie">Tipologie</a>
+      <a href="#perche">Perché sceglierci</a>
+      <a href="#gallery">Foto</a>
+      <a href="#dove">Dove siamo</a>
       <a href="#regole">Regole</a>
       <a href="#contatti">Contatti</a>
     </nav>
 
     <div class="btns">
-      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank">WhatsApp</a>
+      <a class="btn btn-primary" href="https://wa.me/393358408583" target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn" href="mailto:boatto-ger@libero.it">Email</a>
       <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
     </div>
@@ -245,79 +307,304 @@ a{text-decoration:none;color:inherit}
 
 <main class="wrap">
 
-<section class="hero">
-  <div class="hero-bg">
-    <div class="hero-card">
-      <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
-      <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
-      <a class="btn btn-soft" href="#tipologie">Vedi le tipologie →</a>
-      <div class="badges" style="margin-top:12px">
-        <span class="badge">🐾 Animali ammessi</span>
-        <span class="badge">🅿️ Parcheggio privato</span>
-        <span class="badge">❄️ Aria condizionata</span>
-        <span class="badge">📺 TV</span>
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-card">
+        <h1>La tua casa per le vacanze,<br>a due passi dal mare</h1>
+        <p>Comfort essenziale, posizione comoda, accoglienza diretta.</p>
+        <a class="btn btn-soft" href="#contatti">Richiedi disponibilità →</a>
 
-<section class="section grid">
-  <div class="card" id="chi">
-    <h2>Chi siamo</h2>
-    <p>I nostri appartamenti offrono un soggiorno sereno e senza stress, in spazi accoglienti e ben organizzati.</p>
-  </div>
-  <div class="card">
-    <h2>Gli appartamenti</h2>
-    <p>Fronte mare e a due passi dal centro storico di Caorle, ideali per una vacanza in autonomia.</p>
-  </div>
-</section>
+        <div class="badges" style="margin-top:12px">
+          <span class="badge">🐾 Animali ammessi</span>
+          <span class="badge">🅿️ Parcheggio privato</span>
+          <span class="badge">❄️ Aria condizionata</span>
+          <span class="badge">📺 TV</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="section card" id="tipologie">
-  <h2>Tipologie di appartamento</h2>
-  <div class="types">
-    <div class="type-card">
-      <h3>Monolocale</h3>
-      <ul class="type-list">
-        <li>Zona giorno/notte</li><li>Angolo cottura</li><li>Bagno privato</li>
-      </ul>
-      <div class="type-actions">
-        <a class="btn btn-primary">Disponibilità</a>
-        <a class="btn">Info e prezzi</a>
-      </div>
+  <section class="section grid">
+    <div class="card" id="chi">
+      <h2>Chi siamo</h2>
+      <p>
+        I nostri appartamenti nascono dall’idea di offrire un soggiorno sereno e senza stress,
+        in spazi accoglienti e ben organizzati.
+      </p>
+      <p>
+        Che si viaggi in coppia, in famiglia o con il proprio amico a quattro zampe, qui si trova
+        un ambiente pensato per sentirsi subito a proprio agio.
+      </p>
     </div>
-    <div class="type-card">
-      <h3>Bilocale</h3>
-      <ul class="type-list">
-        <li>Camera + soggiorno</li><li>Cucina</li><li>Bagno privato</li>
-      </ul>
-      <div class="type-actions">
-        <a class="btn btn-primary">Disponibilità</a>
-        <a class="btn">Info e prezzi</a>
-      </div>
-    </div>
-    <div class="type-card">
-      <h3>Trilocale</h3>
-      <ul class="type-list">
-        <li>Due camere + soggiorno</li><li>Cucina</li><li>Bagno privato</li>
-      </ul>
-      <div class="type-actions">
-        <a class="btn btn-primary">Disponibilità</a>
-        <a class="btn">Info e prezzi</a>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="section card" id="regole">
-  <h2>Regole della casa</h2>
-  <ul class="rules">
-    <li>🐾 Animali ammessi</li>
-    <li>🕑 Check-in dalle ore 14:00</li>
-    <li>🕙 Check-out entro le ore 10:00</li>
-  </ul>
-</section>
+    <div class="card">
+      <h2>Gli appartamenti</h2>
+      <p>
+        <strong>Soluzioni ideali per chi cerca comfort, praticità e una posizione comoda:</strong>
+        fronte mare e a due passi dal centro storico di Caorle.
+      </p>
+      <p>Appartamenti ben organizzati, perfetti per vivere la vacanza in autonomia.</p>
+    </div>
+  </section>
+
+  <section class="section card" id="tipologie">
+    <h2>Tipologie di appartamento</h2>
+    <p style="margin:0;color:var(--muted)">Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.</p>
+
+    <div class="types">
+      <div class="type-card">
+        <h3>Monolocale</h3>
+        <p>Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.</p>
+        <ul class="type-list">
+          <li>✅ Zona giorno/notte</li>
+          <li>✅ Angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <h3>Bilocale</h3>
+        <p>Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.</p>
+        <ul class="type-list">
+          <li>✅ Camera + soggiorno</li>
+          <li>✅ Cucina/angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <h3>Trilocale</h3>
+        <p>Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.</p>
+        <ul class="type-list">
+          <li>✅ Due camere + soggiorno</li>
+          <li>✅ Cucina/angolo cottura</li>
+          <li>✅ Bagno privato</li>
+          <li>✅ Aria condizionata • TV</li>
+        </ul>
+        <div class="type-actions">
+          <a class="btn btn-primary btn-sm" href="#contatti">Richiedi disponibilità</a>
+          <a class="btn btn-sm" href="#contatti">Info e prezzi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section card" id="perche">
+    <h2>Perché sceglierci</h2>
+    <p style="margin:0;color:var(--muted)">
+      Una soluzione semplice, curata e pensata per chi desidera una vacanza senza complicazioni.
+    </p>
+
+    <ul class="why">
+      <li><strong>📍 Posizione strategica</strong><br>Fronte mare e a pochi passi dal centro storico.</li>
+      <li><strong>🏡 Comfort e praticità</strong><br>Spazi funzionali per soggiorni in autonomia.</li>
+      <li><strong>🐾 Pet-friendly</strong><br>Gli animali sono i benvenuti.</li>
+      <li><strong>🚗 Servizi inclusi</strong><br>Parcheggio privato, aria condizionata e TV.</li>
+      <li><strong>🤝 Contatto diretto</strong><br>Risposta rapida per disponibilità e prezzi.</li>
+      <li><strong>🧾 Informazioni chiare</strong><br>Richieste semplici, senza passaggi inutili.</li>
+    </ul>
+  </section>
+
+  <section class="section card" id="gallery">
+    <h2>Foto</h2>
+    <p style="margin:0;color:var(--muted)">
+      Puoi sostituire queste immagini con le tue (basta cambiare il nome del file).
+    </p>
+
+    <div class="gallery">
+      <div class="photo">
+        <img src="foto1.jpg" alt="Esterno">
+        <div class="cap">Esterno / Facciata</div>
+      </div>
+      <div class="photo">
+        <img src="foto2.jpg" alt="Interni">
+        <div class="cap">Interni</div>
+      </div>
+      <div class="photo">
+        <img src="foto3.jpg" alt="Cucina">
+        <div class="cap">Cucina / Angolo cottura</div>
+      </div>
+      <div class="photo">
+        <img src="foto4.jpg" alt="Camera">
+        <div class="cap">Camera</div>
+      </div>
+      <div class="photo">
+        <img src="foto5.jpg" alt="Bagno">
+        <div class="cap">Bagno</div>
+      </div>
+      <div class="photo">
+        <img src="foto6.jpg" alt="Dintorni">
+        <div class="cap">Dintorni / Mare</div>
+      </div>
+    </div>
+
+    <div class="help">
+      <strong>Nota:</strong> se non hai ancora le foto, puoi lasciare così. Quando le avrai, caricale nella repo
+      e rinomina i file (foto1.jpg, foto2.jpg, …) oppure dimmi i nomi e te lo adatto.
+    </div>
+  </section>
+
+  <section class="section card" id="dove">
+    <h2>Dove siamo</h2>
+    <p style="margin:0;color:var(--muted)">
+      Viale Marconi 33, 30021 Caorle (VE)
+    </p>
+
+    <div class="map">
+      <iframe
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Viale%20Marconi%2033%2C%2030021%20Caorle&output=embed">
+      </iframe>
+    </div>
+
+    <div class="help">
+      Se vuoi, possiamo aggiungere anche 3 righe tipo: “Spiaggia: 2 min”, “Centro storico: 5 min”, ecc.
+    </div>
+  </section>
+
+  <section class="section card" id="regole">
+    <h2>Regole della casa</h2>
+    <ul class="rules">
+      <li>🐾 Animali ammessi</li>
+      <li>🕑 Check-in a partire dalle ore <strong>14:00</strong></li>
+      <li>🕙 Check-out entro le ore <strong>10:00</strong></li>
+    </ul>
+  </section>
+
+  <section class="section card" id="contatti">
+    <h2>Contatti / Prenotazioni</h2>
+    <p style="margin:0;color:var(--muted)">
+      Per informazioni, disponibilità e prezzi potete contattarci direttamente.
+      Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
+    </p>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="checkin">Check-in</label>
+        <input id="checkin" type="date" required>
+      </div>
+
+      <div class="field">
+        <label for="checkout">Check-out</label>
+        <input id="checkout" type="date" required>
+      </div>
+
+      <div class="field">
+        <label for="ospiti">Numero ospiti</label>
+        <input id="ospiti" type="number" min="1" max="10" placeholder="Es. 4" required>
+      </div>
+
+      <div class="field">
+        <label for="tipologia">Tipologia desiderata</label>
+        <select id="tipologia" required>
+          <option value="">Seleziona</option>
+          <option value="Monolocale (max 3)">Monolocale (max 3)</option>
+          <option value="Bilocale (max 5)">Bilocale (max 5)</option>
+          <option value="Trilocale (max 6)">Trilocale (max 6)</option>
+        </select>
+      </div>
+
+      <div class="field" style="grid-column:1/-1">
+        <label for="note">Note (facoltative)</label>
+        <textarea id="note" placeholder="Es. orario arrivo, animali, richieste particolari..."></textarea>
+      </div>
+    </div>
+
+    <div class="btns" style="margin-top:14px">
+      <button class="btn btn-primary" id="btn-wa">Invia richiesta su WhatsApp</button>
+      <a class="btn" href="mailto:boatto-ger@libero.it">Oppure via Email</a>
+      <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
+    </div>
+
+    <div class="help" id="form-help">
+      <strong>Capienza:</strong> Monolocale max 3 · Bilocale max 5 · Trilocale max 6.
+    </div>
+  </section>
+
+  <footer style="padding:28px 0 40px;color:rgba(0,0,0,.55);font-size:13px">
+    <div style="border-top:1px solid rgba(0,0,0,.1);padding-top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>© <span id="y"></span> Casa Vacanze</div>
+      <div>Fronte mare · Pet-friendly · Parcheggio privato</div>
+    </div>
+  </footer>
 
 </main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  const WA_NUMBER = "393358408583";
+
+  function formatDateISOToIT(iso){
+    if(!iso) return "";
+    const [y,m,d] = iso.split("-");
+    return `${d}/${m}/${y}`;
+  }
+
+  function validateCapacity(guests, type){
+    const caps = {
+      "Monolocale (max 3)": 3,
+      "Bilocale (max 5)": 5,
+      "Trilocale (max 6)": 6
+    };
+    const cap = caps[type] || null;
+    if(!cap) return { ok:false, msg:"Seleziona una tipologia." };
+    if(!guests || guests < 1) return { ok:false, msg:"Inserisci il numero ospiti." };
+    if(guests > cap) return { ok:false, msg:`Per ${type} il massimo è ${cap} ospiti.` };
+    return { ok:true, msg:"" };
+  }
+
+  document.getElementById("btn-wa").addEventListener("click", () => {
+    const checkin = document.getElementById("checkin").value;
+    const checkout = document.getElementById("checkout").value;
+    const ospiti = parseInt(document.getElementById("ospiti").value, 10);
+    const tipologia = document.getElementById("tipologia").value;
+    const note = document.getElementById("note").value.trim();
+
+    const help = document.getElementById("form-help");
+
+    if(!checkin || !checkout){
+      help.textContent = "Inserisci check-in e check-out.";
+      return;
+    }
+    if(checkout <= checkin){
+      help.textContent = "La data di check-out deve essere successiva al check-in.";
+      return;
+    }
+
+    const capCheck = validateCapacity(ospiti, tipologia);
+    if(!capCheck.ok){
+      help.textContent = capCheck.msg;
+      return;
+    }
+
+    const msg =
+`Buongiorno, vorrei informazioni su disponibilità e prezzi.
+
+• Tipologia: ${tipologia}
+• Ospiti: ${ospiti}
+• Check-in: ${formatDateISOToIT(checkin)}
+• Check-out: ${formatDateISOToIT(checkout)}
+${note ? "• Note: " + note : ""}
+
+Grazie!`;
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank", "noopener");
+    help.textContent = "Perfetto! Ti si aprirà WhatsApp con il messaggio già compilato.";
+  });
+</script>
 
 </body>
 </html>
