@@ -965,26 +965,23 @@
 
           </div>
         </div>
-
-      <div class="modal-actions">
+<div class="modal-actions">
   <button class="btn btn-primary" id="sendWA"
-          data-it="Invia su WhatsApp"
-          data-de="Per WhatsApp senden">
+          data-it="Invia su WhatsApp" data-de="Per WhatsApp senden">
     Invia su WhatsApp
   </button>
 
   <button class="btn" id="sendMail"
-          data-it="Invia via Email"
-          data-de="Per E-Mail senden">
+          data-it="Invia via Email" data-de="Per E-Mail senden">
     Invia via Email
   </button>
 
   <a class="btn btn-soft" href="tel:+393358408583"
-     data-it="Chiama"
-     data-de="Anrufen">
+     data-it="Chiama" data-de="Anrufen">
     Chiama
   </a>
 </div>
+
 
 <div class="hint"
      data-it="Suggerimento: compila check-in e check-out per ricevere una risposta più veloce."
@@ -1000,131 +997,108 @@
 
   <script>
     // CONFIG contatti
-    const PHONE_E164 = "393358408583"; // senza + e senza spazi
-    const EMAIL_TO = "boatto-ger@libero.it";
+ <script>
+  // === CONFIG ===
+  const PHONE_E164 = "393358408583";
+  const EMAIL_TO = "boatto-ger@libero.it";
 
-    const modal = document.getElementById("modal");
-    const closeModal = document.getElementById("closeModal");
-    const fType = document.getElementById("fType");
-    const fGuests = document.getElementById("fGuests");
-    const fIn = document.getElementById("fIn");
-    const fOut = document.getElementById("fOut");
-    const fMsg = document.getElementById("fMsg");
-    const sendWA = document.getElementById("sendWA");
-    const sendMail = document.getElementById("sendMail");
+  // === LANG HELPERS ===
+  function getCurrentLang(){ return localStorage.getItem('siteLang') || 'it'; }
+  function t(it, de){ return (getCurrentLang() === 'de') ? de : it; }
 
-    let preferredAction = "whatsapp";
+  // === ELEMENTS ===
+  const modal = document.getElementById("modal");
+  const closeModalBtn = document.getElementById("closeModal");
+  const modalTitle = document.getElementById("modalTitle");
 
-    function openModal(type, action){
-      preferredAction = action || "whatsapp";
-      fType.value = type || "Generale";
+  const fType = document.getElementById("fType");
+  const fGuests = document.getElementById("fGuests");
+  const fIn = document.getElementById("fIn");
+  const fOut = document.getElementById("fOut");
+  const fMsg = document.getElementById("fMsg");
 
-      // reset "soft"
-      function getCurrentLang(){
-  return localStorage.getItem('siteLang') || 'it';
-}
+  const sendWA = document.getElementById("sendWA");
+  const sendMail = document.getElementById("sendMail");
 
-function t(it, de){
-  return (getCurrentLang() === 'de') ? de : it;
-}
+  let currentAction = "whatsapp"; // 'whatsapp' | 'email'
 
-function openModal(type = "Generale", preferredAction = "whatsapp"){
-  // reset campi
-  fType.value = type;
-  fGuests.value = "";
-  fIn.value = "";
-  fOut.value = "";
-  fMsg.value = "";
+  function openModal(type = "Generale", preferredAction = "whatsapp"){
+    currentAction = preferredAction;
 
-     document.getElementById("modalTitle").textContent =
-    (preferredAction === "email")
+    fType.value = type;
+    fGuests.value = "";
+    fIn.value = "";
+    fOut.value = "";
+    fMsg.value = "";
+
+    modalTitle.textContent = (preferredAction === "email")
       ? t("Richiesta via Email", "Anfrage per E-Mail")
       : t("Richiesta su WhatsApp", "Anfrage per WhatsApp");
 
-  modal.style.display = "flex";
-}
-    function close(){
-      modal.style.display = "none";
-    }
+    modal.style.display = "flex";
+  }
 
-   function buildText(){
-  const type = fType.value || t("Generale", "Allgemein");
-  const guests = fGuests.value ? `${t("Persone", "Personen")}: ${fGuests.value}` : "";
+  function closeModal(){
+    modal.style.display = "none";
+  }
 
-  const inD  = fIn.value
-    ? `${t("Check-in", "Check-in")}: ${fIn.value}`
-    : `${t("Check-in", "Check-in")}: ${t("(da indicare)", "(bitte angeben)")}`;
+  function buildText(){
+    const type = fType.value || t("Generale", "Allgemein");
+    const guests = fGuests.value ? `${t("Persone","Personen")}: ${fGuests.value}` : "";
+    const inD = fIn.value
+      ? `${t("Check-in","Check-in")}: ${fIn.value}`
+      : `${t("Check-in","Check-in")}: ${t("(da indicare)","(bitte angeben)")}`;
+    const outD = fOut.value
+      ? `${t("Check-out","Check-out")}: ${fOut.value}`
+      : `${t("Check-out","Check-out")}: ${t("(da indicare)","(bitte angeben)")}`;
+    const extra = fMsg.value ? `\n\n${t("Messaggio","Nachricht")}: ${fMsg.value}` : "";
 
-  const outD = fOut.value
-    ? `${t("Check-out", "Check-out")}: ${fOut.value}`
-    : `${t("Check-out", "Check-out")}: ${t("(da indicare)", "(bitte angeben)")}`;
+    const lines = [
+      t("Ciao, vorrei informazioni su:", "Hallo, ich hätte gerne Informationen zu:"),
+      `${t("Tipologia","Wohnungstyp")}: ${type}`,
+      guests,
+      inD,
+      outD,
+      `\n${t("Grazie!","Vielen Dank!")}`
+    ].filter(Boolean);
 
-  const extra = fMsg.value ? `\n\n${t("Messaggio", "Nachricht")}: ${fMsg.value}` : "";
+    return lines.join("\n") + extra;
+  }
 
-  const lines = [
-    t("Ciao, vorrei informazioni su:", "Hallo, ich hätte gerne Informationen zu:"),
-    `${t("Tipologia", "Wohnungstyp")}: ${type}`,
-    guests,
-    inD,
-    outD,
-    `\n${t("Grazie!", "Vielen Dank!")}`
-  ].filter(Boolean);
+  function sendWhatsApp(){
+    const text = buildText();
+    const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  }
 
-  return lines.join("\n") + extra;
-}
+  function sendEmail(){
+    const subject = `${t("Richiesta informazioni","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
+    const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua","Gesendet über die Website Isola di Pasqua")}`;
+    window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
 
-
-    function sendWhatsApp(){
-      const text = buildText();
-      const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-    }
-
-    function sendEmail(){
-  const subject = `${t("Richiesta informazioni", "Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
-  const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua", "Gesendet über die Website Isola di Pasqua")}`;
-  const url = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = url;
-}
-
-    document.querySelectorAll("[data-open-form]").forEach(el=>{
-      el.addEventListener("click", ()=>{
-        const type = el.getAttribute("data-open-form");
-        const action = el.getAttribute("data-action") || "whatsapp";
-        openModal(type, action);
-      });
+  // === OPEN MODAL from page buttons ===
+  document.querySelectorAll("[data-open-form]").forEach(el=>{
+    el.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const type = el.getAttribute("data-open-form") || "Generale";
+      const action = el.getAttribute("data-action") || "whatsapp";
+      openModal(type, action);
     });
-
-    closeModal.addEventListener("click", close);
-    modal.addEventListener("click", (e)=>{ if(e.target === modal) close(); });
-const sendWA = document.getElementById("sendWA");
-const sendMail = document.getElementById("sendMail");
-
-    sendWA.addEventListener("click", sendWhatsApp);
-    sendMail.addEventListener("click", sendEmail);
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-<script>
-
-  function setLang(lang) {
-  document.querySelectorAll('[data-it]').forEach(el => {
-    el.innerHTML = el.getAttribute('data-' + lang);
   });
 
-  // ✅ aggiorna anche i placeholder (textarea/input)
-  document.querySelectorAll('[data-it-placeholder]').forEach(el => {
-    el.setAttribute('placeholder', el.getAttribute('data-' + lang + '-placeholder'));
-  });
+  // === MODAL EVENTS ===
+  closeModalBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeModal(); });
 
-  localStorage.setItem('siteLang', lang);
-}
+  sendWA.addEventListener("click", (e)=>{ e.preventDefault(); sendWhatsApp(); });
+  sendMail.addEventListener("click", (e)=>{ e.preventDefault(); sendEmail(); });
 
-  document.addEventListener('DOMContentLoaded', function () {
-    const savedLang = localStorage.getItem('siteLang') || 'it';
-    setLang(savedLang);
-  });
+  // footer year
+  const yearEl = document.getElementById("year");
+  if(yearEl) yearEl.textContent = new Date().getFullYear();
 </script>
+
  
 </body>
 </html>
