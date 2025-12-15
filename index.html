@@ -389,6 +389,7 @@
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="wrap topbar-inner">
+
       <a class="brand" href="#top">
         <div class="brand-mark">IP</div>
         <div>
@@ -397,22 +398,47 @@
         </div>
       </a>
 
+      <div class="lang-switch">
+        <button type="button" onclick="setLang('it')">IT</button>
+        <button type="button" onclick="setLang('de')">DE</button>
+      </div>
+
       <nav class="nav" aria-label="Navigazione principale">
-        <a href="#chi-siamo">Chi siamo</a>
-        <a href="#appartamenti">Appartamenti</a>
-        <a href="#tipologie">Tipologie</a>
-        <a href="#perche">Perché sceglierci</a>
-        <a href="#regole">Regole</a>
-        <a href="#contatti">Contatti</a>
-      </nav>
+  <a href="#chi-siamo"
+     data-it="Chi siamo"
+     data-de="Über uns"></a>
+
+  <a href="#appartamenti"
+     data-it="Appartamenti"
+     data-de="Apartments"></a>
+
+  <a href="#tipologie"
+     data-it="Tipologie"
+     data-de="Wohnungstypen"></a>
+
+  <a href="#perche"
+     data-it="Perché sceglierci"
+     data-de="Warum uns wählen"></a>
+
+  <a href="#regole"
+     data-it="Regole"
+     data-de="Hausregeln"></a>
+
+  <a href="#contatti"
+     data-it="Contatti"
+     data-de="Kontakt"></a>
+</nav>
+
 
       <div class="btns">
-        <button class="btn btn-primary" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
-        <button class="btn" data-open-form="Generale" data-action="email">Email</button>
+        <button type="button" class="btn btn-primary" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
+        <button type="button" class="btn" data-open-form="Generale" data-action="email">Email</button>
         <a class="btn btn-soft" href="tel:+393358408583">Chiama</a>
       </div>
+
     </div>
   </header>
+
 
   <!-- HERO -->
   <main id="top">
@@ -819,5 +845,18 @@ Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-it]').forEach(el => {
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+    localStorage.setItem('siteLang', lang);
+  }
+
+  const savedLang = localStorage.getItem('siteLang') || 'it';
+  setLang(savedLang);
+</script>
+
+  
 </body>
 </html>
