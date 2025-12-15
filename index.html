@@ -928,39 +928,59 @@
       fType.value = type || "Generale";
 
       // reset "soft"
-      fGuests.value = "";
-      fIn.value = "";
-      fOut.value = "";
-      fMsg.value = "";
+      function getCurrentLang(){
+  return localStorage.getItem('siteLang') || 'it';
+}
 
-      document.getElementById("modalTitle").textContent =
-        (preferredAction === "email") ? "Richiesta via Email" : "Richiesta su WhatsApp";
+function t(it, de){
+  return (getCurrentLang() === 'de') ? de : it;
+}
 
-      modal.style.display = "flex";
-    }
+function openModal(type = "Generale", preferredAction = "whatsapp"){
+  // reset campi
+  fType.value = type;
+  fGuests.value = "";
+  fIn.value = "";
+  fOut.value = "";
+  fMsg.value = "";
 
+     document.getElementById("modalTitle").textContent =
+    (preferredAction === "email")
+      ? t("Richiesta via Email", "Anfrage per E-Mail")
+      : t("Richiesta su WhatsApp", "Anfrage per WhatsApp");
+
+  modal.style.display = "flex";
+}
     function close(){
       modal.style.display = "none";
     }
 
-    function buildText(){
-      const type = fType.value || "Generale";
-      const guests = fGuests.value ? `Persone: ${fGuests.value}` : "";
-      const inD = fIn.value ? `Check-in: ${fIn.value}` : "Check-in: (da indicare)";
-      const outD = fOut.value ? `Check-out: ${fOut.value}` : "Check-out: (da indicare)";
-      const extra = fMsg.value ? `\n\nMessaggio: ${fMsg.value}` : "";
+   function buildText(){
+  const type = fType.value || t("Generale", "Allgemein");
+  const guests = fGuests.value ? `${t("Persone", "Personen")}: ${fGuests.value}` : "";
 
-      const lines = [
-        "Ciao, vorrei informazioni su:",
-        `Tipologia: ${type}`,
-        guests,
-        inD,
-        outD,
-        "\nGrazie!"
-      ].filter(Boolean);
+  const inD  = fIn.value
+    ? `${t("Check-in", "Check-in")}: ${fIn.value}`
+    : `${t("Check-in", "Check-in")}: ${t("(da indicare)", "(bitte angeben)")}`;
 
-      return lines.join("\n") + extra;
-    }
+  const outD = fOut.value
+    ? `${t("Check-out", "Check-out")}: ${fOut.value}`
+    : `${t("Check-out", "Check-out")}: ${t("(da indicare)", "(bitte angeben)")}`;
+
+  const extra = fMsg.value ? `\n\n${t("Messaggio", "Nachricht")}: ${fMsg.value}` : "";
+
+  const lines = [
+    t("Ciao, vorrei informazioni su:", "Hallo, ich hätte gerne Informationen zu:"),
+    `${t("Tipologia", "Wohnungstyp")}: ${type}`,
+    guests,
+    inD,
+    outD,
+    `\n${t("Grazie!", "Vielen Dank!")}`
+  ].filter(Boolean);
+
+  return lines.join("\n") + extra;
+}
+
 
     function sendWhatsApp(){
       const text = buildText();
@@ -969,11 +989,11 @@
     }
 
     function sendEmail(){
-      const subject = `Richiesta informazioni – ${fType.value || "Isola di Pasqua"}`;
-      const body = buildText() + "\n\n—\nInviato dal sito Isola di Pasqua";
-      const url = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      window.location.href = url;
-    }
+  const subject = `${t("Richiesta informazioni", "Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
+  const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua", "Gesendet über die Website Isola di Pasqua")}`;
+  const url = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = url;
+}
 
     document.querySelectorAll("[data-open-form]").forEach(el=>{
       el.addEventListener("click", ()=>{
