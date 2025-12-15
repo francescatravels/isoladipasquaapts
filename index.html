@@ -877,6 +877,7 @@ Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 <script>
+
   function setLang(lang) {
     document.querySelectorAll('[data-it]').forEach(el => {
       el.innerHTML = el.getAttribute('data-' + lang);
@@ -884,10 +885,11 @@ Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi
     localStorage.setItem('siteLang', lang);
   }
 
-  const savedLang = localStorage.getItem('siteLang') || 'it';
-  setLang(savedLang);
+  document.addEventListener('DOMContentLoaded', function () {
+    const savedLang = localStorage.getItem('siteLang') || 'it';
+    setLang(savedLang);
+  });
 </script>
-
-  
+ 
 </body>
 </html>
