@@ -381,6 +381,29 @@
 .hero-card span{
   color:#0f172a;
 }
+<style>
+  :root{
+    --brand:#0b3a53;
+    --brand2:#1f7a8c;
+    --accent:#f2c14e;
+    --bg:#f4efe7;
+    --card:#ffffffcc;
+    --text:#13212f;
+    --muted:rgba(19,33,47,.70);
+    --radius:22px;
+    --shadow:0 16px 40px rgba(0,0,0,.12);
+    --max:1100px;
+  }
+
+  /* ... tutto il tuo CSS già presente ... */
+
+  .lang-switch button{
+    font-weight:700;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    padding:6px 8px;
+  }
 
   </style>
 </head>
@@ -399,9 +422,14 @@
       </a>
 
       <div class="lang-switch">
-        <button type="button" onclick="setLang('it')">IT</button>
-        <button type="button" onclick="setLang('de')">DE</button>
-      </div>
+  <button type="button" onclick="setLang('it')" aria-label="Italiano">
+    🇮🇹 IT
+  </button>
+  <button type="button" onclick="setLang('de')" aria-label="Deutsch">
+    🇩🇪 DE
+  </button>
+</div>
+
 
       <nav class="nav" aria-label="Navigazione principale">
   <a href="#chi-siamo"
