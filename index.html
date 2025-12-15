@@ -966,31 +966,24 @@
           </div>
         </div>
 
-       <div class="modal-actions">
-
-  <button class="btn btn-primary"
-          style="padding:10px 12px;border-radius:14px"
-          data-open-form="Generale"
-          data-action="whatsapp"
-          data-it="Scrivici su WhatsApp"
-          data-de="Schreiben Sie uns auf WhatsApp">
-    Scrivici su WhatsApp
+      <div class="modal-actions">
+  <button class="btn btn-primary" id="sendWA"
+          data-it="Invia su WhatsApp"
+          data-de="Per WhatsApp senden">
+    Invia su WhatsApp
   </button>
 
-  <button class="btn"
-          id="sendMail"
+  <button class="btn" id="sendMail"
           data-it="Invia via Email"
           data-de="Per E-Mail senden">
     Invia via Email
   </button>
 
-  <a class="btn btn-soft"
-     href="tel:+393358408583"
+  <a class="btn btn-soft" href="tel:+393358408583"
      data-it="Chiama"
      data-de="Anrufen">
     Chiama
   </a>
-
 </div>
 
 <div class="hint"
@@ -1104,6 +1097,8 @@ function openModal(type = "Generale", preferredAction = "whatsapp"){
 
     closeModal.addEventListener("click", close);
     modal.addEventListener("click", (e)=>{ if(e.target === modal) close(); });
+const sendWA = document.getElementById("sendWA");
+const sendMail = document.getElementById("sendMail");
 
     sendWA.addEventListener("click", sendWhatsApp);
     sendMail.addEventListener("click", sendEmail);
