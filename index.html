@@ -45,10 +45,10 @@
 .topbar-inner{
   display:flex;
   align-items:center;
-  padding:12px 0;
   gap:12px;
+  padding:12px 0;
+  justify-content:flex-start; /* invece di space-between */
 }
-
 .brand{display:flex;align-items:center;gap:10px;min-width:210px}
 .brand-mark{
   width:38px;height:38px;border-radius:14px;
@@ -77,23 +77,23 @@
   overflow:auto;
   white-space:nowrap;
   padding:4px 0;
-  flex:1;              /* fa espandere il menu */
+  flex:1;               /* fa “prendere spazio” al menu */
+  min-width:0;          /* importante quando c’è overflow */
 }
-
 .nav a{
   font-size:14px;color:var(--muted);
   padding:8px 10px;border-radius:12px;
 }
 .nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
 
-/* ✅ bottoni sempre all’estrema destra */
 .btns{
   display:flex;
   gap:8px;
   align-items:center;
-  margin-left:auto;
+  margin-left:auto;     /* spinge i bottoni a destra */
   flex-shrink:0;
 }
+
 
 .btn{
   padding:11px 14px;border-radius:14px;
@@ -160,13 +160,24 @@
     .hero-badges{
       display:flex;gap:10px;flex-wrap:wrap;margin-top:8px
     }
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.10);
-      font-weight:700;font-size:13px;color:rgba(19,33,47,.86);
-    }
+   .badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  font-weight:700;
+  font-size:13px;
+  color:rgba(19,33,47,.86);
+}
 
     /* SECTIONS */
     section{padding:18px 0}
