@@ -93,6 +93,55 @@
   flex:0 0 auto;
   margin-left:auto;
 }
+    /* ========= HERO ========= */
+.hero{padding:26px 0 10px}
+
+.hero-frame{
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  background:
+    linear-gradient(90deg, rgba(11,58,83,.28) 0%, rgba(11,58,83,.12) 45%, rgba(11,58,83,.05) 100%),
+    url('fronte-palazzina.jpg') 50% center / cover no-repeat;
+  min-height:330px;
+  position:relative;
+  border:1px solid rgba(0,0,0,.08);
+}
+
+.hero-card{
+  position:absolute;
+  left:26px; top:26px;
+  width:min(560px, calc(100% - 52px));
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:24px;
+  padding:18px 18px 14px;
+  box-shadow:0 18px 45px rgba(0,0,0,.14);
+  color:#0f172a;
+}
+
+.hero-card h1{
+  margin:0 0 8px;
+  font-size:38px;
+  line-height:1.06;
+  letter-spacing:-.5px;
+  color:#0f172a;
+}
+.hero-card p{
+  margin:0 0 12px;
+  color:#0f172a;
+  font-weight:700;
+}
+
+.hero-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:8px 0 12px;
+}
+
 
 /* ========= HERO BADGES (fix definitivo) ========= */
 /* supporta sia .badges che .hero-badges (nel caso tu abbia entrambe) */
