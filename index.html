@@ -146,29 +146,29 @@
   margin:8px 0 12px;
 }
 
-
-/* ========= HERO BADGES (fix definitivo) ========= */
-/* supporta sia .badges che .hero-badges (nel caso tu abbia entrambe) */
-.badges,
+/* ========= HERO BADGES (FIX) ========= */
 .hero-badges{
-  display:flex;
+  display:flex !important;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:10px;
+  margin-top:12px;
+  position:relative;
+  z-index:5;
 }
 
-.badge{
-  display:inline-flex;
+.hero-badges .badge{
+  display:inline-flex !important;
   align-items:center;
   gap:8px;
   padding:8px 10px;
   border-radius:999px;
   background:#fff;
   border:1px solid rgba(0,0,0,.10);
-  font-weight:700;
+  font-weight:800;
   font-size:13px;
-  color:rgba(19,33,47,.86);
+  color:rgba(19,33,47,.90);
 }
+
 
 /* su schermi più stretti “comprime” un po’ il menu */
 @media (max-width: 980px){
@@ -370,11 +370,11 @@
   </header>
 
   <main id="top">
-    <!-- HERO -->
    <section class="hero">
   <div class="wrap">
     <div class="hero-frame" role="img" aria-label="Facciata edificio Isola di Pasqua">
       <div class="hero-card">
+
         <h1
           data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
           data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
@@ -390,25 +390,40 @@
         <div class="hero-cta">
           <a class="btn btn-soft btn-icon" href="#tipologie"
              data-it="Vedi le tipologie →"
-             data-de="Wohnungstypen ansehen →">Vedi le tipologie →</a>
+             data-de="Wohnungstypen ansehen →">
+            Vedi le tipologie →
+          </a>
 
           <button type="button" class="btn btn-primary"
-                  data-open-form="Generale" data-action="whatsapp"
-                  data-it="Richiedi disponibilità" data-de="Verfügbarkeit anfragen">
+            data-open-form="Generale"
+            data-action="whatsapp"
+            data-it="Richiedi disponibilità"
+            data-de="Verfügbarkeit anfragen">
             Richiedi disponibilità
           </button>
         </div>
 
+        <!-- ✅ BADGE: DEVONO STARE QUI, DENTRO hero-card -->
         <div class="hero-badges">
-          <span class="badge" data-it="🐾 Animali ammessi" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-          <span class="badge" data-it="🅿️ Parcheggio privato" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
-          <span class="badge" data-it="❄️ Aria condizionata" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
-          <span class="badge" data-it="📺 TV" data-de="📺 TV">📺 TV</span>
+          <span class="badge" data-it="🐾 Animali ammessi" data-de="🐾 Haustiere erlaubt">
+            🐾 Animali ammessi
+          </span>
+          <span class="badge" data-it="🅿️ Parcheggio privato" data-de="🅿️ Privatparkplatz">
+            🅿️ Parcheggio privato
+          </span>
+          <span class="badge" data-it="❄️ Aria condizionata" data-de="❄️ Klimaanlage">
+            ❄️ Aria condizionata
+          </span>
+          <span class="badge" data-it="📺 TV" data-de="📺 TV">
+            📺 TV
+          </span>
         </div>
+
       </div>
     </div>
   </div>
 </section>
+
 
     <!-- CHI SIAMO / APPARTAMENTI -->
     <section>
