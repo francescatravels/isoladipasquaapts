@@ -166,28 +166,27 @@
       overflow:visible; /* ✅ importantissimo per i badge */
     }
 
-    .hero-card h1{
+   .hero-card h1{
   margin:0 0 10px;
-  font-size:37px;
-  line-height:1.1; /* leggermente più ariosa */
-  letter-spacing:-.4px;
+  font-size:34px;          /* ⬅️ più piccola */
+  line-height:1.12;        /* ⬅️ più aria */
+  letter-spacing:-0.3px;
+  color:#0f172a;
 }
 
 
-
-    .hero-card p{
+   .hero-card p{
       margin:0 0 12px;
       color:#0f172a;
       font-weight:700;
     }
 
-    .hero-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin:8px 0 12px;
-    }
+   .hero-badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;     /* ⬅ avvicina le icone */
+}
 
     /* ========= HERO BADGES (fix definitivo) ========= */
     .badges,
