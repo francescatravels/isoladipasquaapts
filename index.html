@@ -34,144 +34,144 @@
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 
     /* ========= TOP BAR ========= */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background:rgba(244,239,231,.86);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:rgba(244,239,231,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.08);
+}
 
-   .topbar-inner{
+.topbar-inner{
   display:flex;
   align-items:center;
   gap:12px;
   padding:12px 0;
-  justify-content:space-between;
 }
 
-
-    /* brand */
-    .brand{display:flex;align-items:center;gap:10px;min-width:210px}
-    .brand-mark{
-      width:38px;height:38px;border-radius:14px;
-      background:linear-gradient(135deg,var(--brand),var(--brand2));
-      color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;
-      letter-spacing:.5px;
-    }
-    .brand span{font-weight:800;font-size:14px;display:block;line-height:1.1}
-    .brand small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
-
-    /* switch lingua */
-    .lang-switch{display:flex;gap:6px;align-items:center;flex:0 0 auto}
-    .lang-switch button{
-      font-weight:800;
-      background:rgba(255,255,255,.85);
-      border:1px solid rgba(0,0,0,.12);
-      cursor:pointer;
-      padding:6px 10px;
-      border-radius:12px;
-    }
-
-    /* nav: scorre e non viene coperta dai bottoni */
-    .nav{
-      display:flex;
-      gap:6px;
-      align-items:center;
-      white-space:nowrap;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-      padding:4px 6px;
-      flex:1 1 auto;
-      min-width:0;
-      scrollbar-width:thin;
-    }
-    .nav a{
-      font-size:13px;
-      color:var(--muted);
-      padding:7px 9px;
-      border-radius:12px;
-      flex:0 0 auto;
-    }
-    .nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
-
-    /* bottoni a destra */
-    .btns{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex:0 0 auto;
-      margin-left:auto; /* spinge tutto a destra */
-    }
-
-    .btn{
-      padding:11px 14px;border-radius:14px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;font-weight:800;font-size:14px;
-      cursor:pointer;
-      transition:transform .05s ease, filter .12s ease;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btn:hover{filter:brightness(0.98)}
-    .btn-icon{display:inline-flex;gap:8px;align-items:center}
-
-    /* colori bottoni TOP */
-    .btn-whatsapp{
-      border:none;
-      color:#fff;
-      background:linear-gradient(135deg,#1fa855,#128c7e);
-    }
-    .btn-email{
-      border:1px solid rgba(11,58,83,.25);
-      background:rgba(255,255,255,.95);
-      color:var(--brand);
-    }
-    .btn-call{
-      border:1px solid rgba(242,193,78,.65);
-      background:rgba(242,193,78,.30);
-      color:rgba(19,33,47,.92);
-      font-weight:900;
-    }
-
-  /* ========= HERO ========= */
-.hero{
-  padding:26px 0 10px;
+/* brand */
+.brand{display:flex;align-items:center;gap:10px;min-width:210px}
+.brand-mark{
+  width:38px;height:38px;border-radius:14px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;
+  letter-spacing:.5px;
 }
+.brand span{font-weight:800;font-size:14px;display:block;line-height:1.1}
+.brand small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+
+/* switch lingua (resta a sinistra, vicino al brand) */
+.lang-switch{display:flex;gap:6px;align-items:center;flex:0 0 auto}
+.lang-switch button{
+  font-weight:800;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.12);
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:12px;
+}
+
+/* nav: sta tra lingue e bottoni, scorre se non c’è spazio */
+.nav{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  white-space:nowrap;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 6px;
+  flex:1 1 auto;
+  min-width:0;
+  scrollbar-width:thin;
+  justify-content:flex-end;    /* ⬅️ menu più “lateralmente” a destra */
+}
+.nav a{
+  font-size:13px;
+  color:var(--muted);
+  padding:7px 9px;
+  border-radius:12px;
+  flex:0 0 auto;
+}
+.nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
+
+/* bottoni a destra */
+.btns{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex:0 0 auto;
+  margin-left:14px;            /* ⬅️ separazione dal menu */
+}
+
+/* stile bottoni */
+.btn{
+  padding:11px 14px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-weight:800;
+  font-size:14px;
+  cursor:pointer;
+  transition:transform .05s ease, filter .12s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn:hover{filter:brightness(.98)}
+.btn-icon{display:inline-flex;gap:8px;align-items:center}
+
+/* colori top buttons */
+.btn-whatsapp{
+  border:none;
+  color:#fff;
+  background:linear-gradient(135deg,#1fa855,#128c7e);
+}
+.btn-email{
+  border:1px solid rgba(11,58,83,.25);
+  background:rgba(255,255,255,.95);
+  color:var(--brand);
+}
+.btn-call{
+  border:1px solid rgba(242,193,78,.65);
+  background:rgba(242,193,78,.30);
+  color:rgba(19,33,47,.92);
+  font-weight:900;
+}
+
+/* ========= HERO ========= */
+.hero{padding:26px 0 10px}
 
 .hero-frame{
   border-radius:30px;
   overflow:hidden;
   box-shadow:var(--shadow);
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgba(11,58,83,.35) 0%,
       rgba(11,58,83,.18) 45%,
       rgba(11,58,83,.08) 100%
     ),
-  url('facciata.png') 70% center / cover no-repeat;
+    url('facciata.png') 70% center / cover no-repeat; /* ⬅️ più a destra */
   min-height:330px;
   position:relative;
   border:1px solid rgba(0,0,0,.08);
 }
 
-    .hero-card{
-      position:absolute;
-      left:26px; top:26px;
-      width:min(560px, calc(100% - 52px));
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:24px;
-      padding:18px 18px 16px;
-      box-shadow:0 18px 45px rgba(0,0,0,.14);
-      color:#0f172a;
-      overflow:visible; /* ✅ importantissimo per i badge */
-    }
+.hero-card{
+  position:absolute;
+  left:26px; top:26px;
+  width:min(560px, calc(100% - 52px));
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:24px;
+  padding:18px 18px 16px;
+  box-shadow:0 18px 45px rgba(0,0,0,.14);
+  color:#0f172a;
+  overflow:visible;
+}
 
-  .hero-card h1{
+.hero-card h1{
   margin:0 0 6px;
-  font-size:33px;        /* ⬅️ 1px in meno (meglio equilibrio) */
-  line-height:1.05;      /* ⬅️ fondamentale per il tedesco */
+  font-size:32px;   /* ⬅️ più piccolo */
+  line-height:1.04; /* ⬅️ aiuta tantissimo DE */
   letter-spacing:-0.3px;
   color:#0f172a;
 }
@@ -186,75 +186,24 @@
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:10px;       /* ⬅️ icone più vicine al testo */
+  margin-top:10px; /* ⬅️ icone più visibili */
 }
-
-
-    /* ========= HERO BADGES (fix definitivo) ========= */
-    .badges,
-    .hero-badges{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-      position:relative;
-      z-index:5;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.10);
-      font-weight:800;
-      font-size:13px;
-      color:rgba(19,33,47,.90);
-    }
-/* ========= SIDENAV (menu laterale) ========= */
-:root{ --sideW: 220px; }
-
-.sidenav{
-  position:fixed;
-  top:72px;                 /* altezza topbar circa */
-  left:16px;
-  width:var(--sideW);
-  padding:12px;
-  background:rgba(255,255,255,.75);
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:18px;
-  box-shadow:0 14px 35px rgba(0,0,0,.08);
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  z-index:40;
-}
-
-.sidenav a{
-  padding:10px 12px;
-  border-radius:14px;
+.hero-badges .badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 10px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
   font-weight:800;
   font-size:13px;
-  color:var(--muted);
+  color:rgba(19,33,47,.90);
 }
 
-.sidenav a:hover{
-  background:rgba(0,0,0,.06);
-  color:var(--text);
-}
-
-/* sposta il contenuto a destra per non finire sotto la sidebar */
-main{
-  padding-left: calc(var(--sideW) + 32px);
-}
-
-/* mobile/tablet: torna menu in alto (niente sidebar fissa) */
 @media (max-width: 980px){
-  .sidenav{ display:none; }
-  main{ padding-left: 0; }
+  .nav a{font-size:12.5px; padding:6px 8px}
+  .brand{min-width:auto}
 }
 
     /* ========= SECTIONS ========= */
@@ -434,15 +383,12 @@ main{
         <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
       </nav>
 
-      <div class="btns">
-        <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp"
-          data-it="WhatsApp" data-de="WhatsApp">WhatsApp</button>
+     <div class="btns">
+  <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
+  <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
+  <a class="btn btn-call" href="tel:+393358408583">Chiama</a>
+</div>
 
-        <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email"
-          data-it="Email" data-de="E-Mail">Email</button>
-
-        <a class="btn btn-call" href="tel:+393358408583" data-it="Chiama" data-de="Anrufen">Chiama</a>
-      </div>
     </div>
   </header>
   <aside class="sidenav" aria-label="Menu laterale">
