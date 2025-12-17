@@ -33,14 +33,13 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-    /* ========= TOP BAR ========= */
+/* ========= TOP BAR ========= */
 .topbar{
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:0; z-index:60;
   background:rgba(244,239,231,.86);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,0,0,.08);
 }
-
 .topbar-inner{
   display:flex;
   align-items:center;
@@ -59,7 +58,7 @@
 .brand span{font-weight:800;font-size:14px;display:block;line-height:1.1}
 .brand small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
 
-/* switch lingua (resta a sinistra, vicino al brand) */
+/* lingue */
 .lang-switch{display:flex;gap:6px;align-items:center;flex:0 0 auto}
 .lang-switch button{
   font-weight:800;
@@ -70,39 +69,14 @@
   border-radius:12px;
 }
 
-/* nav: sta tra lingue e bottoni, scorre se non c’è spazio */
-.nav{
-  display:flex;
-  gap:6px;
-  align-items:center;
-  white-space:nowrap;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  padding:4px 6px;
-  flex:1 1 auto;
-  min-width:0;
-  scrollbar-width:thin;
-  justify-content:flex-end;    /* ⬅️ menu più “lateralmente” a destra */
-}
-.nav a{
-  font-size:13px;
-  color:var(--muted);
-  padding:7px 9px;
-  border-radius:12px;
-  flex:0 0 auto;
-}
-.nav a:hover{background:rgba(0,0,0,.05);color:var(--text)}
-
 /* bottoni a destra */
 .btns{
   display:flex;
   gap:8px;
   align-items:center;
+  margin-left:auto;
   flex:0 0 auto;
-  margin-left:14px;            /* ⬅️ separazione dal menu */
 }
-
-/* stile bottoni */
 .btn{
   padding:11px 14px;
   border-radius:14px;
@@ -115,7 +89,6 @@
 }
 .btn:active{transform:translateY(1px)}
 .btn:hover{filter:brightness(.98)}
-.btn-icon{display:inline-flex;gap:8px;align-items:center}
 
 /* colori top buttons */
 .btn-whatsapp{
@@ -135,76 +108,53 @@
   font-weight:900;
 }
 
-/* ========= HERO ========= */
-.hero{padding:26px 0 10px}
-
-.hero-frame{
-  border-radius:30px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  background:
-    linear-gradient(90deg,
-      rgba(11,58,83,.35) 0%,
-      rgba(11,58,83,.18) 45%,
-      rgba(11,58,83,.08) 100%
-    ),
-    url('facciata.png') 70% center / cover no-repeat; /* ⬅️ più a destra */
-  min-height:330px;
-  position:relative;
-  border:1px solid rgba(0,0,0,.08);
+/* ========= MENU LATERALE (desktop) ========= */
+.side-nav{
+  position:fixed;
+  top:62px;               /* sotto la topbar (si adatta: se cambia altezza dimmelo) */
+  left:18px;
+  z-index:40;
+  width:190px;
 }
-
-.hero-card{
-  position:absolute;
-  left:26px; top:26px;
-  width:min(560px, calc(100% - 52px));
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(10px);
-  border:1px solid rgba(255,255,255,.55);
-  border-radius:24px;
-  padding:18px 18px 16px;
-  box-shadow:0 18px 45px rgba(0,0,0,.14);
-  color:#0f172a;
-  overflow:visible;
-}
-
-.hero-card h1{
-  margin:0 0 6px;
-  font-size:32px;   /* ⬅️ più piccolo */
-  line-height:1.04; /* ⬅️ aiuta tantissimo DE */
-  letter-spacing:-0.3px;
-  color:#0f172a;
-}
-
-.hero-card p{
-  margin:0 0 10px;
-  color:#0f172a;
-  font-weight:700;
-}
-
-.hero-badges{
+.side-nav-inner{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:10px; /* ⬅️ icone più visibili */
+  flex-direction:column;
+  gap:6px;
+  padding:12px;
+  border-radius:18px;
+  background:rgba(255,255,255,.78);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 14px 35px rgba(0,0,0,.08);
+  backdrop-filter:blur(8px);
 }
-.hero-badges .badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 10px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.10);
-  font-weight:800;
+.side-nav-inner a{
   font-size:13px;
-  color:rgba(19,33,47,.90);
+  font-weight:800;
+  color:var(--muted);
+  padding:9px 10px;
+  border-radius:12px;
+}
+.side-nav-inner a:hover{
+  background:rgba(0,0,0,.05);
+  color:var(--text);
 }
 
-@media (max-width: 980px){
-  .nav a{font-size:12.5px; padding:6px 8px}
-  .brand{min-width:auto}
+/* per non far finire i contenuti sotto al menu laterale */
+@media (min-width: 980px){
+  body{ padding-left: 210px; }
 }
+
+/* su mobile: niente menu laterale (resta pulito) */
+@media (max-width: 979px){
+  body{ padding-left: 0; }
+  .side-nav{ display:none; }
+}
+
+/* comodo con header sticky */
+#chi-siamo, #appartamenti, #tipologie, #perche, #regole, #contatti{
+  scroll-margin-top:90px;
+}
+
 
     /* ========= SECTIONS ========= */
     section{padding:18px 0}
@@ -359,46 +309,40 @@
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top">
-        <div class="brand-mark">IP</div>
-        <div>
-          <span>Isola di Pasqua</span>
-          <small>Appartamenti fronte mare</small>
-        </div>
-      </a>
-
-      <div class="lang-switch">
-        <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
-        <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
+ <header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top">
+      <div class="brand-mark">IP</div>
+      <div>
+        <span>Isola di Pasqua</span>
+        <small>Appartamenti fronte mare</small>
       </div>
+    </a>
 
-     
-        <a href="#chi-siamo" data-it="Chi siamo" data-de="Über uns">Chi siamo</a>
-        <a href="#appartamenti" data-it="Appartamenti" data-de="Apartments">Appartamenti</a>
-        <a href="#tipologie" data-it="Tipologie" data-de="Wohnungstypen">Tipologie</a>
-        <a href="#perche" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</a>
-        <a href="#regole" data-it="Regole" data-de="Hausregeln">Regole</a>
-        <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
-      </nav>
-
-     <div class="btns">
-  <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
-  <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
-  <a class="btn btn-call" href="tel:+393358408583">Chiama</a>
-</div>
-
+    <div class="lang-switch">
+      <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
+      <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
     </div>
-  </header>
-  <aside class="sidenav" aria-label="Menu laterale">
-  <a href="#chi-siamo" data-it="Chi siamo" data-de="Über uns">Chi siamo</a>
-  <a href="#appartamenti" data-it="Appartamenti" data-de="Apartments">Appartamenti</a>
-  <a href="#tipologie" data-it="Tipologie" data-de="Wohnungstypen">Tipologie</a>
-  <a href="#perche" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</a>
-  <a href="#regole" data-it="Regole" data-de="Hausregeln">Regole</a>
-  <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
+
+    <div class="btns">
+      <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
+      <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
+      <a class="btn btn-call" href="tel:+393358408583">Chiama</a>
+    </div>
+  </div>
+</header>
+
+ <aside class="side-nav" aria-label="Menu laterale">
+  <nav class="side-nav-inner">
+    <a href="#chi-siamo" data-it="Chi siamo" data-de="Über uns">Chi siamo</a>
+    <a href="#appartamenti" data-it="Appartamenti" data-de="Apartments">Appartamenti</a>
+    <a href="#tipologie" data-it="Tipologie" data-de="Wohnungstypen">Tipologie</a>
+    <a href="#perche" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</a>
+    <a href="#regole" data-it="Regole" data-de="Hausregeln">Regole</a>
+    <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
+  </nav>
 </aside>
+
 
 
   <main id="top">
