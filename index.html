@@ -33,282 +33,8 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 
-/* ========= TOP BAR ========= */
-.topbar{
-  position:sticky; top:0; z-index:60;
-  background:rgba(244,239,231,.86);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(0,0,0,.08);
 }
-.topbar-inner{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:12px 0;
-}
-
-/* brand */
-.brand{display:flex;align-items:center;gap:10px;min-width:210px}
-.brand-mark{
-  width:38px;height:38px;border-radius:14px;
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;
-  letter-spacing:.5px;
-}
-.brand span{font-weight:800;font-size:14px;display:block;line-height:1.1}
-.brand small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
-
-/* lingue */
-.lang-switch{display:flex;gap:6px;align-items:center;flex:0 0 auto}
-.lang-switch button{
-  font-weight:800;
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(0,0,0,.12);
-  cursor:pointer;
-  padding:6px 10px;
-  border-radius:12px;
-}
-
-/* bottoni a destra */
-.btns{
-  display:flex;
-  gap:8px;
-  align-items:center;
-  margin-left:auto;
-  flex:0 0 auto;
-}
-.btn{
-  padding:11px 14px;
-  border-radius:14px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  font-weight:800;
-  font-size:14px;
-  cursor:pointer;
-  transition:transform .05s ease, filter .12s ease;
-}
-.btn:active{transform:translateY(1px)}
-.btn:hover{filter:brightness(.98)}
-
-/* colori top buttons */
-.btn-whatsapp{
-  border:none;
-  color:#fff;
-  background:linear-gradient(135deg,#1fa855,#128c7e);
-}
-.btn-email{
-  border:1px solid rgba(11,58,83,.25);
-  background:rgba(255,255,255,.95);
-  color:var(--brand);
-}
-.btn-call{
-  border:1px solid rgba(242,193,78,.65);
-  background:rgba(242,193,78,.30);
-  color:rgba(19,33,47,.92);
-  font-weight:900;
-}
-
-/* ========= MENU LATERALE (desktop) ========= */
-.side-nav{
-  position:fixed;
-  top:62px;               /* sotto la topbar (si adatta: se cambia altezza dimmelo) */
-  left:18px;
-  z-index:40;
-  width:190px;
-}
-.side-nav-inner{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  padding:12px;
-  border-radius:18px;
-  background:rgba(255,255,255,.78);
-  border:1px solid rgba(0,0,0,.08);
-  box-shadow:0 14px 35px rgba(0,0,0,.08);
-  backdrop-filter:blur(8px);
-}
-.side-nav-inner a{
-  font-size:13px;
-  font-weight:800;
-  color:var(--muted);
-  padding:9px 10px;
-  border-radius:12px;
-}
-.side-nav-inner a:hover{
-  background:rgba(0,0,0,.05);
-  color:var(--text);
-}
-
-/* per non far finire i contenuti sotto al menu laterale */
-@media (min-width: 980px){
-  body{ padding-left: 210px; }
-}
-
-/* su mobile: niente menu laterale (resta pulito) */
-@media (max-width: 979px){
-  body{ padding-left: 0; }
-  .side-nav{ display:none; }
-}
-
-/* comodo con header sticky */
-#chi-siamo, #appartamenti, #tipologie, #perche, #regole, #contatti{
-  scroll-margin-top:90px;
-}
-
-
-    /* ========= SECTIONS ========= */
-    section{padding:18px 0}
-    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .card{
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(8px);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:24px;
-      box-shadow:0 14px 35px rgba(0,0,0,.08);
-      padding:20px;
-    }
-    .card h2{margin:0 0 10px;font-size:24px}
-    .card p{margin:0 0 10px;color:var(--muted);font-weight:600;line-height:1.55}
-
-    .section-title{margin:0 0 8px;font-size:26px}
-    .section-sub{margin:0 0 14px;color:var(--muted);font-weight:600}
-
-    .types{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .type-card{
-      background:rgba(255,255,255,.85);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:0 14px 35px rgba(0,0,0,.08);
-      display:flex;
-      flex-direction:column;
-      min-height:420px;
-    }
-    .type-media{height:170px;overflow:hidden;background:#d9e6ea}
-    .type-media img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03)}
-    .type-body{padding:16px;display:flex;flex-direction:column;gap:10px;flex:1}
-    .type-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
-    .type-title{margin:0;font-size:18px;font-weight:900}
-    .cap{font-size:12px;font-weight:900;color:rgba(19,33,47,.75);background:rgba(242,193,78,.25);border:1px solid rgba(242,193,78,.45);padding:6px 10px;border-radius:999px}
-    .type-desc{margin:0;color:var(--muted);font-weight:600;line-height:1.45}
-    .list{margin:0;padding-left:18px;color:rgba(19,33,47,.78);font-weight:700;line-height:1.55}
-    .type-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
-    .btn-sm{
-      padding:10px 12px;border-radius:14px;font-weight:900;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      cursor:pointer;
-    }
-    .btn-sm.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:none}
-    .btn-sm.soft{background:rgba(242,193,78,.30);border-color:rgba(242,193,78,.55)}
-
-    .gallery{
-      display:flex;gap:10px;overflow:auto;
-      padding:0 16px 14px;
-      scroll-snap-type:x mandatory;
-    }
-    .gallery img{
-      width:220px;height:140px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.10);
-      box-shadow:0 10px 20px rgba(0,0,0,.08);
-      scroll-snap-align:start;
-      flex:0 0 auto;
-    }
-
-    .why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .why .mini{
-      padding:16px;border-radius:20px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 12px 30px rgba(0,0,0,.06);
-    }
-    .mini h3{margin:0 0 8px;font-size:16px}
-    .mini p{margin:0;color:var(--muted);font-weight:600;line-height:1.5}
-
-    .rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px}
-    .rule{
-      background:rgba(255,255,255,.84);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:14px;
-      font-weight:800;
-      color:rgba(19,33,47,.86);
-      box-shadow:0 10px 25px rgba(0,0,0,.06);
-    }
-    .rule small{display:block;margin-top:6px;color:var(--muted);font-weight:700}
-
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-    .contact-lines{margin-top:10px;display:flex;flex-direction:column;gap:10px;color:rgba(19,33,47,.85);font-weight:800}
-    .pill{
-      display:inline-flex;gap:10px;align-items:center;
-      padding:10px 12px;border-radius:16px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 10px 22px rgba(0,0,0,.06);
-    }
-    iframe.map{width:100%;height:320px;border:0;border-radius:22px;box-shadow:0 14px 35px rgba(0,0,0,.10)}
-
-    .modal-backdrop{
-      position:fixed;inset:0;
-      background:rgba(0,0,0,.45);
-      display:none;
-      align-items:center;justify-content:center;
-      z-index:200;
-      padding:18px;
-    }
-    .modal{
-      width:min(720px, 100%);
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:26px;
-      box-shadow:0 24px 70px rgba(0,0,0,.28);
-      overflow:hidden;
-    }
-    .modal-head{
-      padding:16px 18px;
-      display:flex;align-items:center;justify-content:space-between;
-      background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.10));
-      border-bottom:1px solid rgba(0,0,0,.06);
-    }
-    .modal-head strong{font-size:16px}
-    .x{border:0;background:transparent;font-size:22px;cursor:pointer;color:rgba(19,33,47,.75);padding:4px 10px;border-radius:12px}
-    .x:hover{background:rgba(0,0,0,.06)}
-    .modal-body{padding:16px 18px 18px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    label{font-weight:900;font-size:13px;color:rgba(19,33,47,.78)}
-    input, textarea, select{
-      width:100%;
-      margin-top:6px;
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      font-weight:700;
-      color:rgba(19,33,47,.90);
-      outline:none;
-    }
-    textarea{min-height:110px;resize:vertical}
-    .modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .hint{margin-top:10px;color:var(--muted);font-weight:700;font-size:13px}
-
-    @media (max-width: 980px){
-      .nav a{font-size:12.5px; padding:6px 8px}
-      .brand{min-width:auto}
-    }
-    @media (max-width: 960px){
-      .grid2{grid-template-columns:1fr}
-      .types{grid-template-columns:1fr}
-      .why{grid-template-columns:1fr}
-      .rules{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .hero-card h1{font-size:32px}
-    }
-  </style>
-</head>
-
-<body>
+<!-- ===== TOPBAR (solo brand + lingue + bottoni) ===== -->
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a class="brand" href="#top">
@@ -320,72 +46,67 @@
     </a>
 
     <div class="lang-switch">
-      <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
-      <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
+      <button type="button" onclick="setLang('it')">🇮🇹 IT</button>
+      <button type="button" onclick="setLang('de')">🇩🇪 DE</button>
     </div>
 
     <div class="btns">
-      <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
-      <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
+      <button class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
+      <button class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
       <a class="btn btn-call" href="tel:+393358408583">Chiama</a>
     </div>
   </div>
 </header>
 
-
-<aside class="side-nav" aria-label="Menu laterale">
+<!-- ===== MENU LATERALE ===== -->
+<aside class="side-nav">
   <nav class="side-nav-inner">
-    <a href="#chi-siamo" data-it="Chi siamo" data-de="Über uns">Chi siamo</a>
-    <a href="#appartamenti" data-it="Appartamenti" data-de="Apartments">Appartamenti</a>
-    <a href="#tipologie" data-it="Tipologie" data-de="Wohnungstypen">Tipologie</a>
-    <a href="#perche" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</a>
-    <a href="#regole" data-it="Regole" data-de="Hausregeln">Regole</a>
-    <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#appartamenti">Appartamenti</a>
+    <a href="#tipologie">Tipologie</a>
+    <a href="#perche">Perché sceglierci</a>
+    <a href="#regole">Regole</a>
+    <a href="#contatti">Contatti</a>
   </nav>
 </aside>
 
+<!-- ===== HERO CON BACKGROUND ===== -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-frame">
+      <div class="hero-card">
 
+        <h1
+          data-it="Appartamenti fronte mare a Caorle<br>con accesso diretto al lungomare"
+          data-de="Ferienwohnungen direkt am Meer in Caorle<br>mit direktem Zugang zur Strandpromenade">
+          Appartamenti fronte mare a Caorle<br>con accesso diretto al lungomare
+        </h1>
 
+        <p
+          data-it="Gestione familiare, posizione unica: attraversi il giardino e sei subito sul mare."
+          data-de="Familiengeführte Unterkunft mit einzigartiger Lage – direkt am Meer.">
+          Gestione familiare, posizione unica: attraversi il giardino e sei subito sul mare.
+        </p>
 
-  <main id="top">
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-frame" role="img" aria-label="Fronte palazzina Isola di Pasqua">
-          <div class="hero-card">
-            <h1
-              data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
-              data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
-              Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare
-            </h1>
-
-            <p
-              data-it="Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare."
-              data-de="Familiengeführte Unterkunft in einzigartiger Lage: Überqueren Sie den Garten, gehen Sie ein paar Stufen hinauf und Sie sind direkt am Meer.">
-              Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare.
-            </p>
-
-            <div class="hero-cta">
-              <a class="btn btn-call btn-icon" href="#tipologie"
-                 data-it="Vedi le tipologie →"
-                 data-de="Wohnungstypen ansehen →">Vedi le tipologie →</a>
-
-              <button type="button" class="btn btn-whatsapp"
-                data-open-form="Generale" data-action="whatsapp"
-                data-it="Richiedi disponibilità" data-de="Verfügbarkeit anfragen">
-                Richiedi disponibilità
-              </button>
-            </div>
-
-            <div class="hero-badges">
-              <span class="badge" data-it="🐾 Animali ammessi" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-              <span class="badge" data-it="🅿️ Parcheggio privato" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
-              <span class="badge" data-it="❄️ Aria condizionata" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
-              <span class="badge" data-it="📺 TV" data-de="📺 TV">📺 TV</span>
-            </div>
-          </div>
+        <div class="hero-cta">
+          <a href="#tipologie" class="btn btn-call">Vedi le tipologie →</a>
+          <button class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">
+            Richiedi disponibilità
+          </button>
         </div>
+
+        <div class="hero-badges">
+          <span class="badge">🐾 Animali ammessi</span>
+          <span class="badge">🅿️ Parcheggio privato</span>
+          <span class="badge">❄️ Aria condizionata</span>
+          <span class="badge">📺 TV</span>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <section>
       <div class="wrap grid2">
