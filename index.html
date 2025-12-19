@@ -388,6 +388,90 @@
       .contact-grid{grid-template-columns:1fr}
       .hero-card h1{font-size:30px}
     }
+    /* =====================
+   MOBILE OPTIMIZATION
+   ===================== */
+
+/* Mobile generale */
+@media (max-width: 768px){
+
+  body{
+    padding-left: 0 !important;
+  }
+
+  /* Nasconde menu laterale */
+  .side-nav{
+    display: none !important;
+  }
+
+  /* Hero */
+  .hero-frame{
+    min-height: 420px;
+    background-position: center;
+  }
+
+  .hero-card{
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 14px;
+    width: auto;
+    padding: 16px;
+  }
+
+  .hero-card h1{
+    font-size: 24px;
+    line-height: 1.15;
+  }
+
+  .hero-card p{
+    font-size: 14px;
+  }
+
+  /* Bottoni */
+  .btn,
+  .btn-sm{
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-cta{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Cards */
+  .grid2,
+  .types,
+  .why,
+  .rules,
+  .contact-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Gallery */
+  .gallery img{
+    width: 85vw;
+    height: auto;
+  }
+
+  /* Topbar */
+  .topbar-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand{
+    min-width: auto;
+  }
+
+  .btns{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+
   </style>
 </head>
 
@@ -899,17 +983,20 @@
       ].filter(Boolean).join("\n") + extra;
     }
 
-   function sendWhatsApp(){
-  // 🔹 EVENTO GA4
-  gtag('event', 'contact_whatsapp', {
-    method: 'whatsapp',
-    page_location: window.location.href
-  });
+function sendWhatsApp(){
+  // ✅ Evento Google Analytics 4
+  if (typeof gtag === "function") {
+    gtag('event', 'contact_whatsapp', {
+      method: 'whatsapp',
+      page_location: window.location.href
+    });
+  }
 
-  // 🔹 Apertura WhatsApp
   const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(buildText())}`;
   window.open(url, "_blank");
 }
+
+
 
 
    function sendEmail(){
