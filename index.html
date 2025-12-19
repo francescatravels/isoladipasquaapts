@@ -411,7 +411,12 @@
       <div class="btns">
         <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
         <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
-        <a class="btn btn-call" href="tel:+393358408583">Chiama</a>
+        <a class="btn btn-call"
+   href="tel:+393358408583"
+   onclick="gtag('event','contact_call',{method:'phone'})">
+   Chiama
+</a>
+
       </div>
     </div>
   </header>
@@ -894,16 +899,31 @@
       ].filter(Boolean).join("\n") + extra;
     }
 
-    function sendWhatsApp(){
-      const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(buildText())}`;
-      window.open(url, "_blank");
-    }
+   function sendWhatsApp(){
+  // 🔹 EVENTO GA4
+  gtag('event', 'contact_whatsapp', {
+    method: 'whatsapp',
+    page_location: window.location.href
+  });
 
-    function sendEmail(){
-      const subject = `${t("Richiesta informazioni","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
-      const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua","Gesendet über die Website Isola di Pasqua")}`;
-      window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    }
+  // 🔹 Apertura WhatsApp
+  const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(buildText())}`;
+  window.open(url, "_blank");
+}
+
+
+   function sendEmail(){
+  // 🔹 EVENTO GA4
+  gtag('event', 'contact_email', {
+    method: 'email',
+    page_location: window.location.href
+  });
+
+  const subject = `${t("Richiesta informazioni","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
+  const body = buildText();
+  window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
 
     document.querySelectorAll("[data-open-form]").forEach(el=>{
       el.addEventListener("click", (e)=>{
