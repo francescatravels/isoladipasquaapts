@@ -999,15 +999,17 @@ function sendWhatsApp(){
 
 
 
-   function sendEmail(){
-  // 🔹 EVENTO GA4
-  gtag('event', 'contact_email', {
-    method: 'email',
-    page_location: window.location.href
-  });
+  function sendEmail(){
+  // ✅ Evento GA4
+  if (typeof gtag === "function") {
+    gtag('event', 'contact_email', {
+      method: 'email',
+      page_location: window.location.href
+    });
+  }
 
   const subject = `${t("Richiesta informazioni","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
-  const body = buildText();
+  const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua","Gesendet über die Website Isola di Pasqua")}`;
   window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
