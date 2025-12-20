@@ -261,6 +261,7 @@
 
     /* ====== TIPI DI APPARTAMENTO (FIX DEFINITIVO) ====== */
 
+/* ====== TYPES (FIX DEFINITIVO MONOLOCALE) ====== */
 .types{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -275,7 +276,7 @@
   box-shadow:0 14px 35px rgba(0,0,0,.08);
   display:flex;
   flex-direction:column;
-  min-height:420px;
+  height:100%;
 }
 
 /* immagine */
@@ -291,20 +292,23 @@
   display:block;
 }
 
-/* corpo card */
+/* corpo */
 .type-body{
   padding:16px;
   display:flex;
   flex-direction:column;
   gap:10px;
-  flex:1;                 /* 🔴 fondamentale */
+  flex:1;
+  min-width:0; /* 🔴 QUESTO RISOLVE LO SHIFT DEL TESTO */
 }
 
+/* titolo + badge */
 .type-top{
   display:flex;
-  align-items:baseline;
+  align-items:center;
   justify-content:space-between;
   gap:10px;
+  flex-wrap:wrap;
 }
 
 .type-title{
@@ -321,15 +325,16 @@
   border:1px solid rgba(242,193,78,.45);
   padding:6px 10px;
   border-radius:999px;
+  white-space:nowrap;
 }
 
-/* testo descrizione */
+/* descrizione */
 .type-desc{
   margin:0;
   color:var(--muted);
   font-weight:600;
   line-height:1.45;
-  flex-grow:1;            /* 🔴 tiene il bottone in basso */
+  word-break:break-word;
 }
 
 /* lista */
@@ -341,12 +346,18 @@
   line-height:1.55;
 }
 
-/* azioni */
+/* bottone sempre in basso */
 .type-actions{
+  margin-top:auto;
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:auto;        /* 🔴 BLOCCO DEFINITIVO */
+  justify-content:flex-start;
+}
+
+/* bottone unico */
+.type-actions .btn,
+.type-actions .btn-sm{
+  width:100%;
+  justify-content:center;
 }
 
 .btn-sm{
