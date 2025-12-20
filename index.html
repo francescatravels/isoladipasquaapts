@@ -6,15 +6,15 @@
 
   <title>Isola di Pasqua – Appartamenti fronte mare a Caorle vicino al centro storico</title>
   <meta name="description" content="Isola di Pasqua è una casa vacanze a gestione familiare con appartamenti fronte mare a Caorle. Accesso diretto al lungomare, centro storico raggiungibile a piedi. Animali ammessi.">
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G3W4DNGS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K0G3W4DNGS');
-</script>
 
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G3W4DNGS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-K0G3W4DNGS');
+  </script>
 
   <style>
     :root{
@@ -104,10 +104,13 @@
       border:1px solid rgba(0,0,0,.15);
       background:#fff;
       transition:transform .05s ease, filter .12s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
     }
     .btn:active{transform:translateY(1px)}
     .btn:hover{filter:brightness(.98)}
-    .btn-icon{display:inline-flex;gap:8px;align-items:center}
 
     .btn-whatsapp{
       border:none;
@@ -259,144 +262,84 @@
     .section-title{margin:0 0 8px;font-size:26px}
     .section-sub{margin:0 0 14px;color:var(--muted);font-weight:600}
 
-    /* ====== TIPI DI APPARTAMENTO (FIX DEFINITIVO) ====== */
+    /* ====== TYPES (FIX MONOLOCALE) ====== */
+    .types{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .type-card{
+      background:rgba(255,255,255,.85);
+      border:1px solid rgba(0,0,0,.08);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 14px 35px rgba(0,0,0,.08);
+      display:flex;
+      flex-direction:column;
+      height:100%;
+    }
+    .type-media{height:170px;overflow:hidden;background:#d9e6ea}
+    .type-media img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03)}
+    .type-body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      flex:1;
+      min-width:0; /* IMPORTANT: evita lo “shift” del testo */
+    }
+    .type-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .type-title{margin:0;font-size:18px;font-weight:900}
+    .cap{
+      font-size:12px;
+      font-weight:900;
+      color:rgba(19,33,47,.75);
+      background:rgba(242,193,78,.25);
+      border:1px solid rgba(242,193,78,.45);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .type-desc{margin:0;color:var(--muted);font-weight:600;line-height:1.45;word-break:break-word}
+    .list{margin:0;padding-left:18px;color:rgba(19,33,47,.78);font-weight:700;line-height:1.55}
 
-/* ====== TYPES (FIX DEFINITIVO MONOLOCALE) ====== */
-.types{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
+    .type-actions{
+      margin-top:auto;
+      display:flex;
+    }
+    .btn-sm{
+      width:100%;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:900;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+    }
+    .btn-sm.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:none}
 
-.type-card{
-  background:rgba(255,255,255,.85);
-  border:1px solid rgba(0,0,0,.08);
-  border-radius:22px;
-  overflow:hidden;
-  box-shadow:0 14px 35px rgba(0,0,0,.08);
-  display:flex;
-  flex-direction:column;
-  height:100%;
-}
-
-/* immagine */
-.type-media{
-  height:170px;
-  overflow:hidden;
-  background:#d9e6ea;
-}
-.type-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-/* corpo */
-.type-body{
-  padding:16px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  flex:1;
-  min-width:0; /* 🔴 QUESTO RISOLVE LO SHIFT DEL TESTO */
-}
-
-/* titolo + badge */
-.type-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.type-title{
-  margin:0;
-  font-size:18px;
-  font-weight:900;
-}
-
-.cap{
-  font-size:12px;
-  font-weight:900;
-  color:rgba(19,33,47,.75);
-  background:rgba(242,193,78,.25);
-  border:1px solid rgba(242,193,78,.45);
-  padding:6px 10px;
-  border-radius:999px;
-  white-space:nowrap;
-}
-
-/* descrizione */
-.type-desc{
-  margin:0;
-  color:var(--muted);
-  font-weight:600;
-  line-height:1.45;
-  word-break:break-word;
-}
-
-/* lista */
-.list{
-  margin:0;
-  padding-left:18px;
-  color:rgba(19,33,47,.78);
-  font-weight:700;
-  line-height:1.55;
-}
-
-/* bottone sempre in basso */
-.type-actions{
-  margin-top:auto;
-  display:flex;
-  justify-content:flex-start;
-}
-
-/* bottone unico */
-.type-actions .btn,
-.type-actions .btn-sm{
-  width:100%;
-  justify-content:center;
-}
-
-.btn-sm{
-  padding:10px 12px;
-  border-radius:14px;
-  font-weight:900;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  cursor:pointer;
-}
-.btn-sm.primary{
-  background:linear-gradient(135deg,var(--brand),var(--brand2));
-  color:#fff;
-  border:none;
-}
-.btn-sm.soft{
-  background:rgba(242,193,78,.30);
-  border-color:rgba(242,193,78,.55);
-}
-
-/* gallery */
-.gallery{
-  display:flex;
-  gap:10px;
-  overflow:auto;
-  padding:0 16px 14px;
-  scroll-snap-type:x mandatory;
-}
-.gallery img{
-  width:220px;
-  height:140px;
-  object-fit:cover;
-  border-radius:16px;
-  border:1px solid rgba(0,0,0,.10);
-  box-shadow:0 10px 20px rgba(0,0,0,.08);
-  scroll-snap-align:start;
-  flex:0 0 auto;
-}
-
+    .gallery{
+      display:flex;gap:10px;overflow:auto;
+      padding:0 16px 14px;
+      scroll-snap-type:x mandatory;
+    }
+    .gallery img{
+      width:220px;height:140px;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow:0 10px 20px rgba(0,0,0,.08);
+      scroll-snap-align:start;
+      flex:0 0 auto;
     }
 
     .why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -433,183 +376,123 @@
     iframe.map{width:100%;height:320px;border:0;border-radius:22px;box-shadow:0 14px 35px rgba(0,0,0,.10)}
 
     /* MODAL */
-.modal-backdrop{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.45);
-  display:none;
-  align-items:center; justify-content:center;
-  z-index:200;
-  padding:18px;
-}
-.modal{
-  width:min(720px, 100%);
-  background:rgba(255,255,255,.92);
-  border:1px solid rgba(255,255,255,.55);
-  border-radius:26px;
-  box-shadow:0 24px 70px rgba(0,0,0,.28);
-  overflow:hidden;
-}
-.modal-head{
-  padding:16px 18px;
-  display:flex; align-items:center; justify-content:space-between;
-  background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.10));
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-.modal-head strong{font-size:16px}
-.x{
-  border:0; background:transparent;
-  font-size:22px; cursor:pointer;
-  color:rgba(19,33,47,.75);
-  padding:4px 10px; border-radius:12px
-}
-.x:hover{background:rgba(0,0,0,.06)}
-.modal-body{padding:16px 18px 18px}
-.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-label{font-weight:900; font-size:13px; color:rgba(19,33,47,.78)}
-input, textarea, select{
-  width:100%;
-  margin-top:6px;
-  padding:12px 12px;
-  border-radius:16px;
-  border:1px solid rgba(0,0,0,.12);
-  background:#fff;
-  font-weight:700;
-  color:rgba(19,33,47,.90);
-  outline:none;
-}
-textarea{min-height:110px; resize:vertical}
-.modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-.hint{margin-top:10px; color:var(--muted); font-weight:700; font-size:13px}
+    .modal-backdrop{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.45);
+      display:none;
+      align-items:center; justify-content:center;
+      z-index:200;
+      padding:18px;
+    }
+    .modal{
+      width:min(720px, 100%);
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:26px;
+      box-shadow:0 24px 70px rgba(0,0,0,.28);
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between;
+      background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.10));
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .modal-head strong{font-size:16px}
+    .x{
+      border:0; background:transparent;
+      font-size:22px; cursor:pointer;
+      color:rgba(19,33,47,.75);
+      padding:4px 10px; border-radius:12px
+    }
+    .x:hover{background:rgba(0,0,0,.06)}
+    .modal-body{padding:16px 18px 18px}
+    .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    label{font-weight:900; font-size:13px; color:rgba(19,33,47,.78)}
+    input, textarea, select{
+      width:100%;
+      margin-top:6px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      font-weight:700;
+      color:rgba(19,33,47,.90);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .hint{margin-top:10px; color:var(--muted); font-weight:700; font-size:13px}
 
-/* Responsive base (tablet) */
-@media (max-width: 960px){
-  .grid2{grid-template-columns:1fr}
-  .types{grid-template-columns:1fr}
-  .why{grid-template-columns:1fr}
-  .rules{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .hero-card h1{font-size:30px}
-}
+    /* Responsive base (tablet) */
+    @media (max-width: 960px){
+      .grid2{grid-template-columns:1fr}
+      .types{grid-template-columns:1fr}
+      .why{grid-template-columns:1fr}
+      .rules{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .hero-card h1{font-size:30px}
+    }
 
-/* =====================
-   MOBILE OPTIMIZATION
-   ===================== */
-@media (max-width: 768px){
+    /* =====================
+       MOBILE OPTIMIZATION
+       ===================== */
+    @media (max-width: 768px){
+      body{ padding-left: 0 !important; }
 
-  body{
-    padding-left: 0 !important;
-  }
+      .side-nav{ display: none !important; }
 
-  /* Nasconde menu laterale */
-  .side-nav{
-    display: none !important;
-  }
+      .hero-frame{
+        min-height: 420px;
+        background-position: center;
+      }
 
-  /* Hero */
-  .hero-frame{
-    min-height: 420px;
-    background-position: center;
-  }
+      .hero-card{
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 14px;
+        width: auto;
+        padding: 16px;
+      }
 
-  .hero-card{
-    position: relative;
-    left: auto;
-    top: auto;
-    margin: 14px;
-    width: auto;
-    padding: 16px;
-  }
+      .hero-card h1{
+        font-size: 24px;
+        line-height: 1.15;
+      }
+      .hero-card p{ font-size: 14px; }
 
-  .hero-card h1{
-    font-size: 24px;
-    line-height: 1.15;
-  }
+      .hero-cta{
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      }
 
-  .hero-card p{
-    font-size: 14px;
-  }
+      .btn, .btn-sm{
+        width: 100%;
+      }
 
-  /* CTA del hero in colonna */
-  .hero-cta{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+      .gallery img{
+        width: 85vw;
+        height: auto;
+      }
 
-  /* Bottoni (in generale) full-width */
-  .btn,
-  .btn-sm{
-    width: 100%;
-    justify-content: center;
-    display: inline-flex;
-    align-items: center;
-  }
+      .topbar-inner{
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .brand{ min-width:auto; }
 
-  /* Griglie in 1 colonna */
-  .grid2,
-  .types,
-  .why,
-  .rules,
-  .contact-grid{
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Gallery */
-  .gallery img{
-    width: 85vw;
-    height: auto;
-  }
-
-  /* Topbar */
-  .topbar-inner{
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .brand{
-    min-width: auto;
-  }
-
-  /* Bottoni topbar: 3 pulsanti in riga, uguali */
-  .btns{
-    width: 100%;
-    display: flex;
-    gap: 10px;
-  }
-  .btns .btn,
-  .btns a.btn{
-    flex: 1 1 0;
-    width: auto;              /* override del width:100% sopra */
-    justify-content: center;
-  }
-}
-/* ===== FIX MONOLOCALE (testo + bottone) ===== */
-
-/* Card appartamento */
-.type-card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-/* Corpo della card */
-.type-body{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-/* Testo descrizione */
-.type-desc{
-  flex-grow: 1;
-}
-
-/* Azioni (bottone) sempre in basso */
-.type-actions{
-  margin-top: auto;
-}
-
-
+      .btns{
+        width:100%;
+        display:flex;
+        gap:10px;
+      }
+      .btns .btn, .btns a.btn{
+        flex:1 1 0;
+        width:auto;
+      }
+    }
   </style>
 </head>
 
@@ -625,21 +508,20 @@ textarea{min-height:110px; resize:vertical}
         </div>
       </a>
 
-     <div class="lang-switch">
-  <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
-  <button type="button" onclick="setLang('en')" aria-label="English">🇬🇧 EN</button>
-  <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
-</div>
+      <div class="lang-switch">
+        <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
+        <button type="button" onclick="setLang('en')" aria-label="English">🇬🇧 EN</button>
+        <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
+      </div>
 
       <div class="btns">
         <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
         <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
         <a class="btn btn-call"
-   href="tel:+393358408583"
-   onclick="gtag('event','contact_call',{method:'phone'})">
-   Chiama
-</a>
-
+           href="tel:+393358408583"
+           onclick="gtag('event','contact_call',{method:'phone'})">
+          Chiama
+        </a>
       </div>
     </div>
   </header>
@@ -647,9 +529,9 @@ textarea{min-height:110px; resize:vertical}
   <!-- MENU LATERALE -->
   <aside class="side-nav" aria-label="Menu laterale">
     <nav class="side-nav-inner">
-      <a href="#chi-siamo" data-it="Chi siamo" data-en="Who we are"data-de="Über uns">Chi siamo</a>
+      <a href="#chi-siamo" data-it="Chi siamo" data-en="Who we are" data-de="Über uns">Chi siamo</a>
       <a href="#appartamenti" data-it="Appartamenti" data-en="Apartments" data-de="Apartments">Appartamenti</a>
-      <a href="#tipologie" data-it="Tipologie" data-en="Types"data-de="Wohnungstypen">Tipologie</a>
+      <a href="#tipologie" data-it="Tipologie" data-en="Types" data-de="Wohnungstypen">Tipologie</a>
       <a href="#perche" data-it="Perché sceglierci" data-en="Why choose us" data-de="Warum uns wählen">Perché sceglierci</a>
       <a href="#regole" data-it="Regole" data-en="Rules" data-de="Hausregeln">Regole</a>
       <a href="#contatti" data-it="Contatti" data-en="Contacts" data-de="Kontakt">Contatti</a>
@@ -663,62 +545,40 @@ textarea{min-height:110px; resize:vertical}
         <div class="hero-frame" role="img" aria-label="Facciata edificio Isola di Pasqua">
           <div class="hero-card">
             <h1
-  data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
-  data-en="Seafront apartments in Caorle<br/>with direct access to the promenade"
-  data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
-  Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare
-</h1>
+              data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
+              data-en="Seafront apartments in Caorle<br/>with direct access to the promenade"
+              data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
+              Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare
+            </h1>
 
             <p
-  data-it="Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare."
-  data-en="Family-run accommodation in a unique location: cross the garden, go up a few steps and you are right by the sea."
-  data-de="Familiengeführte Unterkunft in einzigartiger Lage: Überqueren Sie den Garten, gehen Sie ein paar Stufen hinauf und Sie sind direkt am Meer.">
-  Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare.
-</p>
-
+              data-it="Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare."
+              data-en="Family-run accommodation in a unique location: cross the garden, go up a few steps and you are right by the sea."
+              data-de="Familiengeführte Unterkunft in einzigartiger Lage: Überqueren Sie den Garten, gehen Sie ein paar Stufen hinauf und Sie sind direkt am Meer.">
+              Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare.
+            </p>
 
             <div class="hero-cta">
-              <a class="btn btn-call btn-icon" href="#tipologie"
+              <a class="btn btn-call" href="#tipologie"
                  data-it="Vedi le tipologie →"
-                data-en="See the types→"
+                 data-en="See the types →"
                  data-de="Wohnungstypen ansehen →">Vedi le tipologie →</a>
 
               <button type="button" class="btn btn-whatsapp"
                       data-open-form="Generale" data-action="whatsapp"
-                      data-it="Richiedi disponibilità" data-en="Request availability" data-de="Verfügbarkeit anfragen">
+                      data-it="Richiedi disponibilità"
+                      data-en="Request availability"
+                      data-de="Verfügbarkeit anfragen">
                 Richiedi disponibilità
               </button>
             </div>
 
             <div class="hero-badges">
-  <span class="badge"
-    data-it="🐾 Animali ammessi"
-    data-en="🐾 Pets allowed"
-    data-de="🐾 Haustiere erlaubt">
-    🐾 Animali ammessi
-  </span>
-
-  <span class="badge"
-    data-it="🅿️ Parcheggio privato"
-    data-en="🅿️ Private parking"
-    data-de="🅿️ Privatparkplatz">
-    🅿️ Parcheggio privato
-  </span>
-
-  <span class="badge"
-    data-it="❄️ Aria condizionata"
-    data-en="❄️ Air conditioning"
-    data-de="❄️ Klimaanlage">
-    ❄️ Aria condizionata
-  </span>
-
-  <span class="badge"
-    data-it="📺 TV"
-    data-en="📺 TV"
-    data-de="📺 TV">
-    📺 TV
-  </span>
-</div>
+              <span class="badge" data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
+              <span class="badge" data-it="🅿️ Parcheggio privato" data-en="🅿️ Private parking" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
+              <span class="badge" data-it="❄️ Aria condizionata" data-en="❄️ Air conditioning" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
+              <span class="badge" data-it="📺 TV" data-en="📺 TV" data-de="📺 TV">📺 TV</span>
+            </div>
 
           </div>
         </div>
@@ -727,97 +587,81 @@ textarea{min-height:110px; resize:vertical}
 
     <!-- CHI SIAMO / APPARTAMENTI -->
     <section>
-  <div class="wrap grid2">
-    <div class="card" id="chi-siamo">
-      <h2 data-it="Chi siamo" data-en="About us" data-de="Über uns">Chi siamo</h2>
+      <div class="wrap grid2">
+        <div class="card" id="chi-siamo">
+          <h2 data-it="Chi siamo" data-en="About us" data-de="Über uns">Chi siamo</h2>
 
-      <p
-        data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico."
-        data-en="Isola di Pasqua is a family-run holiday home, designed for guests who want to enjoy the sea in a simple, comfortable and authentic way."
-        data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und authentische Weise erleben möchten.">
-        Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico.
-      </p>
+          <p data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico."
+             data-en="Isola di Pasqua is a family-run holiday home, designed for guests who want to enjoy the sea in a simple, comfortable and authentic way."
+             data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und authentische Weise erleben möchten.">
+            Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico.
+          </p>
 
-      <p
-        data-it="Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto."
-        data-en="Cross the garden and climb a few steps to reach Caorle’s seafront promenade directly—no car needed."
-        data-de="Durchquert man den Garten des Hauses und steigt ein paar Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle – ganz ohne Auto.">
-        Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto.
-      </p>
+          <p data-it="Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto."
+             data-en="Cross the garden and climb a few steps to reach Caorle’s seafront promenade directly—no car needed."
+             data-de="Durchquert man den Garten des Hauses und steigt ein paar Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle – ganz ohne Auto.">
+            Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto.
+          </p>
 
-      <p
-        data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
-        data-en="We welcome our guests with care and availability, offering functional, well-organised apartments—ideal for couples, families and anyone travelling with a pet."
-        data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit und bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und für alle, die mit ihrem Haustier reisen.">
-        Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
-      </p>
+          <p data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
+             data-en="We welcome our guests with care and availability, offering functional, well-organised apartments—ideal for couples, families and anyone travelling with a pet."
+             data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit und bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und für alle, die mit ihrem Haustier reisen.">
+            Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
+          </p>
 
-      <p
-        data-it="Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano."
-        data-en="Here you can enjoy an independent stay, with the peace of a well-kept setting and the sea always within easy reach."
-        data-de="Hier erlebt man den Urlaub in völliger Unabhängigkeit, mit der Ruhe eines gepflegten Umfelds und dem Komfort, das Meer immer in unmittelbarer Nähe zu haben.">
-        Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano.
-      </p>
-    </div>
+          <p data-it="Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano."
+             data-en="Here you can enjoy an independent stay, with the peace of a well-kept setting and the sea always within easy reach."
+             data-de="Hier erlebt man den Urlaub in völliger Unabhängigkeit, mit der Ruhe eines gepflegten Umfelds und dem Komfort, das Meer immer in unmittelbarer Nähe zu haben.">
+            Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano.
+          </p>
+        </div>
 
-    <div class="card" id="appartamenti">
-      <h2 data-it="Gli appartamenti" data-en="The apartments" data-de="Die Apartments">Gli appartamenti</h2>
+        <div class="card" id="appartamenti">
+          <h2 data-it="Gli appartamenti" data-en="The apartments" data-de="Die Apartments">Gli appartamenti</h2>
 
-      <p
-        data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali."
-        data-en="The Isola di Pasqua building has 7 apartments: 2 two-bedroom apartments, 3 one-bedroom apartments, and 2 studios."
-        data-de="Das Gebäude Isola di Pasqua besteht aus insgesamt 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios.">
-        La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali.
-      </p>
+          <p data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali."
+             data-en="The Isola di Pasqua building has 7 apartments: 2 two-bedroom apartments, 3 one-bedroom apartments, and 2 studios."
+             data-de="Das Gebäude Isola di Pasqua besteht aus insgesamt 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios.">
+            La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali.
+          </p>
 
-      <p
-        data-it="Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni."
-        data-en="Each apartment is functionally furnished and designed for a comfortable, independent holiday—both for short and longer stays."
-        data-de="Jedes Apartment ist funktional eingerichtet und bietet Komfort und Unabhängigkeit – ideal sowohl für kurze als auch für längere Aufenthalte.">
-        Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni.
-      </p>
+          <p data-it="Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni."
+             data-en="Each apartment is functionally furnished and designed for a comfortable, independent holiday—both for short and longer stays."
+             data-de="Jedes Apartment ist funktional eingerichtet und bietet Komfort und Unabhängigkeit – ideal sowohl für kurze als auch für längere Aufenthalte.">
+            Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni.
+          </p>
 
-      <p
-        data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
-        data-en="The property enjoys a truly privileged seafront location: cross the garden and climb a few steps to reach Caorle’s promenade directly."
-        data-de="Die Unterkunft genießt eine besonders privilegierte Lage direkt am Meer: Überquert man den Garten des Hauses und geht nur wenige Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle.">
-        La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
-      </p>
+          <p data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
+             data-en="The property enjoys a truly privileged seafront location: cross the garden and climb a few steps to reach Caorle’s promenade directly."
+             data-de="Die Unterkunft genießt eine besonders privilegierte Lage direkt am Meer: Überquert man den Garten des Hauses und geht nur wenige Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle.">
+            La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
+          </p>
 
-      <p
-        data-it="Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità."
-        data-en="Thanks to this location, you can reach Caorle’s historic centre in just a few minutes on foot—no car needed—enjoying both the sea and the town with ease."
-        data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar – ganz ohne Auto – und man kann Meer und Stadt in völliger Bequemlichkeit genießen.">
-        Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità.
-      </p>
+          <p data-it="Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità."
+             data-en="Thanks to this location, you can reach Caorle’s historic centre in just a few minutes on foot—no car needed—enjoying both the sea and the town with ease."
+             data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar – ganz ohne Auto – und man kann Meer und Stadt in völliger Bequemlichkeit genießen.">
+            Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità.
+          </p>
 
-      <p
-        data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
-        data-en="The different apartment options are ideal for couples, families and small groups, including guests travelling with a pet."
-        data-de="Die verschiedenen Wohneinheiten sind ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
-        Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
-      </p>
-    </div>
-  </div>
-</section>
+          <p data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
+             data-en="The different apartment options are ideal for couples, families and small groups, including guests travelling with a pet."
+             data-de="Die verschiedenen Wohneinheiten sind ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
+            Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- TIPOLOGIE -->
     <section id="tipologie">
       <div class="wrap">
-        <h2 class="section-title"
-    data-it="Tipologie di appartamento"
-    data-de="Wohnungstypen"
-    data-en="Apartment types">
-  Tipologie di appartamento
-</h2>
-
-<p class="section-sub"
-   data-it="Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi."
-   data-de="Drei Lösungen für unterschiedliche Bedürfnisse: vom Paar über Familien bis hin zu kleinen Gruppen."
-   data-en="Three solutions designed for different needs: from couples to families and small groups.">
-  Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.
-</p>
-
+        <h2 class="section-title" data-it="Tipologie di appartamento" data-en="Apartment types" data-de="Wohnungstypen">Tipologie di appartamento</h2>
+        <p class="section-sub"
+           data-it="Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi."
+           data-en="Three solutions designed for different needs: from couples to families and small groups."
+           data-de="Drei Lösungen für unterschiedliche Bedürfnisse: vom Paar über Familien bis hin zu kleinen Gruppen.">
+          Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.
+        </p>
 
         <div class="types">
           <!-- MONO -->
@@ -827,57 +671,33 @@ textarea{min-height:110px; resize:vertical}
             </div>
 
             <div class="type-body">
+              <!-- ✅ FIX: type-top SOLO titolo + cap -->
               <div class="type-top">
-              <h3 class="type-title"
-    data-it="Monolocale"
-    data-de="Studio-Apartment"
-    data-en="Studio apartment">
-  Monolocale
-</h3>
+                <h3 class="type-title" data-it="Monolocale" data-en="Studio apartment" data-de="Studio-Apartment">Monolocale</h3>
+                <span class="cap" data-it="Max 3 persone" data-en="Max 3 guests" data-de="Max. 3 Personen">Max 3 persone</span>
+              </div>
 
-<span class="cap"
-      data-it="Max 3 persone"
-      data-de="Max. 3 Personen"
-      data-en="Max 3 guests">
-  Max 3 persone
-</span>
+              <p class="type-desc"
+                 data-it="Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà."
+                 data-en="Ideal for 1–3 guests: practical, comfortable and perfect for an independent holiday."
+                 data-de="Ideal für 1–3 Personen: praktisch, funktional und perfekt für einen unabhängigen Urlaub.">
+                Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.
+              </p>
 
-<p class="type-desc"
-   data-it="Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà."
-   data-de="Ideal für 1–3 Personen: praktisch, funktional und perfekt für einen unabhängigen Urlaub."
-   data-en="Ideal for 1–3 guests: practical, comfortable and perfect for an independent holiday.">
-  Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.
-</p>
-
-<ul class="list">
-  <li data-it="Zona giorno/notte"
-      data-de="Wohn- und Schlafbereich"
-      data-en="Living and sleeping area">Zona giorno/notte</li>
-
-  <li data-it="Angolo cottura"
-      data-de="Kochnische"
-      data-en="Kitchenette">Angolo cottura</li>
-
-  <li data-it="Bagno privato"
-      data-de="Privates Badezimmer"
-      data-en="Private bathroom">Bagno privato</li>
-
-  <li data-it="Aria condizionata • TV"
-      data-de="Klimaanlage • TV"
-      data-en="Air conditioning • TV">Aria condizionata • TV</li>
-</ul>
-
+              <ul class="list">
+                <li data-it="Zona giorno/notte" data-en="Living and sleeping area" data-de="Wohn- und Schlafbereich">Zona giorno/notte</li>
+                <li data-it="Angolo cottura" data-en="Kitchenette" data-de="Kochnische">Angolo cottura</li>
+                <li data-it="Bagno privato" data-en="Private bathroom" data-de="Privates Badezimmer">Bagno privato</li>
+                <li data-it="Aria condizionata • TV" data-en="Air conditioning • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
+              </ul>
 
               <div class="type-actions">
-  <button
-    type="button"
-    class="btn-sm primary"
-    data-open-form="Monolocale"
-  >
-    Info, disponibilità e prezzi
-  </button>
-</div>
-
+                <button type="button" class="btn-sm primary" data-open-form="Monolocale">
+                  <span data-it="Info, disponibilità e prezzi" data-en="Info, availability and prices" data-de="Infos, Verfügbarkeit und Preise">
+                    Info, disponibilità e prezzi
+                  </span>
+                </button>
+              </div>
             </div>
 
             <div class="gallery" aria-label="Foto monolocale">
@@ -897,33 +717,31 @@ textarea{min-height:110px; resize:vertical}
 
             <div class="type-body">
               <div class="type-top">
-                <h3 class="type-title" data-it="Bilocale" data-de="Zweizimmerwohnung">Bilocale</h3>
-                <span class="cap" data-it="Max 5 persone" data-de="Max. 5 Personen">Max 5 persone</span>
+                <h3 class="type-title" data-it="Bilocale" data-en="One-bedroom apartment" data-de="Zweizimmerwohnung">Bilocale</h3>
+                <span class="cap" data-it="Max 5 persone" data-en="Max 5 guests" data-de="Max. 5 Personen">Max 5 persone</span>
               </div>
 
               <p class="type-desc"
                  data-it="Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy."
+                 data-en="Perfect for couples and families: separate spaces for more comfort and privacy."
                  data-de="Ideal für Paare und Familien: getrennte Räume für mehr Komfort und Privatsphäre.">
                 Perfetto per coppie e famiglie: spazi separati per maggiore comfort e privacy.
               </p>
 
               <ul class="list">
-                <li data-it="Camera + soggiorno" data-de="Schlafzimmer + Wohnzimmer">Camera + soggiorno</li>
-                <li data-it="Cucina/angolo cottura" data-de="Küche / Kochnische">Cucina/angolo cottura</li>
-                <li data-it="Bagno privato" data-de="Privates Badezimmer">Bagno privato</li>
-                <li data-it="Aria condizionata • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
+                <li data-it="Camera + soggiorno" data-en="Bedroom + living room" data-de="Schlafzimmer + Wohnzimmer">Camera + soggiorno</li>
+                <li data-it="Cucina/angolo cottura" data-en="Kitchen / kitchenette" data-de="Küche / Kochnische">Cucina/angolo cottura</li>
+                <li data-it="Bagno privato" data-en="Private bathroom" data-de="Privates Badezimmer">Bagno privato</li>
+                <li data-it="Aria condizionata • TV" data-en="Air conditioning • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
               </ul>
 
               <div class="type-actions">
-  <button
-    type="button"
-    class="btn-sm primary"
-    data-open-form="bilocale"
-  >
-    Info, disponibilità e prezzi
-  </button>
-</div>
-
+                <button type="button" class="btn-sm primary" data-open-form="Bilocale">
+                  <span data-it="Info, disponibilità e prezzi" data-en="Info, availability and prices" data-de="Infos, Verfügbarkeit und Preise">
+                    Info, disponibilità e prezzi
+                  </span>
+                </button>
+              </div>
             </div>
 
             <div class="gallery" aria-label="Foto bilocale">
@@ -941,33 +759,31 @@ textarea{min-height:110px; resize:vertical}
 
             <div class="type-body">
               <div class="type-top">
-                <h3 class="type-title" data-it="Trilocale" data-de="Dreizimmerwohnung">Trilocale</h3>
-                <span class="cap" data-it="Max 6 persone" data-de="Max. 6 Personen">Max 6 persone</span>
+                <h3 class="type-title" data-it="Trilocale" data-en="Two-bedroom apartment" data-de="Dreizimmerwohnung">Trilocale</h3>
+                <span class="cap" data-it="Max 6 persone" data-en="Max 6 guests" data-de="Max. 6 Personen">Max 6 persone</span>
               </div>
 
               <p class="type-desc"
                  data-it="Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi."
+                 data-en="A comfortable solution for larger families or small groups, with more space."
                  data-de="Komfortable Lösung für große Familien oder kleine Gruppen mit großzügigen Räumen.">
                 Soluzione comoda per famiglie numerose o piccoli gruppi, con spazi più ampi.
               </p>
 
               <ul class="list">
-                <li data-it="Due camere + soggiorno" data-de="Zwei Schlafzimmer + Wohnzimmer">Due camere + soggiorno</li>
-                <li data-it="Cucina/angolo cottura" data-de="Küche / Kochnische">Cucina/angolo cottura</li>
-                <li data-it="Bagno privato" data-de="Privates Badezimmer">Bagno privato</li>
-                <li data-it="Aria condizionata • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
+                <li data-it="Due camere + soggiorno" data-en="Two bedrooms + living room" data-de="Zwei Schlafzimmer + Wohnzimmer">Due camere + soggiorno</li>
+                <li data-it="Cucina/angolo cottura" data-en="Kitchen / kitchenette" data-de="Küche / Kochnische">Cucina/angolo cottura</li>
+                <li data-it="Bagno privato" data-en="Private bathroom" data-de="Privates Badezimmer">Bagno privato</li>
+                <li data-it="Aria condizionata • TV" data-en="Air conditioning • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
               </ul>
 
-            <div class="type-actions">
-  <button
-    type="button"
-    class="btn-sm primary"
-    data-open-form="trilocale"
-  >
-    Info, disponibilità e prezzi
-  </button>
-</div>
-
+              <div class="type-actions">
+                <button type="button" class="btn-sm primary" data-open-form="Trilocale">
+                  <span data-it="Info, disponibilità e prezzi" data-en="Info, availability and prices" data-de="Infos, Verfügbarkeit und Preise">
+                    Info, disponibilità e prezzi
+                  </span>
+                </button>
+              </div>
             </div>
 
             <div class="gallery" aria-label="Foto trilocale">
@@ -983,31 +799,35 @@ textarea{min-height:110px; resize:vertical}
     <!-- PERCHE -->
     <section id="perche">
       <div class="wrap">
-        <h2 class="section-title" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</h2>
+        <h2 class="section-title" data-it="Perché sceglierci" data-en="Why choose us" data-de="Warum uns wählen">Perché sceglierci</h2>
         <p class="section-sub"
            data-it="Un soggiorno semplice, comodo e ben organizzato: ecco cosa trovi qui."
+           data-en="A simple, comfortable and well-organised stay: this is what you’ll find here."
            data-de="Ein einfacher, komfortabler und gut organisierter Aufenthalt – das erwartet Sie bei uns.">
           Un soggiorno semplice, comodo e ben organizzato: ecco cosa trovi qui.
         </p>
 
         <div class="why">
           <div class="mini">
-            <h3 data-it="📍 Posizione comoda" data-de="📍 Ideale Lage">📍 Posizione comoda</h3>
+            <h3 data-it="📍 Posizione comoda" data-en="📍 Great location" data-de="📍 Ideale Lage">📍 Posizione comoda</h3>
             <p data-it="Fronte mare e a due passi dal centro storico: perfetto per muoversi senza stress."
+               data-en="Seafront and just a short walk from the historic centre: perfect to get around stress-free."
                data-de="Direkt am Meer und nur wenige Gehminuten von der Altstadt entfernt – ideal für einen stressfreien Urlaub.">
               Fronte mare e a due passi dal centro storico: perfetto per muoversi senza stress.
             </p>
           </div>
           <div class="mini">
-            <h3 data-it="🧼 Spazi pratici" data-de="🧼 Funktionale Räume">🧼 Spazi pratici</h3>
+            <h3 data-it="🧼 Spazi pratici" data-en="🧼 Practical spaces" data-de="🧼 Funktionale Räume">🧼 Spazi pratici</h3>
             <p data-it="Appartamenti funzionali e facili da vivere: l’ideale per una vacanza in autonomia."
+               data-en="Functional and easy-to-live apartments: ideal for an independent holiday."
                data-de="Funktionale und komfortable Apartments – ideal für einen unabhängigen Urlaub.">
               Appartamenti funzionali e facili da vivere: l’ideale per una vacanza in autonomia.
             </p>
           </div>
           <div class="mini">
-            <h3 data-it="🤝 Contatto diretto" data-de="🤝 Direkter Kontakt">🤝 Contatto diretto</h3>
+            <h3 data-it="🤝 Contatto diretto" data-en="🤝 Direct contact" data-de="🤝 Direkter Kontakt">🤝 Contatto diretto</h3>
             <p data-it="Disponibilità e risposte rapide: per informazioni, prezzi e organizzazione del soggiorno."
+               data-en="Fast replies and availability for information, prices and planning your stay."
                data-de="Schnelle und direkte Antworten für Informationen, Preise und die Organisation Ihres Aufenthalts.">
               Disponibilità e risposte rapide: per informazioni, prezzi e organizzazione del soggiorno.
             </p>
@@ -1024,15 +844,15 @@ textarea{min-height:110px; resize:vertical}
           <div class="rules">
             <div class="rule">
               <span data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-              <small data-it="Pet-friendly" data-de="Haustierfreundlich">Pet-friendly</small>
+              <small data-it="Pet-friendly" data-en="Pet-friendly" data-de="Haustierfreundlich">Pet-friendly</small>
             </div>
             <div class="rule">
-              <span data-it="⏰ Check-in dalle ore 14:00" data-en="⏰ Check-in from 2:00 pm"data-de="⏰ Check-in ab 14:00 Uhr">⏰ Check-in dalle ore 14:00</span>
-              <small data-it="Arrivi a partire dalle 14:00" data-en="Arrivals starting from 14:00" data-de="Anreise ab 14:00 Uhr">Arrivi a partire dalle 14:00</small>
+              <span data-it="⏰ Check-in dalle ore 14:00" data-en="⏰ Check-in from 2:00 pm" data-de="⏰ Check-in ab 14:00 Uhr">⏰ Check-in dalle ore 14:00</span>
+              <small data-it="Arrivi a partire dalle 14:00" data-en="Arrivals from 2:00 pm" data-de="Anreise ab 14:00 Uhr">Arrivi a partire dalle 14:00</small>
             </div>
             <div class="rule">
-              <span data-it="🕙 Check-out entro le 10:00" data-en="🕙Check-out by 10:00" data-de="🕙 Check-out bis 10:00 Uhr">🕙 Check-out entro le 10:00</span>
-              <small data-it="Partenza entro le 10:00"  data-en="Departure by 10:00" data-de="Abreise bis 10:00 Uhr">Partenza entro le 10:00</small>
+              <span data-it="🕙 Check-out entro le 10:00" data-en="🕙 Check-out by 10:00 am" data-de="🕙 Check-out bis 10:00 Uhr">🕙 Check-out entro le 10:00</span>
+              <small data-it="Partenza entro le 10:00" data-en="Departure by 10:00 am" data-de="Abreise bis 10:00 Uhr">Partenza entro le 10:00</small>
             </div>
           </div>
         </div>
@@ -1043,10 +863,10 @@ textarea{min-height:110px; resize:vertical}
     <section id="contatti">
       <div class="wrap contact-grid">
         <div class="card">
-          <h2 data-it="Contatti / Prenotazioni" data-de="Kontakt / Buchung">Contatti / Prenotazioni</h2>
+          <h2 data-it="Contatti / Prenotazioni" data-en="Contacts / Bookings" data-de="Kontakt / Buchung">Contatti / Prenotazioni</h2>
           <p data-it="Per informazioni, disponibilità e prezzi potete contattarci direttamente. Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno."
-            data-en="For information, availability and prices you can contact us directly. We will respond as soon as possible to help you organize your stay."
-            data-de="Für Informationen, Verfügbarkeit und Preise kontaktieren Sie uns bitte direkt. Wir antworten so schnell wie möglich, um Ihnen bei der Organisation Ihres Aufenthalts zu helfen.">
+             data-en="For information, availability and prices, you can contact us directly. We will reply as soon as possible to help you organise your stay."
+             data-de="Für Informationen, Verfügbarkeit und Preise kontaktieren Sie uns bitte direkt. Wir antworten so schnell wie möglich, um Ihnen bei der Organisation Ihres Aufenthalts zu helfen.">
             Per informazioni, disponibilità e prezzi potete contattarci direttamente. Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
           </p>
 
@@ -1092,52 +912,51 @@ textarea{min-height:110px; resize:vertical}
           </div>
 
           <div>
-            <label data-it="Persone (opzionale)" data-de="Personen (optional)">Persone (opzionale)</label>
+            <label data-it="Persone (opzionale)" data-en="Guests (optional)" data-de="Personen (optional)">Persone (opzionale)</label>
             <select id="fGuests">
-              <option value="" data-it="Seleziona…"  data-en="Select..." data-de="Auswählen…">Seleziona…</option>
+              <option value="" data-it="Seleziona…" data-en="Select…" data-de="Auswählen…">Seleziona…</option>
               <option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option>
             </select>
           </div>
 
           <div>
-            <label data-it="Data check-in" data-en="Data check-in" data-de="Check-in Datum">Data check-in</label>
+            <label data-it="Data check-in" data-en="Check-in date" data-de="Check-in Datum">Data check-in</label>
             <input id="fIn" type="date" />
           </div>
 
           <div>
-            <label data-it="Data check-out" data-en="Data check-out" data-de="Check-out Datum">Data check-out</label>
+            <label data-it="Data check-out" data-en="Check-out date" data-de="Check-out Datum">Data check-out</label>
             <input id="fOut" type="date" />
           </div>
 
           <div style="grid-column:1/-1">
             <label data-it="Messaggio (opzionale)" data-en="Message (optional)" data-de="Nachricht (optional)">Messaggio (opzionale)</label>
+
+            <!-- ✅ textarea corretto -->
             <textarea id="fMsg"
               placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
-              <textarea
-  data-it-placeholder="Es. Vorrei informazioni su disponibilità e prezzi"
-  data-en-placeholder="E.g. I would like information about availability and prices"
-  data-de-placeholder="Z.B. Ich hätte gerne Informationen zu Verfügbarkeit und Preisen">
-</textarea>
-
+              data-it-placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
+              data-en-placeholder="E.g. I would like information about availability and prices, thank you."
+              data-de-placeholder="Z.B. Ich hätte gerne Informationen zu Verfügbarkeit und Preisen, danke."></textarea>
           </div>
         </div>
 
         <div class="modal-actions">
           <button type="button" class="btn btn-whatsapp" id="sendWA"
-            data-it="Invia su WhatsApp" data-en ="Send on WhatsApp" data-de="Per WhatsApp senden">Invia su WhatsApp</button>
+            data-it="Invia su WhatsApp" data-en="Send on WhatsApp" data-de="Per WhatsApp senden">Invia su WhatsApp</button>
 
           <button type="button" class="btn btn-email" id="sendMail"
             data-it="Invia via Email" data-en="Send by Email" data-de="Per E-Mail senden">Invia via Email</button>
 
-          <a class="btn btn-call" href="tel:+393358408583" data-it="Chiama"  data-en="Call"data-de="Anrufen">Chiama</a>
+          <a class="btn btn-call" href="tel:+393358408583"
+             data-it="Chiama" data-en="Call" data-de="Anrufen">Chiama</a>
         </div>
 
         <div class="hint"
           data-it="Suggerimento: compila check-in e check-out per ricevere una risposta più veloce."
-          data-en="Tip: Fill in your check-in and check-out times to receive a quicker response."
+          data-en="Tip: fill in check-in and check-out to receive a quicker response."
           data-de="Hinweis: Bitte geben Sie Check-in und Check-out an, um schneller eine Antwort zu erhalten.">
-          
           Suggerimento: compila check-in e check-out per ricevere una risposta più veloce.
         </div>
       </div>
@@ -1148,26 +967,30 @@ textarea{min-height:110px; resize:vertical}
     const PHONE_E164 = "393358408583";
     const EMAIL_TO   = "boatto-ger@libero.it";
 
-    function setLang(lang) {
-  // testi
-  document.querySelectorAll('[data-it], [data-en], [data-de]').forEach(el => {
-
-    const v = el.getAttribute('data-' + lang);
-    if (v !== null) el.innerHTML = v;
-  });
-
-  // placeholder
-  document.querySelectorAll('[data-it-placeholder]').forEach(el => {
-    const ph = el.getAttribute('data-' + lang + '-placeholder');
-    if (ph !== null) el.setAttribute('placeholder', ph);
-  });
-
-  localStorage.setItem('siteLang', lang);
-}
-
-
     function getCurrentLang(){ return localStorage.getItem('siteLang') || 'it'; }
-    function t(it, de){ return (getCurrentLang() === 'de') ? de : it; }
+
+    function t(it, en, de){
+      const l = getCurrentLang();
+      if(l === 'en') return en ?? it;
+      if(l === 'de') return de ?? it;
+      return it;
+    }
+
+    function setLang(lang) {
+      // testi
+      document.querySelectorAll('[data-it], [data-en], [data-de]').forEach(el => {
+        const v = el.getAttribute('data-' + lang);
+        if (v !== null) el.innerHTML = v;
+      });
+
+      // placeholder
+      document.querySelectorAll('[data-it-placeholder], [data-en-placeholder], [data-de-placeholder]').forEach(el => {
+        const ph = el.getAttribute('data-' + lang + '-placeholder');
+        if (ph !== null) el.setAttribute('placeholder', ph);
+      });
+
+      localStorage.setItem('siteLang', lang);
+    }
 
     document.addEventListener('DOMContentLoaded', () => {
       setLang(getCurrentLang());
@@ -1196,8 +1019,8 @@ textarea{min-height:110px; resize:vertical}
       fMsg.value = "";
 
       modalTitle.textContent = (preferredAction === "email")
-        ? t("Richiesta via Email", "Anfrage per E-Mail")
-        : t("Richiesta su WhatsApp", "Anfrage per WhatsApp");
+        ? t("Richiesta via Email", "Request by Email", "Anfrage per E-Mail")
+        : t("Richiesta su WhatsApp", "Request on WhatsApp", "Anfrage per WhatsApp");
 
       modal.style.display = "flex";
     }
@@ -1205,51 +1028,45 @@ textarea{min-height:110px; resize:vertical}
     function closeModal(){ modal.style.display = "none"; }
 
     function buildText(){
-      const type = fType.value || t("Generale","Allgemein");
-      const guests = fGuests.value ? `${t("Persone","Personen")}: ${fGuests.value}` : "";
-      const inD = fIn.value ? `Check-in: ${fIn.value}` : `Check-in: ${t("(da indicare)","(bitte angeben)")}`;
-      const outD = fOut.value ? `Check-out: ${fOut.value}` : `Check-out: ${t("(da indicare)","(bitte angeben)")}`;
-      const extra = fMsg.value ? `\n\n${t("Messaggio","Nachricht")}: ${fMsg.value}` : "";
+      const type = fType.value || t("Generale","General","Allgemein");
+      const guests = fGuests.value ? `${t("Persone","Guests","Personen")}: ${fGuests.value}` : "";
+      const inD = fIn.value ? `Check-in: ${fIn.value}` : `Check-in: ${t("(da indicare)","(to be provided)","(bitte angeben)")}`;
+      const outD = fOut.value ? `Check-out: ${fOut.value}` : `Check-out: ${t("(da indicare)","(to be provided)","(bitte angeben)")}`;
+      const extra = fMsg.value ? `\n\n${t("Messaggio","Message","Nachricht")}: ${fMsg.value}` : "";
 
       return [
-        t("Ciao, vorrei informazioni su:", "Hallo, ich hätte gerne Informationen zu:"),
-        `${t("Tipologia","Wohnungstyp")}: ${type}`,
+        t("Ciao, vorrei informazioni su:", "Hi, I would like information about:", "Hallo, ich hätte gerne Informationen zu:"),
+        `${t("Tipologia","Type","Wohnungstyp")}: ${type}`,
         guests,
         inD,
         outD,
-        `\n${t("Grazie!","Vielen Dank!")}`
+        `\n${t("Grazie!","Thank you!","Vielen Dank!")}`
       ].filter(Boolean).join("\n") + extra;
     }
 
-function sendWhatsApp(){
-  // ✅ Evento Google Analytics 4
-  if (typeof gtag === "function") {
-    gtag('event', 'contact_whatsapp', {
-      method: 'whatsapp',
-      page_location: window.location.href
-    });
-  }
+    function sendWhatsApp(){
+      if (typeof gtag === "function") {
+        gtag('event', 'contact_whatsapp', {
+          method: 'whatsapp',
+          page_location: window.location.href
+        });
+      }
+      const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(buildText())}`;
+      window.open(url, "_blank");
+    }
 
-  const url = `https://wa.me/${PHONE_E164}?text=${encodeURIComponent(buildText())}`;
-  window.open(url, "_blank");
-}
+    function sendEmail(){
+      if (typeof gtag === "function") {
+        gtag('event', 'contact_email', {
+          method: 'email',
+          page_location: window.location.href
+        });
+      }
 
-
-
-  function sendEmail(){
-  // ✅ Evento GA4
-  if (typeof gtag === "function") {
-    gtag('event', 'contact_email', {
-      method: 'email',
-      page_location: window.location.href
-    });
-  }
-
-  const subject = `${t("Richiesta informazioni","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
-  const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua","Gesendet über die Website Isola di Pasqua")}`;
-  window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
+      const subject = `${t("Richiesta informazioni","Information request","Informationsanfrage")} – ${fType.value || "Isola di Pasqua"}`;
+      const body = buildText() + `\n\n—\n${t("Inviato dal sito Isola di Pasqua","Sent from Isola di Pasqua website","Gesendet über die Website Isola di Pasqua")}`;
+      window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
 
     document.querySelectorAll("[data-open-form]").forEach(el=>{
       el.addEventListener("click", (e)=>{
