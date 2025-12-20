@@ -487,6 +487,31 @@ textarea{min-height:110px; resize:vertical}
     justify-content: center;
   }
 }
+/* ===== FIX MONOLOCALE (testo + bottone) ===== */
+
+/* Card appartamento */
+.type-card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Corpo della card */
+.type-body{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Testo descrizione */
+.type-desc{
+  flex-grow: 1;
+}
+
+/* Azioni (bottone) sempre in basso */
+.type-actions{
+  margin-top: auto;
+}
 
 
   </style>
@@ -899,19 +924,19 @@ textarea{min-height:110px; resize:vertical}
     <section id="regole">
       <div class="wrap">
         <div class="card">
-          <h2 data-it="Regole della casa" data-de="Hausregeln">Regole della casa</h2>
+          <h2 data-it="Regole della casa" data-en="House rules" data-de="Hausregeln">Regole della casa</h2>
           <div class="rules">
             <div class="rule">
-              <span data-it="🐾 Animali ammessi" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
+              <span data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
               <small data-it="Pet-friendly" data-de="Haustierfreundlich">Pet-friendly</small>
             </div>
             <div class="rule">
-              <span data-it="⏰ Check-in dalle ore 14:00" data-de="⏰ Check-in ab 14:00 Uhr">⏰ Check-in dalle ore 14:00</span>
-              <small data-it="Arrivi a partire dalle 14:00" data-de="Anreise ab 14:00 Uhr">Arrivi a partire dalle 14:00</small>
+              <span data-it="⏰ Check-in dalle ore 14:00" data-en="⏰ Check-in from 2:00 pm"data-de="⏰ Check-in ab 14:00 Uhr">⏰ Check-in dalle ore 14:00</span>
+              <small data-it="Arrivi a partire dalle 14:00" data-en="Arrivals starting from 14:00" data-de="Anreise ab 14:00 Uhr">Arrivi a partire dalle 14:00</small>
             </div>
             <div class="rule">
-              <span data-it="🕙 Check-out entro le 10:00" data-de="🕙 Check-out bis 10:00 Uhr">🕙 Check-out entro le 10:00</span>
-              <small data-it="Partenza entro le 10:00" data-de="Abreise bis 10:00 Uhr">Partenza entro le 10:00</small>
+              <span data-it="🕙 Check-out entro le 10:00" data-en="🕙Check-out by 10:00" data-de="🕙 Check-out bis 10:00 Uhr">🕙 Check-out entro le 10:00</span>
+              <small data-it="Partenza entro le 10:00"  data-en="Departure by 10:00" data-de="Abreise bis 10:00 Uhr">Partenza entro le 10:00</small>
             </div>
           </div>
         </div>
@@ -924,7 +949,8 @@ textarea{min-height:110px; resize:vertical}
         <div class="card">
           <h2 data-it="Contatti / Prenotazioni" data-de="Kontakt / Buchung">Contatti / Prenotazioni</h2>
           <p data-it="Per informazioni, disponibilità e prezzi potete contattarci direttamente. Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno."
-             data-de="Für Informationen, Verfügbarkeit und Preise kontaktieren Sie uns bitte direkt. Wir antworten so schnell wie möglich, um Ihnen bei der Organisation Ihres Aufenthalts zu helfen.">
+            data-en="For information, availability and prices you can contact us directly. We will respond as soon as possible to help you organize your stay."
+            data-de="Für Informationen, Verfügbarkeit und Preise kontaktieren Sie uns bitte direkt. Wir antworten so schnell wie möglich, um Ihnen bei der Organisation Ihres Aufenthalts zu helfen.">
             Per informazioni, disponibilità e prezzi potete contattarci direttamente. Risponderemo il prima possibile per aiutarvi ad organizzare il vostro soggiorno.
           </p>
 
@@ -934,7 +960,7 @@ textarea{min-height:110px; resize:vertical}
             <div class="pill">💬
               <button type="button" class="btn btn-whatsapp" style="padding:10px 12px;border-radius:14px"
                 data-open-form="Generale" data-action="whatsapp"
-                data-it="Scrivici su WhatsApp" data-de="Schreiben Sie uns auf WhatsApp">
+                data-it="Scrivici su WhatsApp" data-en="Write to us on WhatsApp" data-de="Schreiben Sie uns auf WhatsApp">
                 Scrivici su WhatsApp
               </button>
             </div>
@@ -965,31 +991,31 @@ textarea{min-height:110px; resize:vertical}
       <div class="modal-body">
         <div class="form-grid">
           <div>
-            <label data-it="Tipologia" data-de="Wohnungstyp">Tipologia</label>
+            <label data-it="Tipologia" data-en="Type" data-de="Wohnungstyp">Tipologia</label>
             <input id="fType" type="text" value="Generale" readonly />
           </div>
 
           <div>
             <label data-it="Persone (opzionale)" data-de="Personen (optional)">Persone (opzionale)</label>
             <select id="fGuests">
-              <option value="" data-it="Seleziona…" data-de="Auswählen…">Seleziona…</option>
+              <option value="" data-it="Seleziona…"  data-en="Select..." data-de="Auswählen…">Seleziona…</option>
               <option>1</option><option>2</option><option>3</option>
               <option>4</option><option>5</option><option>6</option>
             </select>
           </div>
 
           <div>
-            <label data-it="Data check-in" data-de="Check-in Datum">Data check-in</label>
+            <label data-it="Data check-in" data-en="Data check-in" data-de="Check-in Datum">Data check-in</label>
             <input id="fIn" type="date" />
           </div>
 
           <div>
-            <label data-it="Data check-out" data-de="Check-out Datum">Data check-out</label>
+            <label data-it="Data check-out" data-en="Data check-out" data-de="Check-out Datum">Data check-out</label>
             <input id="fOut" type="date" />
           </div>
 
           <div style="grid-column:1/-1">
-            <label data-it="Messaggio (opzionale)" data-de="Nachricht (optional)">Messaggio (opzionale)</label>
+            <label data-it="Messaggio (opzionale)" data-en="Message (optional)" data-de="Nachricht (optional)">Messaggio (opzionale)</label>
             <textarea id="fMsg"
               placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
               <textarea
@@ -1003,12 +1029,12 @@ textarea{min-height:110px; resize:vertical}
 
         <div class="modal-actions">
           <button type="button" class="btn btn-whatsapp" id="sendWA"
-            data-it="Invia su WhatsApp" data-de="Per WhatsApp senden">Invia su WhatsApp</button>
+            data-it="Invia su WhatsApp" data-en ="Send on WhatsApp" data-de="Per WhatsApp senden">Invia su WhatsApp</button>
 
           <button type="button" class="btn btn-email" id="sendMail"
-            data-it="Invia via Email" data-de="Per E-Mail senden">Invia via Email</button>
+            data-it="Invia via Email" data-en="Send by Email" data-de="Per E-Mail senden">Invia via Email</button>
 
-          <a class="btn btn-call" href="tel:+393358408583" data-it="Chiama" data-de="Anrufen">Chiama</a>
+          <a class="btn btn-call" href="tel:+393358408583" data-it="Chiama"  data-en="Call"data-de="Anrufen">Chiama</a>
         </div>
 
         <div class="hint"
