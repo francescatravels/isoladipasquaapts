@@ -487,10 +487,11 @@
         </div>
       </a>
 
-      <div class="lang-switch">
-        <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
-        <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
-      </div>
+     <div class="lang-switch">
+  <button type="button" onclick="setLang('it')" aria-label="Italiano">🇮🇹 IT</button>
+  <button type="button" onclick="setLang('en')" aria-label="English">🇬🇧 EN</button>
+  <button type="button" onclick="setLang('de')" aria-label="Deutsch">🇩🇪 DE</button>
+</div>
 
       <div class="btns">
         <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
@@ -508,12 +509,12 @@
   <!-- MENU LATERALE -->
   <aside class="side-nav" aria-label="Menu laterale">
     <nav class="side-nav-inner">
-      <a href="#chi-siamo" data-it="Chi siamo" data-de="Über uns">Chi siamo</a>
-      <a href="#appartamenti" data-it="Appartamenti" data-de="Apartments">Appartamenti</a>
-      <a href="#tipologie" data-it="Tipologie" data-de="Wohnungstypen">Tipologie</a>
-      <a href="#perche" data-it="Perché sceglierci" data-de="Warum uns wählen">Perché sceglierci</a>
-      <a href="#regole" data-it="Regole" data-de="Hausregeln">Regole</a>
-      <a href="#contatti" data-it="Contatti" data-de="Kontakt">Contatti</a>
+      <a href="#chi-siamo" data-it="Chi siamo" data-en="Who we are"data-de="Über uns">Chi siamo</a>
+      <a href="#appartamenti" data-it="Appartamenti" data-en="Apartments" data-de="Apartments">Appartamenti</a>
+      <a href="#tipologie" data-it="Tipologie" data-en="Types"data-de="Wohnungstypen">Tipologie</a>
+      <a href="#perche" data-it="Perché sceglierci" data-en="Why choose us" data-de="Warum uns wählen">Perché sceglierci</a>
+      <a href="#regole" data-it="Regole" data-en="Rules" data-de="Hausregeln">Regole</a>
+      <a href="#contatti" data-it="Contatti" data-en="Contacts" data-de="Kontakt">Contatti</a>
     </nav>
   </aside>
 
@@ -524,35 +525,63 @@
         <div class="hero-frame" role="img" aria-label="Facciata edificio Isola di Pasqua">
           <div class="hero-card">
             <h1
-              data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
-              data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
-              Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare
-            </h1>
+  data-it="Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare"
+  data-en="Seafront apartments in Caorle<br/>with direct access to the promenade"
+  data-de="Ferienwohnungen direkt am Meer in Caorle<br/>mit direktem Zugang zur Strandpromenade">
+  Appartamenti fronte mare a Caorle<br/>con accesso diretto al lungomare
+</h1>
 
             <p
-              data-it="Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare."
-              data-de="Familiengeführte Unterkunft in einzigartiger Lage: Überqueren Sie den Garten, gehen Sie ein paar Stufen hinauf und Sie sind direkt am Meer.">
-              Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare.
-            </p>
+  data-it="Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare."
+  data-en="Family-run accommodation in a unique location: cross the garden, go up a few steps and you are right by the sea."
+  data-de="Familiengeführte Unterkunft in einzigartiger Lage: Überqueren Sie den Garten, gehen Sie ein paar Stufen hinauf und Sie sind direkt am Meer.">
+  Gestione familiare, posizione unica: attraversi il giardino, sali pochi gradini e sei già sul mare.
+</p>
+
 
             <div class="hero-cta">
               <a class="btn btn-call btn-icon" href="#tipologie"
                  data-it="Vedi le tipologie →"
+                data-en="See the types→"
                  data-de="Wohnungstypen ansehen →">Vedi le tipologie →</a>
 
               <button type="button" class="btn btn-whatsapp"
                       data-open-form="Generale" data-action="whatsapp"
-                      data-it="Richiedi disponibilità" data-de="Verfügbarkeit anfragen">
+                      data-it="Richiedi disponibilità" data-en="Request availability" data-de="Verfügbarkeit anfragen">
                 Richiedi disponibilità
               </button>
             </div>
 
             <div class="hero-badges">
-              <span class="badge" data-it="🐾 Animali ammessi" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-              <span class="badge" data-it="🅿️ Parcheggio privato" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
-              <span class="badge" data-it="❄️ Aria condizionata" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
-              <span class="badge" data-it="📺 TV" data-de="📺 TV">📺 TV</span>
-            </div>
+  <span class="badge"
+    data-it="🐾 Animali ammessi"
+    data-en="🐾 Pets allowed"
+    data-de="🐾 Haustiere erlaubt">
+    🐾 Animali ammessi
+  </span>
+
+  <span class="badge"
+    data-it="🅿️ Parcheggio privato"
+    data-en="🅿️ Private parking"
+    data-de="🅿️ Privatparkplatz">
+    🅿️ Parcheggio privato
+  </span>
+
+  <span class="badge"
+    data-it="❄️ Aria condizionata"
+    data-en="❄️ Air conditioning"
+    data-de="❄️ Klimaanlage">
+    ❄️ Aria condizionata
+  </span>
+
+  <span class="badge"
+    data-it="📺 TV"
+    data-en="📺 TV"
+    data-de="📺 TV">
+    📺 TV
+  </span>
+</div>
+
           </div>
         </div>
       </div>
@@ -560,71 +589,97 @@
 
     <!-- CHI SIAMO / APPARTAMENTI -->
     <section>
-      <div class="wrap grid2">
-        <div class="card" id="chi-siamo">
-          <h2 data-it="Chi siamo" data-de="Über uns">Chi siamo</h2>
+  <div class="wrap grid2">
+    <div class="card" id="chi-siamo">
+      <h2 data-it="Chi siamo" data-en="About us" data-de="Über uns">Chi siamo</h2>
 
-          <p data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico."
-             data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und authentische Weise erleben möchten.">
-            Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico.
-          </p>
+      <p
+        data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico."
+        data-en="Isola di Pasqua is a family-run holiday home, designed for guests who want to enjoy the sea in a simple, comfortable and authentic way."
+        data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und authentische Weise erleben möchten.">
+        Isola di Pasqua è una casa vacanze a gestione familiare, pensata per accogliere chi desidera vivere il mare in modo semplice, comodo e autentico.
+      </p>
 
-          <p data-it="Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto."
-             data-de="Durchquert man den Garten des Hauses und steigt ein paar Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle – ganz ohne Auto.">
-            Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto.
-          </p>
+      <p
+        data-it="Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto."
+        data-en="Cross the garden and climb a few steps to reach Caorle’s seafront promenade directly—no car needed."
+        data-de="Durchquert man den Garten des Hauses und steigt ein paar Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle – ganz ohne Auto.">
+        Attraversando il giardino della casa e salendo pochi gradini, ci si ritrova direttamente sul lungomare di Caorle, senza bisogno di auto.
+      </p>
 
-          <p data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
-             data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit und bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und für alle, die mit ihrem Haustier reisen.">
-            Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
-          </p>
+      <p
+        data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
+        data-en="We welcome our guests with care and availability, offering functional, well-organised apartments—ideal for couples, families and anyone travelling with a pet."
+        data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit und bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und für alle, die mit ihrem Haustier reisen.">
+        Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
+      </p>
 
-          <p data-it="Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano."
-             data-de="Hier erlebt man den Urlaub in völliger Unabhängigkeit, mit der Ruhe eines gepflegten Umfelds und dem Komfort, das Meer immer in unmittelbarer Nähe zu haben.">
-            Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano.
-          </p>
-        </div>
+      <p
+        data-it="Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano."
+        data-en="Here you can enjoy an independent stay, with the peace of a well-kept setting and the sea always within easy reach."
+        data-de="Hier erlebt man den Urlaub in völliger Unabhängigkeit, mit der Ruhe eines gepflegten Umfelds und dem Komfort, das Meer immer in unmittelbarer Nähe zu haben.">
+        Qui la vacanza si vive in autonomia, con la tranquillità di un ambiente curato e la comodità di avere il mare sempre a portata di mano.
+      </p>
+    </div>
 
-        <div class="card" id="appartamenti">
-          <h2 data-it="Gli appartamenti" data-de="Die Apartments">Gli appartamenti</h2>
+    <div class="card" id="appartamenti">
+      <h2 data-it="Gli appartamenti" data-en="The apartments" data-de="Die Apartments">Gli appartamenti</h2>
 
-          <p data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali."
-             data-de="Das Gebäude Isola di Pasqua besteht aus insgesamt 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios.">
-            La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali.
-          </p>
+      <p
+        data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali."
+        data-en="The Isola di Pasqua building has 7 apartments: 2 two-bedroom apartments, 3 one-bedroom apartments, and 2 studios."
+        data-de="Das Gebäude Isola di Pasqua besteht aus insgesamt 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios.">
+        La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali.
+      </p>
 
-          <p data-it="Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni."
-             data-de="Jedes Apartment ist funktional eingerichtet und bietet Komfort und Unabhängigkeit – ideal sowohl für kurze als auch für längere Aufenthalte.">
-            Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni.
-          </p>
+      <p
+        data-it="Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni."
+        data-en="Each apartment is functionally furnished and designed for a comfortable, independent holiday—both for short and longer stays."
+        data-de="Jedes Apartment ist funktional eingerichtet und bietet Komfort und Unabhängigkeit – ideal sowohl für kurze als auch für längere Aufenthalte.">
+        Ogni appartamento è arredato in modo funzionale e pensato per offrire una vacanza comoda e indipendente, sia per brevi che per lunghi soggiorni.
+      </p>
 
-          <p data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
-             data-de="Die Unterkunft genießt eine besonders privilegierte Lage direkt am Meer: Überquert man den Garten des Hauses und geht nur wenige Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle.">
-            La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
-          </p>
+      <p
+        data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
+        data-en="The property enjoys a truly privileged seafront location: cross the garden and climb a few steps to reach Caorle’s promenade directly."
+        data-de="Die Unterkunft genießt eine besonders privilegierte Lage direkt am Meer: Überquert man den Garten des Hauses und geht nur wenige Stufen hinauf, gelangt man direkt zur Strandpromenade von Caorle.">
+        La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
+      </p>
 
-          <p data-it="Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità."
-             data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar – ganz ohne Auto – und man kann Meer und Stadt in völliger Bequemlichkeit genießen.">
-            Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità.
-          </p>
+      <p
+        data-it="Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità."
+        data-en="Thanks to this location, you can reach Caorle’s historic centre in just a few minutes on foot—no car needed—enjoying both the sea and the town with ease."
+        data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar – ganz ohne Auto – und man kann Meer und Stadt in völliger Bequemlichkeit genießen.">
+        Grazie a questa posizione, è possibile raggiungere il centro storico di Caorle in pochi minuti a piedi, senza bisogno di spostarsi in auto, vivendo il mare e la città in totale comodità.
+      </p>
 
-          <p data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
-             data-de="Die verschiedenen Wohneinheiten sind ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
-            Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
-          </p>
-        </div>
-      </div>
-    </section>
+      <p
+        data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
+        data-en="The different apartment options are ideal for couples, families and small groups, including guests travelling with a pet."
+        data-de="Die verschiedenen Wohneinheiten sind ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
+        Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
+      </p>
+    </div>
+  </div>
+</section>
 
     <!-- TIPOLOGIE -->
     <section id="tipologie">
       <div class="wrap">
-        <h2 class="section-title" data-it="Tipologie di appartamento" data-de="Wohnungstypen">Tipologie di appartamento</h2>
-        <p class="section-sub"
-           data-it="Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi."
-           data-de="Drei Lösungen für unterschiedliche Bedürfnisse: vom Paar über Familien bis hin zu kleinen Gruppen.">
-          Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.
-        </p>
+        <h2 class="section-title"
+    data-it="Tipologie di appartamento"
+    data-de="Wohnungstypen"
+    data-en="Apartment types">
+  Tipologie di appartamento
+</h2>
+
+<p class="section-sub"
+   data-it="Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi."
+   data-de="Drei Lösungen für unterschiedliche Bedürfnisse: vom Paar über Familien bis hin zu kleinen Gruppen."
+   data-en="Three solutions designed for different needs: from couples to families and small groups.">
+  Tre soluzioni pensate per esigenze diverse: dalla coppia alla famiglia, fino a piccoli gruppi.
+</p>
+
 
         <div class="types">
           <!-- MONO -->
@@ -635,22 +690,45 @@
 
             <div class="type-body">
               <div class="type-top">
-                <h3 class="type-title" data-it="Monolocale" data-de="Studio-Apartment">Monolocale</h3>
-                <span class="cap" data-it="Max 3 persone" data-de="Max. 3 Personen">Max 3 persone</span>
-              </div>
+              <h3 class="type-title"
+    data-it="Monolocale"
+    data-de="Studio-Apartment"
+    data-en="Studio apartment">
+  Monolocale
+</h3>
 
-              <p class="type-desc"
-                 data-it="Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà."
-                 data-de="Ideal für 1–3 Personen: praktisch, funktional und perfekt für einen unabhängigen Urlaub.">
-                Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.
-              </p>
+<span class="cap"
+      data-it="Max 3 persone"
+      data-de="Max. 3 Personen"
+      data-en="Max 3 guests">
+  Max 3 persone
+</span>
 
-              <ul class="list">
-                <li data-it="Zona giorno/notte" data-de="Wohn- und Schlafbereich">Zona giorno/notte</li>
-                <li data-it="Angolo cottura" data-de="Kochnische">Angolo cottura</li>
-                <li data-it="Bagno privato" data-de="Privates Badezimmer">Bagno privato</li>
-                <li data-it="Aria condizionata • TV" data-de="Klimaanlage • TV">Aria condizionata • TV</li>
-              </ul>
+<p class="type-desc"
+   data-it="Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà."
+   data-de="Ideal für 1–3 Personen: praktisch, funktional und perfekt für einen unabhängigen Urlaub."
+   data-en="Ideal for 1–3 guests: practical, comfortable and perfect for an independent holiday.">
+  Ideale per 1–3 persone: pratico, essenziale e perfetto per una vacanza in libertà.
+</p>
+
+<ul class="list">
+  <li data-it="Zona giorno/notte"
+      data-de="Wohn- und Schlafbereich"
+      data-en="Living and sleeping area">Zona giorno/notte</li>
+
+  <li data-it="Angolo cottura"
+      data-de="Kochnische"
+      data-en="Kitchenette">Angolo cottura</li>
+
+  <li data-it="Bagno privato"
+      data-de="Privates Badezimmer"
+      data-en="Private bathroom">Bagno privato</li>
+
+  <li data-it="Aria condizionata • TV"
+      data-de="Klimaanlage • TV"
+      data-en="Air conditioning • TV">Aria condizionata • TV</li>
+</ul>
+
 
               <div class="type-actions">
   <button
@@ -897,8 +975,12 @@
             <label data-it="Messaggio (opzionale)" data-de="Nachricht (optional)">Messaggio (opzionale)</label>
             <textarea id="fMsg"
               placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
-              data-it-placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
-              data-de-placeholder="Z.B. Ich hätte gerne Informationen zu Verfügbarkeit und Preisen, vielen Dank."></textarea>
+              <textarea
+  data-it-placeholder="Es. Vorrei informazioni su disponibilità e prezzi"
+  data-en-placeholder="E.g. I would like information about availability and prices"
+  data-de-placeholder="Z.B. Ich hätte gerne Informationen zu Verfügbarkeit und Preisen">
+</textarea>
+
           </div>
         </div>
 
@@ -914,7 +996,9 @@
 
         <div class="hint"
           data-it="Suggerimento: compila check-in e check-out per ricevere una risposta più veloce."
+          data-en="Tip: Fill in your check-in and check-out times to receive a quicker response."
           data-de="Hinweis: Bitte geben Sie Check-in und Check-out an, um schneller eine Antwort zu erhalten.">
+          
           Suggerimento: compila check-in e check-out per ricevere una risposta più veloce.
         </div>
       </div>
@@ -926,16 +1010,22 @@
     const EMAIL_TO   = "boatto-ger@libero.it";
 
     function setLang(lang) {
-      document.querySelectorAll('[data-it]').forEach(el => {
-        const v = el.getAttribute('data-' + lang);
-        if (v !== null) el.innerHTML = v;
-      });
-      document.querySelectorAll('[data-it-placeholder]').forEach(el => {
-        const ph = el.getAttribute('data-' + lang + '-placeholder');
-        if (ph !== null) el.setAttribute('placeholder', ph);
-      });
-      localStorage.setItem('siteLang', lang);
-    }
+  // testi
+  document.querySelectorAll('[data-it], [data-en], [data-de]').forEach(el => {
+
+    const v = el.getAttribute('data-' + lang);
+    if (v !== null) el.innerHTML = v;
+  });
+
+  // placeholder
+  document.querySelectorAll('[data-it-placeholder]').forEach(el => {
+    const ph = el.getAttribute('data-' + lang + '-placeholder');
+    if (ph !== null) el.setAttribute('placeholder', ph);
+  });
+
+  localStorage.setItem('siteLang', lang);
+}
+
 
     function getCurrentLang(){ return localStorage.getItem('siteLang') || 'it'; }
     function t(it, de){ return (getCurrentLang() === 'de') ? de : it; }
