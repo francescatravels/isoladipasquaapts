@@ -205,21 +205,22 @@ a{
 
     /* ====== HERO ====== */
     .hero{padding:26px 0 10px}
-  .hero-frame{
+ .hero-frame{
   border-radius:30px;
   overflow:hidden;
   box-shadow:var(--shadow);
   background:
-    linear-gradient(90deg,
-      rgba(11,58,83,.35) 0%,
-      rgba(11,58,83,.18) 45%,
-      rgba(11,58,83,.08) 100%
+    linear-gradient(180deg,
+      rgba(11,58,83,.25),
+      rgba(11,58,83,.25)
     ),
-    url("img/og.jpg") center top / cover no-repeat;
-  min-height:360px;
+    url("img/og.jpg") center center / contain no-repeat,
+    #eaf2f6;
+  min-height:420px;
   position:relative;
   border:1px solid rgba(0,0,0,.08);
 }
+
 
 
     .hero-card{
