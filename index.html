@@ -206,19 +206,23 @@ a{
     /* ====== HERO ====== */
     .hero{padding:26px 0 10px}
  .hero-frame{
+  position:relative;
   border-radius:30px;
   overflow:hidden;
   box-shadow:var(--shadow);
-  background:
-    linear-gradient(180deg,
-      rgba(11,58,83,.25),
-      rgba(11,58,83,.25)
-    ),
-    url("img/og.jpg") center center / contain no-repeat,
-    #eaf2f6;
-  min-height:420px;
-  position:relative;
   border:1px solid rgba(0,0,0,.08);
+  background:#eaf2f6;
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+    .hero-frame img.hero-image{
+  max-width:100%;
+  max-height:420px;
+  height:auto;
+  object-fit:contain;
 }
 
 
