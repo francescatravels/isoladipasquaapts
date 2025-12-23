@@ -204,8 +204,11 @@ a{
     }
 
     /* ====== HERO ====== */
-    .hero{padding:26px 0 10px}
- .hero-frame{
+  .hero{
+  padding:26px 0 10px;
+}
+
+.hero-frame{
   border-radius:30px;
   overflow:hidden;
   box-shadow:var(--shadow);
@@ -215,65 +218,67 @@ a{
       rgba(11,58,83,.18) 45%,
       rgba(11,58,83,.08) 100%
     ),
-    url("img/og.jpg") 70% center / cover no-repeat;
+    url("img/og.jpg") center center / cover no-repeat;
   min-height:360px;
   position:relative;
   border:1px solid rgba(0,0,0,.08);
 }
 
+/* card testo */
+.hero-card{
+  position:absolute;
+  left:26px;
+  top:26px;
+  width:min(560px, calc(100% - 52px));
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:24px;
+  padding:18px 18px 16px;
+  box-shadow:0 18px 45px rgba(0,0,0,.14);
+  color:#0f172a;
+}
 
+.hero-card h1{
+  margin:0 0 6px;
+  font-size:31px;
+  line-height:1.04;
+  letter-spacing:-0.3px;
+}
 
+.hero-card p{
+  margin:0 0 10px;
+  font-weight:700;
+}
 
-    .hero-card{
-      position:absolute;
-      left:26px; top:26px;
-      width:min(560px, calc(100% - 52px));
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:24px;
-      padding:18px 18px 16px;
-      box-shadow:0 18px 45px rgba(0,0,0,.14);
-      color:#0f172a;
-      overflow:visible;
-    }
-    .hero-card h1{
-      margin:0 0 6px;
-      font-size:31px;
-      line-height:1.04;
-      letter-spacing:-0.3px;
-      color:#0f172a;
-    }
-    .hero-card p{
-      margin:0 0 10px;
-      color:#0f172a;
-      font-weight:700;
-    }
-    .hero-cta{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin:8px 0 10px;
-    }
-    .hero-badges{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.10);
-      font-weight:800;
-      font-size:13px;
-      color:rgba(19,33,47,.90);
-    }
+.hero-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin:8px 0 10px;
+}
+
+.hero-badges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  font-weight:800;
+  font-size:13px;
+  color:rgba(19,33,47,.90);
+}
+
 
     /* ====== SECTIONS ====== */
     section{padding:18px 0}
@@ -633,15 +638,25 @@ a{
           </button>
         </div>
 
-        <div class="hero-badges">
-          <span class="badge" data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-          <span class="badge" data-it="🅿️ Parcheggio privato" data-en="🅿️ Private parking" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
-          <span class="badge" data-it="❄️ Aria condizionata" data-en="❄️ Air conditioning" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
-          <span class="badge" data-it="📺 TV" data-en="📺 TV" data-de="📺 TV">📺 TV</span>
-        </div>
+      <div class="hero-badges">
+  <span class="badge" data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
+  <span class="badge" data-it="🅿️ Parcheggio privato" data-en="🅿️ Private parking" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
+  <span class="badge" data-it="❄️ Aria condizionata" data-en="❄️ Air conditioning" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
+  <span class="badge" data-it="📺 TV" data-en="📺 TV" data-de="📺 TV">📺 TV</span>
+</div>
 
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FOTO PALAZZINA INTERA (NUOVA SEZIONE) -->
+<section class="palazzina-photo">
+  <div class="wrap">
+    <img
+      src="img/og.jpg"
+      alt="Palazzina Isola di Pasqua – facciata fronte mare"
+      loading="lazy">
   </div>
 </section>
 
