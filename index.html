@@ -536,9 +536,6 @@ section{
       .hero-card h1{font-size:30px}
     }
 
-    /* =====================
-       MOBILE OPTIMIZATION
-       ===================== */
   /* =====================
    MOBILE OPTIMIZATION
    ===================== */
@@ -574,9 +571,11 @@ section{
     gap:10px;
   }
 
-  .btn, .btn-sm{
-    width: 100%;
-  }
+ .hero-cta .btn,
+.hero-cta .btn-sm,
+.type-actions .btn-sm{
+  width:100%;
+}
 
   .gallery img{
     width: 85vw;
@@ -626,17 +625,7 @@ section{
   font-size:0.95rem;
   letter-spacing:0.2px;
 }
-  /* ===== FIX LOGO HEADER ===== */
-.brand img,
-.logo-isola{
-  position: static !important;
-  width: 56px !important;
-  height: auto !important;
-  max-width: none !important;
-  max-height: none !important;
-  display: block;
-  object-fit: contain;
-}
+
 
 
   </style>
