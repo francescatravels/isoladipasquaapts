@@ -33,30 +33,33 @@
     gtag('config', 'G-K0G3W4DNGS');
   </script>
 
-  <style>
-    :root{
-      --brand:#0b3a53;
-      --brand2:#1f7a8c;
-      --accent:#f2c14e;
-      --bg:#f4efe7;
-      --text:#13212f;
-      --muted:rgba(19,33,47,.70);
-      --shadow:0 16px 40px rgba(0,0,0,.12);
-      --max:1100px;
 
-      --sideW: 210px;
-      --topH: 64px;
-    }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
+<style>
+:root{
+  --brand:#0b3a53;
+  --brand2:#1f7a8c;
+  --accent:#f2c14e;
+  --bg:#f4efe7;
+  --text:#13212f;
+  --muted:rgba(19,33,47,.70);
+  --shadow:0 16px 40px rgba(0,0,0,.12);
+  --max:1100px;
+
+  --sideW: 210px;
+  --topH: 64px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:
     radial-gradient(900px 500px at 15% 10%, rgba(31,122,140,.10), transparent 60%),
     radial-gradient(900px 500px at 85% 15%, rgba(242,193,78,.12), transparent 60%),
-    #eef4f7; /* azzurro mare chiarissimo */
+    #eef4f7;
   color:var(--text);
 }
 
@@ -71,72 +74,78 @@ a{
   padding:0 20px;
 }
 
-    /* ====== TOPBAR ====== */
-    .topbar{
-      position:sticky; top:0; z-index:60;
-      background:rgba(244,239,231,.90);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-    .topbar-inner{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      padding:12px 0;
-      min-height: var(--topH);
-    }
-
-   .brand-mark{
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  flex: 0 0 auto;
+/* ====== TOPBAR ====== */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:60;
+  background:rgba(244,239,231,.90);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,0,0,.08);
 }
 
-.brand-mark img{
-  width: 100px;
-  height: auto;
-  display: block;
+.topbar-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:12px 0;
+  min-height:var(--topH);
 }
 
-/* Testo brand (se presente altrove) */
+/* ====== BRAND ====== */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex:0 0 auto;
+}
+
+.logo-isola{
+  width:56px;
+  height:auto;
+  display:block;
+  flex-shrink:0;
+}
+
 .brand span{
-  font-weight: 800;
-  font-size: 14px;
-  display: block;
-  line-height: 1.1;
+  font-weight:800;
+  font-size:14px;
+  display:block;
+  line-height:1.1;
 }
 
 .brand small{
-  display: block;
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 2px;
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:2px;
 }
 
-/* Language switch */
+/* ====== LANGUAGE SWITCH ====== */
 .lang-switch{
-  display: flex;
-  gap: 6px;
-  align-items: center;
+  display:flex;
+  gap:6px;
+  align-items:center;
 }
 
 .lang-switch button{
-  font-weight: 800;
-  background: rgba(255,255,255,.85);
-  border: 1px solid rgba(0,0,0,.12);
-  cursor: pointer;
-  padding: 6px 10px;
-  border-radius: 12px;
+  font-weight:800;
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.12);
+  cursor:pointer;
+  padding:6px 10px;
+  border-radius:12px;
 }
 
-/* Mobile */
-@media (max-width: 768px){
-  .brand-mark img{
-    width: 70px;
+/* ====== MOBILE ====== */
+@media (max-width:768px){
+  .logo-isola{
+    width:44px;
   }
 }
+</style>
+
 
 
     .btns{
