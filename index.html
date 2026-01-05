@@ -539,62 +539,71 @@ section{
     /* =====================
        MOBILE OPTIMIZATION
        ===================== */
-    @media (max-width: 768px){
-      body{ padding-left: 0 !important; }
+  /* =====================
+   MOBILE OPTIMIZATION
+   ===================== */
+@media (max-width: 768px){
+  body{ padding-left: 0 !important; }
 
-      .side-nav{ display: none !important; }
+  .side-nav{ display: none !important; }
 
-      .hero-frame{
-        min-height: 420px;
-        background-position: center;
-      }
+  .hero-frame{
+    min-height: 420px;
+    background-position: center;
+  }
 
-      .hero-card{
-        position: relative;
-        left: auto;
-        top: auto;
-        margin: 14px;
-        width: auto;
-        padding: 16px;
-      }
+  .hero-card{
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 14px;
+    width: auto;
+    padding: 16px;
+  }
 
-      .hero-card h1{
-        font-size: 24px;
-        line-height: 1.15;
-      }
-      .hero-card p{ font-size: 14px; }
+  .hero-card h1{
+    font-size: 24px;
+    line-height: 1.15;
+  }
 
-      .hero-cta{
-        display:flex;
-        flex-direction:column;
-        gap:10px;
-      }
+  .hero-card p{ font-size: 14px; }
 
-      .btn, .btn-sm{
-        width: 100%;
-      }
+  .hero-cta{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
 
-      .gallery img{
-        width: 85vw;
-        height: auto;
-      }
+  .btn, .btn-sm{
+    width: 100%;
+  }
 
-      .topbar-inner{
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .brand{ min-width:auto; }
+  .gallery img{
+    width: 85vw;
+    height: auto;
+  }
 
-      .btns{
-        width:100%;
-        display:flex;
-        gap:10px;
-      }
-      .btns .btn, .btns a.btn{
-        flex:1 1 0;
-        width:auto;
-      }
-    }
+  .topbar-inner{
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .brand{ min-width:auto; }
+
+  .btns{
+    width:100%;
+    display:flex;
+    gap:10px;
+  }
+
+  .btns .btn,
+  .btns a.btn{
+    flex:1 1 0;
+    width:auto;
+  }
+}
+
+    
 /* PASSO 2 – trust strip azzurro casa */
 .trust-strip{
   background:#f6f3ee;
