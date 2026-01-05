@@ -20,11 +20,8 @@
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-</head>
 
-
-
-  <!-- Google Analytics GA4 -->
+  <!-- Google Analytics GA4 (DEVE stare nel HEAD) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0G3W4DNGS"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -33,9 +30,7 @@
     gtag('config', 'G-K0G3W4DNGS');
   </script>
 
-
-
-<style>
+  <style>
 :root{
   --brand:#0b3a53;
   --brand2:#1f7a8c;
@@ -138,108 +133,97 @@ a{
   border-radius:12px;
 }
 
-/* ====== MOBILE ====== */
-@media (max-width:768px){
-  .logo-isola{
-    width:44px;
-  }
+/* ====== BUTTONS ====== */
+.btns{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex:0 0 auto;
 }
-</style>
 
+.btn{
+  padding:10px 14px;
+  border-radius:14px;
+  font-weight:800;
+  cursor:pointer;
+  border:1px solid rgba(0,0,0,.15);
+  background:#fff;
+  transition:transform .05s ease, filter .12s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.btn:active{transform:translateY(1px)}
+.btn:hover{filter:brightness(.98)}
 
+.btn-whatsapp{
+  border:none;
+  color:#fff;
+  background:linear-gradient(135deg,#1fa855,#128c7e);
+}
+.btn-email{
+  background:#fff;
+  color:var(--brand);
+  border:1px solid rgba(11,58,83,.25);
+}
+.btn-call{
+  background:rgba(242,193,78,.35);
+  border-color:#f2c14e;
+  color:rgba(19,33,47,.92);
+  font-weight:900;
+}
 
-    .btns{
-      margin-left:auto;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex:0 0 auto;
-    }
+/* ====== SIDENAV ====== */
+.side-nav{
+  position:fixed;
+  top: var(--topH);
+  left:0;
+  width: var(--sideW);
+  height: calc(100vh - var(--topH));
+  padding:14px 12px;
+  z-index:55;
+  background:rgba(255,255,255,.70);
+  backdrop-filter: blur(10px);
+  border-right:1px solid rgba(0,0,0,.08);
+}
+.side-nav-inner{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.side-nav-inner a{
+  display:block;
+  padding:10px 12px;
+  border-radius:14px;
+  font-weight:900;
+  color:rgba(19,33,47,.78);
+  border:1px solid rgba(0,0,0,.08);
+  background:rgba(255,255,255,.75);
+  box-shadow:0 10px 22px rgba(0,0,0,.05);
+}
+.side-nav-inner a:hover{
+  color:var(--text);
+  background:rgba(242,193,78,.22);
+  border-color:rgba(242,193,78,.40);
+}
 
-    .btn{
-      padding:10px 14px;
-      border-radius:14px;
-      font-weight:800;
-      cursor:pointer;
-      border:1px solid rgba(0,0,0,.15);
-      background:#fff;
-      transition:transform .05s ease, filter .12s ease;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btn:hover{filter:brightness(.98)}
+/* spazio a sinistra per non finire sotto la sidebar */
+@media (min-width: 980px){
+  body{ padding-left: var(--sideW); }
+}
+@media (max-width: 979px){
+  body{ padding-left: 0; }
+  .side-nav{ display:none; }
+}
 
-    .btn-whatsapp{
-      border:none;
-      color:#fff;
-      background:linear-gradient(135deg,#1fa855,#128c7e);
-    }
-    .btn-email{
-      background:#fff;
-      color:var(--brand);
-      border:1px solid rgba(11,58,83,.25);
-    }
-    .btn-call{
-      background:rgba(242,193,78,.35);
-      border-color:#f2c14e;
-      color:rgba(19,33,47,.92);
-      font-weight:900;
-    }
+/* comodo con header sticky */
+#chi-siamo, #appartamenti, #tipologie, #perche, #regole, #contatti{
+  scroll-margin-top: calc(var(--topH) + 12px);
+}
 
-    /* ====== SIDENAV ====== */
-    .side-nav{
-      position:fixed;
-      top: var(--topH);
-      left:0;
-      width: var(--sideW);
-      height: calc(100vh - var(--topH));
-      padding:14px 12px;
-      z-index:55;
-      background:rgba(255,255,255,.70);
-      backdrop-filter: blur(10px);
-      border-right:1px solid rgba(0,0,0,.08);
-    }
-    .side-nav-inner{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    .side-nav-inner a{
-      display:block;
-      padding:10px 12px;
-      border-radius:14px;
-      font-weight:900;
-      color:rgba(19,33,47,.78);
-      border:1px solid rgba(0,0,0,.08);
-      background:rgba(255,255,255,.75);
-      box-shadow:0 10px 22px rgba(0,0,0,.05);
-    }
-    .side-nav-inner a:hover{
-      color:var(--text);
-      background:rgba(242,193,78,.22);
-      border-color:rgba(242,193,78,.40);
-    }
-
-    /* spazio a sinistra per non finire sotto la sidebar */
-    @media (min-width: 980px){
-      body{ padding-left: var(--sideW); }
-    }
-    @media (max-width: 979px){
-      body{ padding-left: 0; }
-      .side-nav{ display:none; }
-    }
-
-    /* comodo con header sticky */
-    #chi-siamo, #appartamenti, #tipologie, #perche, #regole, #contatti{
-      scroll-margin-top: calc(var(--topH) + 12px);
-    }
-
-  
- /* ================= HERO ================= */
-
+/* ================= HERO ================= */
 .hero{
   padding:26px 0 10px;
 }
@@ -261,7 +245,6 @@ a{
 }
 
 /* ---------- Card testo ---------- */
-
 .hero-card{
   position:absolute;
   top:26px;
@@ -289,7 +272,6 @@ a{
 }
 
 /* ---------- CTA ---------- */
-
 .hero-cta{
   display:flex;
   gap:10px;
@@ -299,7 +281,6 @@ a{
 }
 
 /* ---------- Badge ---------- */
-
 .hero-badges{
   display:flex;
   gap:10px;
@@ -321,7 +302,6 @@ a{
 }
 
 /* ================= SECTIONS ================= */
-
 section{
   padding:18px 0;
 }
@@ -364,184 +344,183 @@ section{
   color:var(--muted);
 }
 
-    /* ====== TYPES (FIX MONOLOCALE) ====== */
-    .types{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .type-card{
-      background:rgba(255,255,255,.85);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:0 14px 35px rgba(0,0,0,.08);
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-    .type-media{height:170px;overflow:hidden;background:#d9e6ea}
-    .type-media img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03)}
-    .type-body{
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      flex:1;
-      min-width:0; /* IMPORTANT: evita lo “shift” del testo */
-    }
-    .type-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .type-title{margin:0;font-size:18px;font-weight:900}
-    .cap{
-      font-size:12px;
-      font-weight:900;
-      color:rgba(19,33,47,.75);
-      background:rgba(242,193,78,.25);
-      border:1px solid rgba(242,193,78,.45);
-      padding:6px 10px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-    .type-desc{margin:0;color:var(--muted);font-weight:600;line-height:1.45;word-break:break-word}
-    .list{margin:0;padding-left:18px;color:rgba(19,33,47,.78);font-weight:700;line-height:1.55}
+/* ====== TYPES ====== */
+.types{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.type-card{
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 14px 35px rgba(0,0,0,.08);
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.type-media{height:170px;overflow:hidden;background:#d9e6ea}
+.type-media img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.03)}
+.type-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex:1;
+  min-width:0;
+}
+.type-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.type-title{margin:0;font-size:18px;font-weight:900}
+.cap{
+  font-size:12px;
+  font-weight:900;
+  color:rgba(19,33,47,.75);
+  background:rgba(242,193,78,.25);
+  border:1px solid rgba(242,193,78,.45);
+  padding:6px 10px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+.type-desc{margin:0;color:var(--muted);font-weight:600;line-height:1.45;word-break:break-word}
+.list{margin:0;padding-left:18px;color:rgba(19,33,47,.78);font-weight:700;line-height:1.55}
 
-    .type-actions{
-      margin-top:auto;
-      display:flex;
-    }
-    .btn-sm{
-      width:100%;
-      justify-content:center;
-      padding:10px 12px;
-      border-radius:14px;
-      font-weight:900;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-    }
-    .btn-sm.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:none}
+.type-actions{
+  margin-top:auto;
+  display:flex;
+}
+.btn-sm{
+  width:100%;
+  justify-content:center;
+  padding:10px 12px;
+  border-radius:14px;
+  font-weight:900;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+}
+.btn-sm.primary{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border:none}
 
-    .gallery{
-      display:flex;gap:10px;overflow:auto;
-      padding:0 16px 14px;
-      scroll-snap-type:x mandatory;
-    }
-    .gallery img{
-      width:220px;height:140px;
-      object-fit:cover;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.10);
-      box-shadow:0 10px 20px rgba(0,0,0,.08);
-      scroll-snap-align:start;
-      flex:0 0 auto;
-    }
+.gallery{
+  display:flex;gap:10px;overflow:auto;
+  padding:0 16px 14px;
+  scroll-snap-type:x mandatory;
+}
+.gallery img{
+  width:220px;height:140px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.10);
+  box-shadow:0 10px 20px rgba(0,0,0,.08);
+  scroll-snap-align:start;
+  flex:0 0 auto;
+}
 
-    .why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .why .mini{
-      padding:16px;border-radius:20px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 12px 30px rgba(0,0,0,.06);
-    }
-    .mini h3{margin:0 0 8px;font-size:16px}
-    .mini p{margin:0;color:var(--muted);font-weight:600;line-height:1.5}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.why .mini{
+  padding:16px;border-radius:20px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 12px 30px rgba(0,0,0,.06);
+}
+.mini h3{margin:0 0 8px;font-size:16px}
+.mini p{margin:0;color:var(--muted);font-weight:600;line-height:1.5}
 
-    .rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px}
-    .rule{
-      background:rgba(255,255,255,.84);
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:18px;
-      padding:14px;
-      font-weight:800;
-      color:rgba(19,33,47,.86);
-      box-shadow:0 10px 25px rgba(0,0,0,.06);
-    }
-    .rule small{display:block;margin-top:6px;color:var(--muted);font-weight:700}
+.rules{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px}
+.rule{
+  background:rgba(255,255,255,.84);
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:18px;
+  padding:14px;
+  font-weight:800;
+  color:rgba(19,33,47,.86);
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+.rule small{display:block;margin-top:6px;color:var(--muted);font-weight:700}
 
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
-    .contact-lines{margin-top:10px;display:flex;flex-direction:column;gap:10px;color:rgba(19,33,47,.85);font-weight:800}
-    .pill{
-      display:inline-flex;gap:10px;align-items:center;
-      padding:10px 12px;border-radius:16px;
-      background:rgba(255,255,255,.82);
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 10px 22px rgba(0,0,0,.06);
-    }
-    iframe.map{width:100%;height:320px;border:0;border-radius:22px;box-shadow:0 14px 35px rgba(0,0,0,.10)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.contact-lines{margin-top:10px;display:flex;flex-direction:column;gap:10px;color:rgba(19,33,47,.85);font-weight:800}
+.pill{
+  display:inline-flex;gap:10px;align-items:center;
+  padding:10px 12px;border-radius:16px;
+  background:rgba(255,255,255,.82);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 10px 22px rgba(0,0,0,.06);
+}
+iframe.map{width:100%;height:320px;border:0;border-radius:22px;box-shadow:0 14px 35px rgba(0,0,0,.10)}
 
-    /* MODAL */
-    .modal-backdrop{
-      position:fixed; inset:0;
-      background:rgba(0,0,0,.45);
-      display:none;
-      align-items:center; justify-content:center;
-      z-index:200;
-      padding:18px;
-    }
-    .modal{
-      width:min(720px, 100%);
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(255,255,255,.55);
-      border-radius:26px;
-      box-shadow:0 24px 70px rgba(0,0,0,.28);
-      overflow:hidden;
-    }
-    .modal-head{
-      padding:16px 18px;
-      display:flex; align-items:center; justify-content:space-between;
-      background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.10));
-      border-bottom:1px solid rgba(0,0,0,.06);
-    }
-    .modal-head strong{font-size:16px}
-    .x{
-      border:0; background:transparent;
-      font-size:22px; cursor:pointer;
-      color:rgba(19,33,47,.75);
-      padding:4px 10px; border-radius:12px
-    }
-    .x:hover{background:rgba(0,0,0,.06)}
-    .modal-body{padding:16px 18px 18px}
-    .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    label{font-weight:900; font-size:13px; color:rgba(19,33,47,.78)}
-    input, textarea, select{
-      width:100%;
-      margin-top:6px;
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      font-weight:700;
-      color:rgba(19,33,47,.90);
-      outline:none;
-    }
-    textarea{min-height:110px; resize:vertical}
-    .modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .hint{margin-top:10px; color:var(--muted); font-weight:700; font-size:13px}
+/* MODAL */
+.modal-backdrop{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.45);
+  display:none;
+  align-items:center; justify-content:center;
+  z-index:200;
+  padding:18px;
+}
+.modal{
+  width:min(720px, 100%);
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:26px;
+  box-shadow:0 24px 70px rgba(0,0,0,.28);
+  overflow:hidden;
+}
+.modal-head{
+  padding:16px 18px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:linear-gradient(135deg, rgba(11,58,83,.10), rgba(31,122,140,.10));
+  border-bottom:1px solid rgba(0,0,0,.06);
+}
+.modal-head strong{font-size:16px}
+.x{
+  border:0; background:transparent;
+  font-size:22px; cursor:pointer;
+  color:rgba(19,33,47,.75);
+  padding:4px 10px; border-radius:12px
+}
+.x:hover{background:rgba(0,0,0,.06)}
+.modal-body{padding:16px 18px 18px}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+label{font-weight:900; font-size:13px; color:rgba(19,33,47,.78)}
+input, textarea, select{
+  width:100%;
+  margin-top:6px;
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-weight:700;
+  color:rgba(19,33,47,.90);
+  outline:none;
+}
+textarea{min-height:110px; resize:vertical}
+.modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+.hint{margin-top:10px; color:var(--muted); font-weight:700; font-size:13px}
 
-    /* Responsive base (tablet) */
-    @media (max-width: 960px){
-      .grid2{grid-template-columns:1fr}
-      .types{grid-template-columns:1fr}
-      .why{grid-template-columns:1fr}
-      .rules{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .hero-card h1{font-size:30px}
-    }
+/* Responsive base (tablet) */
+@media (max-width: 960px){
+  .grid2{grid-template-columns:1fr}
+  .types{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .rules{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .hero-card h1{font-size:30px}
+}
 
-  /* =====================
+/* =====================
    MOBILE OPTIMIZATION
    ===================== */
 @media (max-width: 768px){
   body{ padding-left: 0 !important; }
-
   .side-nav{ display: none !important; }
 
   .hero-frame{
@@ -571,11 +550,11 @@ section{
     gap:10px;
   }
 
- .hero-cta .btn,
-.hero-cta .btn-sm,
-.type-actions .btn-sm{
-  width:100%;
-}
+  .hero-cta .btn,
+  .hero-cta .btn-sm,
+  .type-actions .btn-sm{
+    width:100%;
+  }
 
   .gallery img{
     width: 85vw;
@@ -600,9 +579,10 @@ section{
     flex:1 1 0;
     width:auto;
   }
+
+  .logo-isola{ width:44px; }
 }
 
-    
 /* PASSO 2 – trust strip azzurro casa */
 .trust-strip{
   background:#f6f3ee;
@@ -617,7 +597,7 @@ section{
 }
 
 .trust-item{
-  background:#2f6f86; /* azzurro ispirato alla facciata */
+  background:#2f6f86;
   color:#ffffff;
   padding:12px 22px;
   border-radius:18px;
@@ -625,9 +605,6 @@ section{
   font-size:0.95rem;
   letter-spacing:0.2px;
 }
-
-
-
   </style>
 </head>
 
@@ -635,21 +612,17 @@ section{
   <!-- TOPBAR -->
   <header class="topbar">
     <div class="wrap topbar-inner">
-     
-  
-        <div class="brand">
-  <img 
-    src="logo-isola-di-pasqua.png"
-    alt="Isola di Pasqua Apartments"
-    class="logo-isola"
-  >
 
-  <div class="brand-text">
-    <span>Isola di Pasqua</span>
-    <small>Appartamenti fronte mare</small>
-  </div>
-</div>
-
+      <a href="#top" class="brand" aria-label="Vai all'inizio pagina">
+        <img
+          src="logo-isola-di-pasqua.png"
+          alt="Isola di Pasqua Apartments"
+          class="logo-isola"
+        >
+        <div class="brand-text">
+          <span>Isola di Pasqua</span>
+          <small>Appartamenti fronte mare</small>
+        </div>
       </a>
 
       <div class="lang-switch">
@@ -662,14 +635,13 @@ section{
         <button type="button" class="btn btn-whatsapp" data-open-form="Generale" data-action="whatsapp">WhatsApp</button>
         <button type="button" class="btn btn-email" data-open-form="Generale" data-action="email">Email</button>
         <a class="btn btn-call"
-   href="tel:+393358408583"
-   onclick="gtag('event','contact_call',{method:'phone'})"
-   data-it="Chiama"
-   data-en="Call"
-   data-de="Anrufen">
-  Chiama
-</a>
-
+           href="tel:+393358408583"
+           onclick="gtag('event','contact_call',{method:'phone'})"
+           data-it="Chiama"
+           data-en="Call"
+           data-de="Anrufen">
+          Chiama
+        </a>
       </div>
     </div>
   </header>
@@ -687,89 +659,88 @@ section{
   </aside>
 
   <main id="top">
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-frame" role="img" aria-label="Facciata edificio Isola di Pasqua">
-      <div class="hero-card">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-frame" role="img" aria-label="Facciata edificio Isola di Pasqua">
+          <div class="hero-card">
 
-        <h1
-          data-it="Il mare davanti casa"
-          data-en="The sea right outside your door"
-          data-de="Das Meer direkt vor der Haustür">
-          Il mare davanti casa
-        </h1>
+            <h1
+              data-it="Il mare davanti casa"
+              data-en="The sea right outside your door"
+              data-de="Das Meer direkt vor der Haustür">
+              Il mare davanti casa
+            </h1>
 
-        <p
-          data-it="Casa vacanze a gestione familiare a Caorle, con accesso diretto al lungomare e il centro storico a pochi minuti a piedi."
-          data-en="Family-run holiday apartments in Caorle, with direct access to the seafront and the historic centre just a few minutes’ walk away."
-          data-de="Familiengeführte Ferienwohnungen in Caorle, mit direktem Zugang zur Strandpromenade und nur wenige Gehminuten vom historischen Zentrum entfernt.">
-          Casa vacanze a gestione familiare a Caorle, con accesso diretto al lungomare e il centro storico a pochi minuti a piedi.
-        </p>
+            <p
+              data-it="Casa vacanze a gestione familiare a Caorle, con accesso diretto al lungomare e il centro storico a pochi minuti a piedi."
+              data-en="Family-run holiday apartments in Caorle, with direct access to the seafront and the historic centre just a few minutes’ walk away."
+              data-de="Familiengeführte Ferienwohnungen in Caorle, mit direktem Zugang zur Strandpromenade und nur wenige Gehminuten vom historischen Zentrum entfernt.">
+              Casa vacanze a gestione familiare a Caorle, con accesso diretto al lungomare e il centro storico a pochi minuti a piedi.
+            </p>
 
-        <div class="hero-cta">
-          <a class="btn btn-call" href="#tipologie"
-             data-it="Vedi le tipologie →"
-             data-en="See the types →"
-             data-de="Wohnungstypen ansehen →">
-            Vedi le tipologie →
-          </a>
+            <div class="hero-cta">
+              <a class="btn btn-call" href="#tipologie"
+                 data-it="Vedi le tipologie →"
+                 data-en="See the types →"
+                 data-de="Wohnungstypen ansehen →">
+                Vedi le tipologie →
+              </a>
 
-          <button type="button" class="btn btn-whatsapp"
-                  data-open-form="Generale" data-action="whatsapp"
-                  data-it="Richiedi disponibilità"
-                  data-en="Request availability"
-                  data-de="Verfügbarkeit anfragen">
-            Richiedi disponibilità
-          </button>
+              <button type="button" class="btn btn-whatsapp"
+                      data-open-form="Generale" data-action="whatsapp"
+                      data-it="Richiedi disponibilità"
+                      data-en="Request availability"
+                      data-de="Verfügbarkeit anfragen">
+                Richiedi disponibilità
+              </button>
+            </div>
+
+            <div class="hero-badges">
+              <span class="badge" data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
+              <span class="badge" data-it="🅿️ Parcheggio privato" data-en="🅿️ Private parking" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
+              <span class="badge" data-it="❄️ Aria condizionata" data-en="❄️ Air conditioning" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
+              <span class="badge" data-it="📺 TV" data-en="📺 TV" data-de="📺 TV">📺 TV</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PASSO 2 – BLOCCO DI RASSICURAZIONE -->
+    <section class="trust-strip">
+      <div class="wrap trust-items">
+
+        <div class="trust-item">
+          <span
+            data-it="Accesso diretto al mare"
+            data-en="Direct access to the seafront"
+            data-de="Direkter Zugang zum Meer">
+            Accesso diretto al mare
+          </span>
         </div>
 
-      <div class="hero-badges">
-  <span class="badge" data-it="🐾 Animali ammessi" data-en="🐾 Pets allowed" data-de="🐾 Haustiere erlaubt">🐾 Animali ammessi</span>
-  <span class="badge" data-it="🅿️ Parcheggio privato" data-en="🅿️ Private parking" data-de="🅿️ Privatparkplatz">🅿️ Parcheggio privato</span>
-  <span class="badge" data-it="❄️ Aria condizionata" data-en="❄️ Air conditioning" data-de="❄️ Klimaanlage">❄️ Aria condizionata</span>
-  <span class="badge" data-it="📺 TV" data-en="📺 TV" data-de="📺 TV">📺 TV</span>
-</div>
+        <div class="trust-item">
+          <span
+            data-it="Gestione familiare"
+            data-en="Family-run accommodation"
+            data-de="Familiengeführte Unterkunft">
+            Gestione familiare
+          </span>
+        </div>
+
+        <div class="trust-item">
+          <span
+            data-it="Animali ammessi"
+            data-en="Pets welcome"
+            data-de="Haustiere erlaubt">
+            Animali ammessi
+          </span>
+        </div>
 
       </div>
-    </div>
-  </div>
-
-
-<!-- PASSO 2 – BLOCCO DI RASSICURAZIONE -->
-<section class="trust-strip">
-  <div class="wrap trust-items">
-
-    <div class="trust-item">
-      <span
-        data-it="Accesso diretto al mare"
-        data-en="Direct access to the seafront"
-        data-de="Direkter Zugang zum Meer">
-        Accesso diretto al mare
-      </span>
-    </div>
-
-    <div class="trust-item">
-      <span
-        data-it="Gestione familiare"
-        data-en="Family-run accommodation"
-        data-de="Familiengeführte Unterkunft">
-        Gestione familiare
-      </span>
-    </div>
-
-    <div class="trust-item">
-      <span
-        data-it="Animali ammessi"
-        data-en="Pets welcome"
-        data-de="Haustiere erlaubt">
-        Animali ammessi
-      </span>
-    </div>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- CHI SIAMO / APPARTAMENTI -->
     <section>
@@ -778,73 +749,71 @@ section{
           <h2 data-it="Chi siamo" data-en="About us" data-de="Über uns">Chi siamo</h2>
 
           <p
-  data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per chi desidera vivere il mare in modo semplice, comodo e senza stress."
-  data-en="Isola di Pasqua is a family-run holiday home, designed for guests who want to enjoy the sea in a simple, comfortable and relaxed way."
-  data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und entspannte Weise genießen möchten.">
-  Isola di Pasqua è una casa vacanze a gestione familiare, pensata per chi desidera vivere il mare in modo semplice, comodo e senza stress.
-</p>
+            data-it="Isola di Pasqua è una casa vacanze a gestione familiare, pensata per chi desidera vivere il mare in modo semplice, comodo e senza stress."
+            data-en="Isola di Pasqua is a family-run holiday home, designed for guests who want to enjoy the sea in a simple, comfortable and relaxed way."
+            data-de="Isola di Pasqua ist eine familiengeführte Ferienunterkunft, ideal für alle, die das Meer auf eine einfache, komfortable und entspannte Weise genießen möchten.">
+            Isola di Pasqua è una casa vacanze a gestione familiare, pensata per chi desidera vivere il mare in modo semplice, comodo e senza stress.
+          </p>
 
-<p
-  data-it="Qui l’idea di vacanza è quella di sentirsi subito a proprio agio: attraversi il giardino, sali pochi gradini e ti ritrovi direttamente sul lungomare di Caorle, con il centro storico a pochi minuti a piedi."
-  data-en="Here, the idea of a holiday is feeling at ease from the very first moment: cross the garden, go up a few steps and you are directly on Caorle’s seafront, with the historic centre just a few minutes’ walk away."
-  data-de="Hier steht das Wohlfühlen im Mittelpunkt: Man überquert den Garten, geht ein paar Stufen hinauf und befindet sich direkt an der Strandpromenade von Caorle, während das historische Zentrum nur wenige Gehminuten entfernt ist.">
-  Qui l’idea di vacanza è quella di sentirsi subito a proprio agio: attraversi il giardino, sali pochi gradini e ti ritrovi direttamente sul lungomare di Caorle, con il centro storico a pochi minuti a piedi.
-</p>
+          <p
+            data-it="Qui l’idea di vacanza è quella di sentirsi subito a proprio agio: attraversi il giardino, sali pochi gradini e ti ritrovi direttamente sul lungomare di Caorle, con il centro storico a pochi minuti a piedi."
+            data-en="Here, the idea of a holiday is feeling at ease from the very first moment: cross the garden, go up a few steps and you are directly on Caorle’s seafront, with the historic centre just a few minutes’ walk away."
+            data-de="Hier steht das Wohlfühlen im Mittelpunkt: Man überquert den Garten, geht ein paar Stufen hinauf und befindet sich direkt an der Strandpromenade von Caorle, während das historische Zentrum nur wenige Gehminuten entfernt ist.">
+            Qui l’idea di vacanza è quella di sentirsi subito a proprio agio: attraversi il giardino, sali pochi gradini e ti ritrovi direttamente sul lungomare di Caorle, con il centro storico a pochi minuti a piedi.
+          </p>
 
-<p
-  data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
-  data-en="We welcome our guests with care and availability, offering functional and well-organised apartments, ideal for couples, families and guests travelling with their pets."
-  data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit und bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und Gäste, die mit ihrem Haustier reisen.">
-  Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
-</p>
+          <p
+            data-it="Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico."
+            data-en="We welcome our guests with care and availability, offering functional and well-organised apartments, ideal for couples, families and guests travelling with their pets."
+            data-de="Wir empfangen unsere Gäste mit Sorgfalt und Herzlichkeit e bieten funktionale, gut organisierte Apartments – ideal für Paare, Familien und Gäste, die mit ihrem Haustier reisen.">
+            Accogliamo i nostri ospiti con attenzione e disponibilità, offrendo appartamenti funzionali e ben organizzati, ideali per coppie, famiglie e per chi viaggia con il proprio animale domestico.
+          </p>
 
-<p
-  data-it="È il posto giusto per chi cerca autonomia, tranquillità e la comodità di avere il mare sempre vicino, in un ambiente curato e familiare."
-  data-en="It is the right place for those looking for independence, tranquillity and the comfort of having the sea always close by, in a well-kept and welcoming setting."
-  data-de="Der ideale Ort für alle, die Unabhängigkeit, Ruhe und den Komfort schätzen, das Meer immer in unmittelbarer Nähe zu haben – in einer gepflegten und familiären Atmosphäre.">
-  È il posto giusto per chi cerca autonomia, tranquillità e la comodità di avere il mare sempre vicino, in un ambiente curato e familiare.
-</p>
-
+          <p
+            data-it="È il posto giusto per chi cerca autonomia, tranquillità e la comodità di avere il mare sempre vicino, in un ambiente curato e familiare."
+            data-en="It is the right place for those looking for independence, tranquillity and the comfort of having the sea always close by, in a well-kept and welcoming setting."
+            data-de="Der ideale Ort für alle, die Unabhängigkeit, Ruhe und den Komfort schätzen, das Meer immer in unmittelbarer Nähe zu haben – in einer gepflegten und familiären Atmosphäre.">
+            È il posto giusto per chi cerca autonomia, tranquillità e la comodità di avere il mare sempre vicino, in un ambiente curato e familiare.
+          </p>
         </div>
 
         <div class="card" id="appartamenti">
           <h2 data-it="Gli appartamenti" data-en="The apartments" data-de="Die Apartments">Gli appartamenti</h2>
 
-  <p
-  data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali, pensati per rispondere a diverse esigenze di soggiorno."
-  data-en="The Isola di Pasqua building consists of 7 apartments: 2 two-bedroom apartments, 3 one-bedroom apartments and 2 studio apartments, designed to suit different holiday needs."
-  data-de="Das Gebäude Isola di Pasqua besteht aus 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios, die auf unterschiedliche Urlaubsbedürfnisse abgestimmt sind.">
-  La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali, pensati per rispondere a diverse esigenze di soggiorno.
-</p>
+          <p
+            data-it="La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali, pensati per rispondere a diverse esigenze di soggiorno."
+            data-en="The Isola di Pasqua building consists of 7 apartments: 2 two-bedroom apartments, 3 one-bedroom apartments and 2 studio apartments, designed to suit different holiday needs."
+            data-de="Das Gebäude Isola di Pasqua besteht aus 7 Apartments: 2 Dreizimmerwohnungen, 3 Zweizimmerwohnungen und 2 Studios, die auf unterschiedliche Urlaubsbedürfnisse abgestimmt sind.">
+            La palazzina Isola di Pasqua è composta da 7 appartamenti: 2 trilocali, 3 bilocali e 2 monolocali, pensati per rispondere a diverse esigenze di soggiorno.
+          </p>
 
-<p
-  data-it="Ogni appartamento è arredato in modo funzionale e progettato per offrire una vacanza comoda e indipendente."
-  data-en="Each apartment is furnished in a functional way and designed to offer a comfortable and independent holiday."
-  data-de="Jedes Apartment ist funktional eingerichtet und darauf ausgelegt, einen komfortablen und unabhängigen Urlaub zu ermöglichen.">
-  Ogni appartamento è arredato in modo funzionale e progettato per offrire una vacanza comoda e indipendente.
-</p>
+          <p
+            data-it="Ogni appartamento è arredato in modo funzionale e progettato per offrire una vacanza comoda e indipendente."
+            data-en="Each apartment is furnished in a functional way and designed to offer a comfortable and independent holiday."
+            data-de="Jedes Apartment ist funktional eingerichtet und darauf ausgelegt, einen komfortablen und unabhängigen Urlaub zu ermöglichen.">
+            Ogni appartamento è arredato in modo funzionale e progettato per offrire una vacanza comoda e indipendente.
+          </p>
 
-<p
-  data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
-  data-en="The property enjoys a truly privileged seafront location: by crossing the garden and going up a few steps, guests have direct access to Caorle’s seafront promenade."
-  data-de="Die Unterkunft verfügt über eine besonders privilegierte Lage direkt am Meer: Nach dem Überqueren des Gartens und wenigen Stufen gelangt man direkt zur Strandpromenade von Caorle.">
-  La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
-</p>
+          <p
+            data-it="La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle."
+            data-en="The property enjoys a truly privileged seafront location: by crossing the garden and going up a few steps, guests have direct access to Caorle’s seafront promenade."
+            data-de="Die Unterkunft verfügt über eine besonders privilegierte Lage direkt am Meer: Nach dem Überqueren des Gartens und wenigen Stufen gelangt man direkt zur Strandpromenade von Caorle.">
+            La struttura gode di una posizione fronte mare davvero privilegiata: attraversando il giardino della casa e salendo pochi gradini, si accede direttamente al lungomare di Caorle.
+          </p>
 
-<p
-  data-it="Grazie a questa posizione, il centro storico di Caorle è raggiungibile in pochi minuti a piedi, permettendo di vivere il mare e la città in totale comodità, senza la necessità di utilizzare l’auto."
-  data-en="Thanks to this location, Caorle’s historic centre can be reached in just a few minutes on foot, allowing guests to enjoy both the sea and the town in complete comfort, without the need for a car."
-  data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar, sodass man Meer und Stadt bequem genießen kann – ganz ohne Auto.">
-  Grazie a questa posizione, il centro storico di Caorle è raggiungibile in pochi minuti a piedi, permettendo di vivere il mare e la città in totale comodità, senza la necessità di utilizzare l’auto.
-</p>
+          <p
+            data-it="Grazie a questa posizione, il centro storico di Caorle è raggiungibile in pochi minuti a piedi, permettendo di vivere il mare e la città in totale comodità, senza la necessità di utilizzare l’auto."
+            data-en="Thanks to this location, Caorle’s historic centre can be reached in just a few minutes on foot, allowing guests to enjoy both the sea and the town in complete comfort, without the need for a car."
+            data-de="Dank dieser Lage ist das historische Zentrum von Caorle in wenigen Minuten zu Fuß erreichbar, sodass man Meer und Stadt bequem genießen kann – ganz ohne Auto.">
+            Grazie a questa posizione, il centro storico di Caorle è raggiungibile in pochi minuti a piedi, permettendo di vivere il mare e la città in totale comodità, senza la necessità di utilizzare l’auto.
+          </p>
 
-<p
-  data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
-  data-en="The different accommodation options are ideal for couples, families and small groups, including guests travelling with their pets."
-  data-de="Die verschiedenen Unterkunftslösungen eignen sich ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
-  Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
-</p>
-
+          <p
+            data-it="Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico."
+            data-en="The different accommodation options are ideal for couples, families and small groups, including guests travelling with their pets."
+            data-de="Die verschiedenen Unterkunftslösungen eignen sich ideal für Paare, Familien und kleine Gruppen, auch für Gäste, die mit ihrem Haustier reisen.">
+            Le diverse soluzioni abitative sono ideali per coppie, famiglie e piccoli gruppi, anche per chi viaggia con il proprio animale domestico.
+          </p>
         </div>
       </div>
     </section>
@@ -868,7 +837,6 @@ section{
             </div>
 
             <div class="type-body">
-              <!-- ✅ FIX: type-top SOLO titolo + cap -->
               <div class="type-top">
                 <h3 class="type-title" data-it="Monolocale" data-en="Studio apartment" data-de="Studio-Apartment">Monolocale</h3>
                 <span class="cap" data-it="Max 3 persone" data-en="Max 3 guests" data-de="Max. 3 Personen">Max 3 persone</span>
@@ -1082,14 +1050,13 @@ section{
 
         <div>
           <iframe
-  src="https://www.google.com/maps?q=Isola+di+Pasqua+Caorle&z=16&output=embed"
-  width="100%"
-  height="300"
-  style="border:0;border-radius:14px;"
-  allowfullscreen=""
-  loading="lazy">
-</iframe>
-
+            src="https://www.google.com/maps?q=Isola+di+Pasqua+Caorle&z=16&output=embed"
+            width="100%"
+            height="300"
+            style="border:0;border-radius:14px;"
+            allowfullscreen=""
+            loading="lazy">
+          </iframe>
         </div>
       </div>
     </section>
@@ -1135,8 +1102,6 @@ section{
 
           <div style="grid-column:1/-1">
             <label data-it="Messaggio (opzionale)" data-en="Message (optional)" data-de="Nachricht (optional)">Messaggio (opzionale)</label>
-
-            <!-- ✅ textarea corretto -->
             <textarea id="fMsg"
               placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
               data-it-placeholder="Es. Vorrei informazioni su disponibilità e prezzi, grazie."
@@ -1180,13 +1145,11 @@ section{
     }
 
     function setLang(lang) {
-      // testi
       document.querySelectorAll('[data-it], [data-en], [data-de]').forEach(el => {
         const v = el.getAttribute('data-' + lang);
         if (v !== null) el.innerHTML = v;
       });
 
-      // placeholder
       document.querySelectorAll('[data-it-placeholder], [data-en-placeholder], [data-de-placeholder]').forEach(el => {
         const ph = el.getAttribute('data-' + lang + '-placeholder');
         if (ph !== null) el.setAttribute('placeholder', ph);
