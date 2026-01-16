@@ -1367,5 +1367,18 @@ textarea{min-height:110px; resize:vertical}
     sendWA.addEventListener("click", (e)=>{ e.preventDefault(); sendWhatsApp(); });
     sendMail.addEventListener("click", (e)=>{ e.preventDefault(); sendEmail(); });
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".cin-toggle");
+    const list = document.querySelector(".cin-list");
+
+    if (btn && list) {
+      btn.addEventListener("click", () => {
+        list.classList.toggle("open");
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
